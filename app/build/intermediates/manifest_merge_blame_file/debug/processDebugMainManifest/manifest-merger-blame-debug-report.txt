@@ -1,0 +1,297 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="za.co.hbtechinc.isibalo"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+7-->INJECTED
+8        android:minSdkVersion="25"
+8-->INJECTED
+9        android:targetSdkVersion="37" />
+9-->INJECTED
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:4:5-67
+11-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:5:5-79
+12-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:5:22-76
+13    <uses-permission android:name="android.permission.WAKE_LOCK" />
+13-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:23:5-68
+13-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:23:22-65
+14    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+14-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:25:5-81
+14-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:25:22-78
+15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+15-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:26:5-77
+15-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:26:22-74
+16
+17    <permission
+17-->[androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:22:5-24:47
+18        android:name="za.co.hbtechinc.isibalo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+18-->[androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:23:9-81
+19        android:protectionLevel="signature" />
+19-->[androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:24:9-44
+20
+21    <uses-permission android:name="za.co.hbtechinc.isibalo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+21-->[androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:26:5-97
+21-->[androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:26:22-94
+22
+23    <application
+23-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:7:5-30:19
+24        android:name="za.co.hbtechinc.isibalo.IsibaloApp"
+24-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:8:9-35
+25        android:allowBackup="true"
+25-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:9:9-35
+26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+26-->[androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:28:18-86
+27        android:debuggable="true"
+28        android:extractNativeLibs="true"
+28-->INJECTED
+29        android:icon="@mipmap/ic_launcher"
+29-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:10:9-43
+30        android:label="@string/app_name"
+30-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:12:9-41
+31        android:largeHeap="true"
+31-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:13:9-33
+32        android:roundIcon="@mipmap/ic_launcher_round"
+32-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:11:9-54
+33        android:testOnly="true"
+34        android:theme="@style/Theme.Isibalo" >
+34-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:14:9-45
+35
+36        <!-- Optional GPU acceleration for MediaPipe LLM -->
+37        <uses-native-library
+37-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:9-85
+38            android:name="libOpenCL.so"
+38-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:30-57
+39            android:required="false" />
+39-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:58-82
+40        <uses-native-library
+40-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:9-85
+41            android:name="libOpenCL-car.so"
+41-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:30-57
+42            android:required="false" />
+42-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:58-82
+43        <uses-native-library
+43-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:9-85
+44            android:name="libOpenCL-pixel.so"
+44-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:30-57
+45            android:required="false" />
+45-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:58-82
+46
+47        <activity
+47-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:21:9-29:20
+48            android:name="za.co.hbtechinc.isibalo.MainActivity"
+48-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:22:13-41
+49            android:exported="true"
+49-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:23:13-36
+50            android:windowSoftInputMode="adjustResize" >
+50-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:24:13-55
+51            <intent-filter>
+51-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:25:13-28:29
+52                <action android:name="android.intent.action.MAIN" />
+52-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:26:17-69
+52-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:26:25-66
+53
+54                <category android:name="android.intent.category.LAUNCHER" />
+54-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:27:17-77
+54-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:27:27-74
+55            </intent-filter>
+56        </activity>
+57        <activity
+57-->[androidx.compose.ui:ui-tooling-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c3799ff41c026d98b074d981e9c8c9c5\transformed\ui-tooling\AndroidManifest.xml:23:9-25:39
+58            android:name="androidx.compose.ui.tooling.PreviewActivity"
+58-->[androidx.compose.ui:ui-tooling-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c3799ff41c026d98b074d981e9c8c9c5\transformed\ui-tooling\AndroidManifest.xml:24:13-71
+59            android:exported="true" />
+59-->[androidx.compose.ui:ui-tooling-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c3799ff41c026d98b074d981e9c8c9c5\transformed\ui-tooling\AndroidManifest.xml:25:13-36
+60
+61        <provider
+61-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:29:9-37:20
+62            android:name="androidx.startup.InitializationProvider"
+62-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:30:13-67
+63            android:authorities="za.co.hbtechinc.isibalo.androidx-startup"
+63-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:31:13-68
+64            android:exported="false" >
+64-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:32:13-37
+65            <meta-data
+65-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:34:13-36:52
+66                android:name="androidx.work.WorkManagerInitializer"
+66-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:35:17-68
+67                android:value="androidx.startup" />
+67-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:36:17-49
+68            <meta-data
+68-->[androidx.emoji2:emoji2:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea76b1d9eb4849165b155bf41a257ba4\transformed\emoji2-1.4.0\AndroidManifest.xml:29:13-31:52
+69                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+69-->[androidx.emoji2:emoji2:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea76b1d9eb4849165b155bf41a257ba4\transformed\emoji2-1.4.0\AndroidManifest.xml:30:17-75
+70                android:value="androidx.startup" />
+70-->[androidx.emoji2:emoji2:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea76b1d9eb4849165b155bf41a257ba4\transformed\emoji2-1.4.0\AndroidManifest.xml:31:17-49
+71            <meta-data
+71-->[androidx.lifecycle:lifecycle-process:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3af85be974345a4e12939d462140a8f1\transformed\lifecycle-process-2.11.0\AndroidManifest.xml:29:13-31:52
+72                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+72-->[androidx.lifecycle:lifecycle-process:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3af85be974345a4e12939d462140a8f1\transformed\lifecycle-process-2.11.0\AndroidManifest.xml:30:17-78
+73                android:value="androidx.startup" />
+73-->[androidx.lifecycle:lifecycle-process:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3af85be974345a4e12939d462140a8f1\transformed\lifecycle-process-2.11.0\AndroidManifest.xml:31:17-49
+74            <meta-data
+74-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+75                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+75-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+76                android:value="androidx.startup" />
+76-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+77        </provider>
+78
+79        <service
+79-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:39:9-45:35
+80            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+80-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:40:13-84
+81            android:directBootAware="false"
+81-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:41:13-44
+82            android:enabled="@bool/enable_system_job_service_default"
+82-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:42:13-70
+83            android:exported="true"
+83-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:43:13-36
+84            android:permission="android.permission.BIND_JOB_SERVICE" />
+84-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:44:13-69
+85        <service
+85-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:46:9-52:35
+86            android:name="androidx.work.impl.foreground.SystemForegroundService"
+86-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:47:13-81
+87            android:directBootAware="false"
+87-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:48:13-44
+88            android:enabled="@bool/enable_system_foreground_service_default"
+88-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:49:13-77
+89            android:exported="false" />
+89-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:50:13-37
+90
+91        <receiver
+91-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:54:9-59:35
+92            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+92-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:55:13-88
+93            android:directBootAware="false"
+93-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:56:13-44
+94            android:enabled="true"
+94-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:57:13-35
+95            android:exported="false" />
+95-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:58:13-37
+96        <receiver
+96-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:60:9-69:20
+97            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+97-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:61:13-88
+98            android:directBootAware="false"
+98-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:62:13-44
+99            android:enabled="false"
+99-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:63:13-36
+100            android:exported="false" >
+100-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:64:13-37
+101            <intent-filter>
+101-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:66:13-68:29
+102                <action android:name="android.intent.action.BOOT_COMPLETED" />
+102-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:67:17-79
+102-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:67:25-76
+103            </intent-filter>
+104        </receiver>
+105        <receiver
+105-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:70:9-80:20
+106            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+106-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:71:13-78
+107            android:directBootAware="false"
+107-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:72:13-44
+108            android:enabled="true"
+108-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:73:13-35
+109            android:exported="true"
+109-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:74:13-36
+110            android:permission="android.permission.DUMP" >
+110-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:75:13-57
+111            <intent-filter>
+111-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:77:13-79:29
+112                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+112-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:78:17-88
+112-->[androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:78:25-85
+113            </intent-filter>
+114        </receiver>
+115
+116        <uses-library
+116-->[androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:23:9-25:40
+117            android:name="androidx.window.extensions"
+117-->[androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:24:13-54
+118            android:required="false" />
+118-->[androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:25:13-37
+119        <uses-library
+119-->[androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:26:9-28:40
+120            android:name="androidx.window.sidecar"
+120-->[androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:27:13-51
+121            android:required="false" />
+121-->[androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:28:13-37
+122
+123        <service
+123-->[androidx.room:room-runtime-android:2.8.5] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\8b28f51e659656a8b14eaac6b6aef752\transformed\room-runtime\AndroidManifest.xml:24:9-28:63
+124            android:name="androidx.room.MultiInstanceInvalidationService"
+124-->[androidx.room:room-runtime-android:2.8.5] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\8b28f51e659656a8b14eaac6b6aef752\transformed\room-runtime\AndroidManifest.xml:25:13-74
+125            android:directBootAware="true"
+125-->[androidx.room:room-runtime-android:2.8.5] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\8b28f51e659656a8b14eaac6b6aef752\transformed\room-runtime\AndroidManifest.xml:26:13-43
+126            android:exported="false" />
+126-->[androidx.room:room-runtime-android:2.8.5] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\8b28f51e659656a8b14eaac6b6aef752\transformed\room-runtime\AndroidManifest.xml:27:13-37
+127
+128        <receiver
+128-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+129            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+129-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+130            android:directBootAware="false"
+130-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+131            android:enabled="true"
+131-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+132            android:exported="true"
+132-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+133            android:permission="android.permission.DUMP" >
+133-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+134            <intent-filter>
+134-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+135                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+135-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+135-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+136            </intent-filter>
+137            <intent-filter>
+137-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+138                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+138-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+138-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+139            </intent-filter>
+140            <intent-filter>
+140-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+141                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+141-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+141-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+142            </intent-filter>
+143            <intent-filter>
+143-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+144                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+144-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+144-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+145            </intent-filter>
+146        </receiver>
+147        <!--
+148             Applications that target Android S+ require explicit declaration of
+149             any referenced vendor-provided libraries.
+150        -->
+151        <uses-native-library
+151-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:9-85
+152            android:name="libOpenCL.so"
+152-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:30-57
+153            android:required="false" />
+153-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:58-82
+154        <uses-native-library
+154-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:9-85
+155            android:name="libOpenCL-car.so"
+155-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:30-57
+156            android:required="false" />
+156-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:58-82
+157        <uses-native-library
+157-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:9-85
+158            android:name="libOpenCL-pixel.so"
+158-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:30-57
+159            android:required="false" />
+159-->C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:17:58-82
+160    </application>
+161
+162</manifest>

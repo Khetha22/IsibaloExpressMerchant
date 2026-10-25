@@ -1,0 +1,70 @@
+[
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/font_bebas_neue.ttf.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/font/bebas_neue.ttf"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/drawable-nodpi_logo_wordmark.png.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/drawable-nodpi/logo_wordmark.png"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/drawable_ic_launcher_monochrome.xml.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/drawable/ic_launcher_monochrome.xml"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "za.co.hbtechinc.isibalo.app-debug-45:/drawable_ic_tally.xml.flat",
+        "source": "za.co.hbtechinc.isibalo.app-main-47:/drawable/ic_tally.xml"
+    }
+]

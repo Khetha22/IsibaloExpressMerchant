@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "za.co.hbtechinc.isibalo.app-mergeDebugResources-43:/values-v30/values-v30.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Honeyboy Ncube\\.gradle\\caches\\9.4.1\\transforms\\ab4cd94ea5526dc8f645e2416e859cc4\\transformed\\material3\\res\\values-v30\\values-v30.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "72",
+                        "endOffsets": "123"
+                    }
+                }
+            ]
+        }
+    ]
+}
