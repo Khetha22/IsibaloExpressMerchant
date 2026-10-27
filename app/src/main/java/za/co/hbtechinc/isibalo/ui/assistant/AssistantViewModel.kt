@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import za.co.hbtechinc.isibalo.ai.LocalAi
+import za.co.hbtechinc.isibalo.ai.OnDeviceRagEngine
 import za.co.hbtechinc.isibalo.data.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,6 +30,10 @@ class AssistantViewModel(
     val importing = MutableStateFlow(false)
     val modelReady = MutableStateFlow(ai.isModelPresent())
 
+    fun clearChat() {
+        _msgs.value = listOf(ChatMsg(false, "Chat cleared. Ask me anything about your shop!"))
+    }
+
     fun ask(q: String) {
         if (q.isBlank() || busy.value) return
         _msgs.update { it + ChatMsg(true, q.trim()) }
@@ -38,8 +43,12 @@ class AssistantViewModel(
         }
         busy.value = true
         viewModelScope.launch {
+            val docs = repo.allKnowledgeDocs()
+            val ragResults = OnDeviceRagEngine.search(q.trim(), docs, topK = 2)
+            val ragContext = ragResults.joinToString("\n") { "- ${it.doc.title}: ${it.doc.content}" }
+
             val reply = try {
-                ai.generate(buildPrompt(repo.businessSnapshot(), q.trim()))
+                ai.generate(buildPrompt(repo.businessSnapshot(), ragContext, q.trim()))
             } catch (e: Exception) {
                 "AI error: ${e.message ?: "unknown"}"
             }
@@ -70,12 +79,16 @@ class AssistantViewModel(
         }
     }
 
-    /** Gemma chat template. */
-    private fun buildPrompt(snapshot: String, q: String) = buildString {
+    /** Gemma / Phi chat template with On-Device RAG context. */
+    private fun buildPrompt(snapshot: String, ragContext: String, q: String) = buildString {
         append("<start_of_turn>user\n")
-        append("You are Isibalo, a practical assistant for a small shop owner in South Africa. ")
-        append("Use rands (R). Reply in simple English, under 120 words. Use only this shop data:\n")
-        append(snapshot).append("\nQuestion: ").append(q)
+        append("You are Isibalo, a practical AI assistant for a small shop owner in South Africa. ")
+        append("Use rands (R). Reply in simple English, under 120 words.\n")
+        append("SHOP DATA:\n").append(snapshot).append("\n")
+        if (ragContext.isNotBlank()) {
+            append("KNOWLEDGE BASE CONTEXT:\n").append(ragContext).append("\n")
+        }
+        append("Question: ").append(q)
         append("<end_of_turn>\n<start_of_turn>model\n")
     }
 }

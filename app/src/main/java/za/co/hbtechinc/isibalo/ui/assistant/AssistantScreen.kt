@@ -1,5 +1,7 @@
 package za.co.hbtechinc.isibalo.ui.assistant
 
+import android.content.Intent
+import android.speech.RecognizerIntent
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
@@ -10,10 +12,17 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Mic
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -34,6 +43,7 @@ import za.co.hbtechinc.isibalo.AppViewModelProvider
 import za.co.hbtechinc.isibalo.ui.components.SquareButton
 import za.co.hbtechinc.isibalo.ui.components.SquareCard
 import za.co.hbtechinc.isibalo.ui.components.SquareChoice
+import java.util.Locale
 
 private val prompts = listOf("Summarise today", "What should I restock?", "How can I sell more?")
 
@@ -50,53 +60,104 @@ fun AssistantScreen(vm: AssistantViewModel = viewModel(factory = AppViewModelPro
     val picker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         uri?.let(vm::importModel)
     }
+
+    val speechRecognizerLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        val spokenText = result.data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)?.firstOrNull()
+        if (!spokenText.isNullOrBlank()) {
+            input = spokenText
+            vm.ask(spokenText)
+        }
+    }
+
     LaunchedEffect(msgs.size, busy) { listState.animateScrollToItem(msgs.size) }
 
-    Column(Modifier.fillMaxSize()) {
-        if (!ready) {
-            SquareCard(Modifier.fillMaxWidth().padding(12.dp), color = cs.primaryContainer) {
-                Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text("Install the offline AI model", fontWeight = FontWeight.Bold, color = cs.onPrimaryContainer)
-                    Text(
-                        "Download Gemma 3 1B (int4, .task) once, then import it. After that the assistant works with no data or Wi-Fi.",
-                        color = cs.onPrimaryContainer, style = MaterialTheme.typography.bodyMedium
-                    )
-                    SquareButton(
-                        if (importing) "IMPORTING..." else "IMPORT MODEL",
-                        { picker.launch(arrayOf("*/*")) }, Modifier.fillMaxWidth(), enabled = !importing
-                    )
+    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .widthIn(max = 900.dp)
+        ) {
+            Row(
+                Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 6.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text("AI Assistant & Voice Prompt", fontWeight = FontWeight.Bold, color = cs.onBackground)
+                IconButton(onClick = vm::clearChat) {
+                    Icon(Icons.Filled.Delete, contentDescription = "Clear Chat History", tint = cs.error)
                 }
             }
-        }
 
-        LazyColumn(
-            Modifier.weight(1f), state = listState,
-            contentPadding = PaddingValues(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            items(msgs) { m ->
-                Box(Modifier.fillMaxWidth(), contentAlignment = if (m.fromUser) Alignment.CenterEnd else Alignment.CenterStart) {
-                    SquareCard(
-                        Modifier.fillMaxWidth(0.85f),
-                        color = if (m.fromUser) cs.primary else cs.surfaceVariant
-                    ) {
-                        Text(m.text, Modifier.padding(12.dp),
-                            color = if (m.fromUser) cs.onPrimary else cs.onSurface)
+            if (!ready) {
+                SquareCard(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 4.dp), color = cs.primaryContainer) {
+                    Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Text("Install the offline AI model", fontWeight = FontWeight.Bold, color = cs.onPrimaryContainer)
+                        Text(
+                            "Download Gemma 3 1B (int4, .task) once, then import it. After that the assistant works with no data or Wi-Fi.",
+                            color = cs.onPrimaryContainer, style = MaterialTheme.typography.bodyMedium
+                        )
+                        Text(
+                            "💡 To download: Search 'litert-community/Gemma3-1B-IT' on Hugging Face for gemma3-1b-it-int4.task.",
+                            color = cs.onPrimaryContainer.copy(alpha = 0.8f), style = MaterialTheme.typography.labelSmall
+                        )
+                        SquareButton(
+                            if (importing) "IMPORTING..." else "IMPORT MODEL .TASK",
+                            { picker.launch(arrayOf("*/*")) }, Modifier.fillMaxWidth(), enabled = !importing
+                        )
                     }
                 }
             }
-            if (busy) item { Text("Thinking...", color = cs.onSurfaceVariant) }
-        }
 
-        LazyRow(contentPadding = PaddingValues(horizontal = 12.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            items(prompts) { p -> SquareChoice(p, false, { vm.ask(p) }, Modifier.padding(vertical = 4.dp).padding(horizontal = 0.dp)) }
-        }
+            LazyColumn(
+                Modifier.weight(1f).fillMaxWidth(), state = listState,
+                contentPadding = PaddingValues(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                items(msgs) { m ->
+                    Box(Modifier.fillMaxWidth(), contentAlignment = if (m.fromUser) Alignment.CenterEnd else Alignment.CenterStart) {
+                        SquareCard(
+                            Modifier.fillMaxWidth(0.85f),
+                            color = if (m.fromUser) cs.primary else cs.surfaceVariant
+                        ) {
+                            Text(m.text, Modifier.padding(12.dp),
+                                color = if (m.fromUser) cs.onPrimary else cs.onSurface)
+                        }
+                    }
+                }
+                if (busy) item { Text("Thinking...", color = cs.onSurfaceVariant) }
+            }
 
-        Row(Modifier.padding(12.dp), horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
-            OutlinedTextField(
-                value = input, onValueChange = { input = it }, modifier = Modifier.weight(1f),
-                placeholder = { Text("Ask about your shop") }, singleLine = true, shape = RectangleShape
-            )
-            SquareButton("ASK", { vm.ask(input); input = "" }, enabled = !busy && input.isNotBlank())
+            LazyRow(
+                modifier = Modifier.fillMaxWidth(),
+                contentPadding = PaddingValues(horizontal = 12.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                items(prompts) { p -> SquareChoice(p, false, { vm.ask(p) }, Modifier.padding(vertical = 4.dp)) }
+            }
+
+            Row(Modifier.padding(12.dp).fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                OutlinedTextField(
+                    value = input, onValueChange = { input = it }, modifier = Modifier.weight(1f),
+                    placeholder = { Text("Ask or tap microphone...") }, singleLine = true, shape = RectangleShape
+                )
+                IconButton(
+                    onClick = {
+                        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
+                            putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+                            putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
+                            putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak your question to Isibalo...")
+                        }
+                        try {
+                            speechRecognizerLauncher.launch(intent)
+                        } catch (_: Exception) { }
+                    },
+                    modifier = Modifier.size(48.dp)
+                ) {
+                    Icon(Icons.Filled.Mic, contentDescription = "Voice Input", tint = cs.primary)
+                }
+                SquareButton("ASK", { vm.ask(input); input = "" }, enabled = !busy && input.isNotBlank())
+            }
         }
     }
 }

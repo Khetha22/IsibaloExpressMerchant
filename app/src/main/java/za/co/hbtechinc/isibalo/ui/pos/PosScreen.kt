@@ -50,6 +50,7 @@ import za.co.hbtechinc.isibalo.util.rands
 @Composable
 fun PosScreen(vm: PosViewModel = viewModel(factory = AppViewModelProvider.Factory)) {
     val items by vm.items.collectAsStateWithLifecycle()
+    val query by vm.searchQuery.collectAsStateWithLifecycle()
     val cart by vm.cart.collectAsStateWithLifecycle()
     val quick by vm.quickAmount.collectAsStateWithLifecycle()
     val method by vm.method.collectAsStateWithLifecycle()
@@ -59,6 +60,14 @@ fun PosScreen(vm: PosViewModel = viewModel(factory = AppViewModelProvider.Factor
 
     Box(Modifier.fillMaxSize()) {
         Column(Modifier.fillMaxSize()) {
+            OutlinedTextField(
+                value = query,
+                onValueChange = { vm.searchQuery.value = it },
+                modifier = Modifier.fillMaxWidth().padding(12.dp).padding(bottom = 0.dp),
+                placeholder = { Text("Search products to sell...") },
+                singleLine = true,
+                shape = RectangleShape
+            )
             LazyVerticalGrid(
                 columns = GridCells.Fixed(2),
                 modifier = Modifier.weight(1f),

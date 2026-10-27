@@ -9,11 +9,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -32,13 +34,24 @@ fun SalesScreen(vm: SalesViewModel = viewModel(factory = AppViewModelProvider.Fa
     val sales by vm.sales.collectAsStateWithLifecycle()
     val totals by vm.totals.collectAsStateWithLifecycle()
     val pending by vm.pending.collectAsStateWithLifecycle()
-    val fmt = SimpleDateFormat("HH:mm", Locale.getDefault())
+    val query by vm.searchQuery.collectAsStateWithLifecycle()
+    val fmt = SimpleDateFormat("HH:mm", Locale.ROOT)
     val cs = MaterialTheme.colorScheme
 
     LazyColumn(
         contentPadding = PaddingValues(12.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+        item {
+            OutlinedTextField(
+                value = query,
+                onValueChange = { vm.searchQuery.value = it },
+                modifier = Modifier.fillMaxWidth(),
+                placeholder = { Text("Search sales (method, amount)...") },
+                singleLine = true,
+                shape = RectangleShape
+            )
+        }
         item {
             SquareCard(Modifier.fillMaxWidth(), color = cs.primary) {
                 Column(Modifier.padding(16.dp)) {
@@ -74,8 +87,7 @@ fun SalesScreen(vm: SalesViewModel = viewModel(factory = AppViewModelProvider.Fa
             }
         }
         if (sales.isEmpty()) {
-            item { Text("No sales yet today. Open the Sell tab to make the first one.",
-                color = cs.onSurfaceVariant) }
+            item { Text("No sales matching your search.", color = cs.onSurfaceVariant) }
         }
         items(sales, key = { it.id }) { s ->
             SquareCard(Modifier.fillMaxWidth()) {

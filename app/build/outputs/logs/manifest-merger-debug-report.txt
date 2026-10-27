@@ -4,63 +4,58 @@ ADDED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main
 INJECTED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:2:1-31:12
 INJECTED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:2:1-31:12
 INJECTED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:2:1-31:12
-MERGED from [androidx.navigation:navigation-runtime-android:2.10.2] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\6f76a2653f4120177580e3fb3d6391dc\transformed\navigation-runtime\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.navigation:navigation-common-android:2.10.2] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\623a0caa49438095e54c21aa10ccbe71\transformed\navigation-common\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.navigation:navigation-compose-android:2.10.2] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ec9494d2dbc8e7f2421ccc57acf1de68\transformed\navigation-compose\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.animation:animation-core-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\507b0b60a70c7bc40e395398d33e76f5\transformed\animation-core\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.material:material-ripple-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\59c98d57201dc47edc3fa9d207295a66\transformed\material-ripple\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.animation:animation-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\4476b5c47b475bdba27d870cae75bc0c\transformed\animation\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.foundation:foundation-layout-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\5a27e5384f698917a66ad8aa89848427\transformed\foundation-layout\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.foundation:foundation-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\35f1ca174abbdd953b419637db266cd2\transformed\foundation\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-unit-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\1780315222890498a98063d9b7bc35f8\transformed\ui-unit\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-graphics-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\12e0ae767f0bb6a136f5ce6fb13bcd49\transformed\ui-graphics\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-geometry-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\124fd88d694a5f5657645ce0176b5271\transformed\ui-geometry\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-tooling-data-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\378511602938ffe2e4149e8bc40033da\transformed\ui-tooling-data\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-util-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\7fd417f9b54899aa8ff689b5be998353\transformed\ui-util\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-text-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fdf27197ee29078a13026b59eb80a5d4\transformed\ui-text\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\75da47a10f4afca6732e272004df86c6\transformed\ui-tooling-preview\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.compose.ui:ui-tooling-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c3799ff41c026d98b074d981e9c8c9c5\transformed\ui-tooling\AndroidManifest.xml:17:1-28:12
-MERGED from [androidx.compose.material3:material3-android:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ab4cd94ea5526dc8f645e2416e859cc4\transformed\material3\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.navigationevent:navigationevent-android:1.1.2] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2f61277b84980b5002aed80fb203a2bd\transformed\navigationevent\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.navigationevent:navigationevent-compose-android:1.1.2] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\5491d1e51a4da06eb864b59de61ace8b\transformed\navigationevent-compose\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.runtime:runtime-retain-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\09531e7db13773a6bb79ceabb22af225\transformed\runtime-retain\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.runtime:runtime-annotation-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\1656e78d9699fe712b43e4cde9d1772c\transformed\runtime-annotation\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.work:work-runtime-ktx:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\d378ffd05daaf88e188ec4e09cf8e8e3\transformed\work-runtime-ktx-2.12.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:17:1-83:12
+MERGED from [androidx.navigation:navigation-common:2.8.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\776a9d12c17a3222243b49add07a9b81\transformed\navigation-common-2.8.8\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.8.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\86c22c5072e7a2e580219f010cfb3bad\transformed\navigation-runtime-2.8.8\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2e493fe654dbf1d48dd48e505ac14156\transformed\navigation-common-ktx-2.8.8\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\45bced6241eb34b05e0e80ac38843e65\transformed\navigation-runtime-ktx-2.8.8\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-compose:2.8.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b347fc5e7b8a75d0e286003ddfdbd299\transformed\navigation-compose-2.8.8\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3fe15d9a1f74eca54ac4d85d9addd54d\transformed\activity-1.10.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.work:work-runtime-ktx:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ec480ca35c3d06656ed12d79e6e97022\transformed\work-runtime-ktx-2.10.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:17:1-145:12
+MERGED from [androidx.compose.material3:material3-android:1.3.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\5cc1cb72d6f55233564ffe7709971eab\transformed\material3-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material:material-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\4e7211cf9839b9094cd114113a0110a6\transformed\material-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\460e8326091ad0c7c54d62e217b565cc\transformed\animation-core-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\4432758b1160c1a8e0d6398a10bea07c\transformed\material-ripple-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\10e4caf2c303f97dfc2d3ac063079f1e\transformed\animation-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\54aba7b2bd6e3479b0117a35c962461d\transformed\foundation-layout-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fa9eea5761eb61eb8f50b23923a2dd28\transformed\foundation-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\39c7063d7d9b560f87988c9d391cd9a5\transformed\ui-unit-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a02dfb19033c0d2d5bf25b140a0e6bb6\transformed\ui-graphics-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea0dc5b62590ed5cd9cd2ab48fa678f8\transformed\ui-geometry-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\75b5071bb6115d916013600860275623\transformed\ui-tooling-data-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\1fcec0df6a6459492cdae422cdff7365\transformed\ui-util-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a848ce289c8fe371bbc4fdb84e4c03e5\transformed\ui-text-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\620194066bb8075dd26141b7727f81b4\transformed\ui-tooling-preview-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c93e0bb8d25d025989280bc91ef6d631\transformed\ui-tooling-release\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3568b714da9bb795f5c4d7801af15858\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\61538547ee43aab31ccbe435361c05b0\transformed\savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\8ce176c3f65c326bc2f4c08ecb18f837\transformed\autofill-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.window:window-core-android:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\4310e03797c068f5b23e09a60241cb41\transformed\window-core\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:17:1-31:12
-MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea76b1d9eb4849165b155bf41a257ba4\transformed\emoji2-1.4.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fc4669ef80ebcffa56bab53078d1d7fd\transformed\emoji2-1.3.0\AndroidManifest.xml:17:1-35:12
 MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a47093a56a766ae763043c61e7cb67e4\transformed\graphics-path-1.0.1\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:17:1-30:12
-MERGED from [androidx.lifecycle:lifecycle-process:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3af85be974345a4e12939d462140a8f1\transformed\lifecycle-process-2.11.0\AndroidManifest.xml:17:1-35:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\99b3cd6d17752358f80242d67bee494c\transformed\lifecycle-livedata-core-ktx-2.11.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\e9e8ec5ba8f127469f1bdcbc6ab1fe08\transformed\lifecycle-livedata-core-2.11.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\e665ae17ec58cf715164708d17724bf8\transformed\lifecycle-runtime-ktx\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\017d8cc20dd6fee63708b8e978f1feb0\transformed\lifecycle-runtime\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\f4c1fbdaa4f00dd944ff9d9c5b1273a3\transformed\lifecycle-viewmodel\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\af9a8343728527f2da3283bca5b44f1e\transformed\lifecycle-viewmodel-ktx-2.11.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.lifecycle:lifecycle-service:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\35e4d39220db5cec966f211b9d69122c\transformed\lifecycle-service-2.11.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2f9892336c16f73c9115d1314ede7e47\transformed\lifecycle-livedata-2.11.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\48ce293e0d707ee2bb18c8301ad3e536\transformed\lifecycle-viewmodel-savedstate\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.savedstate:savedstate-android:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3a6bc977a363f8a03ab5fc3a89ada718\transformed\savedstate\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.savedstate:savedstate-ktx:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\7014df3232f3d59b12c0e69af482e725\transformed\savedstate-ktx-1.5.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.savedstate:savedstate-compose-android:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2ff918c26b8febd29e3f8a3e61334c78\transformed\savedstate-compose\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.runtime:runtime-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\4921dc1c8321cbadc76a26c093777c6e\transformed\runtime\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.runtime:runtime-saveable-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ddb6929e16b0c27eb11268c9279eec3b\transformed\runtime-saveable\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c72dc08b25a44b624744a22568adb8d6\transformed\lifecycle-runtime-compose\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\d5e49d5bd1cbd613fcafbbc82696ff67\transformed\lifecycle-viewmodel-compose\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ed33ed4df0e5e83ba4b5dc28688148a0\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\eb4fb7badf468f939a7752f8eca390c5\transformed\lifecycle-livedata-core-ktx-2.8.7\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a2fef47d0849014eba6bc52a3008a7b7\transformed\lifecycle-livedata-core-2.8.7\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\9480517737f231c1226bf67a4be354e4\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\707944b974ab4295ebeba06dbf824aa2\transformed\lifecycle-runtime-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c9249ab00ea4b82f54f9841a48eb36b4\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-service:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3c1eb68c752262c6bf0529aa239c4652\transformed\lifecycle-service-2.8.7\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ba9ce52f6845ae34ed68dea2ac20fe56\transformed\lifecycle-livedata-2.8.7\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\d53606fee2e6368fe3b5a95214510e01\transformed\lifecycle-viewmodel-savedstate-2.8.7\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ff80d2105af4a6520feb981c637da9dd\transformed\lifecycle-viewmodel-ktx-2.8.7\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a1bc1226f9198738c6e350d9d287d293\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\66888bdf5bc09613ae6c74dce777d217\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.material:material-icons-extended-android:1.7.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\7077ae6bf726a16c941e04f817b243b6\transformed\material-icons-extended-release\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\6f26ec3b085990cf6dc1f7b6275681c7\transformed\material-icons-core-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc8074c95697bac3723f705a411a538d\transformed\ui\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.activity:activity-ktx:1.13.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\9e30013b96b8e9381a34dbc0a2b0ed69\transformed\activity-ktx-1.13.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.activity:activity:1.13.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b9dea51e7a9978004c3d31b56847fa61\transformed\activity-1.13.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.activity:activity-compose:1.13.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fadaa7186be398ae6f0067f0e83f576c\transformed\activity-compose-1.13.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\337617ac8bb109bdebe8620a8f2e7253\transformed\ui-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-ktx:1.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\e486c1454440cbaa6748de4f86862826\transformed\activity-ktx-1.10.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-compose:1.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\f7d928262261f4bcab763d73e4948bc8\transformed\activity-compose-1.10.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a641e75699cbbe89d44aaa6e7c310ca7\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
-MERGED from [androidx.core:core-ktx:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\f6acf0bf7b93f250a82151e06daf89b7\transformed\core-ktx-1.19.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core-ktx:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\1b248d8de2d9a44c7aef6eb09d6821c9\transformed\core-ktx-1.15.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.room:room-runtime-android:2.8.5] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\8b28f51e659656a8b14eaac6b6aef752\transformed\room-runtime\AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.room:room-ktx:2.8.5] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\85bf9b65732518b597c035de1984106f\transformed\room-ktx-2.8.5\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core-viewtree:1.0.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\5f694dc14f697f508bb49e905f215c24\transformed\core-viewtree-1.0.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3b45a17064b31c309db1ee87444ff91a\transformed\runtime-saveable-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\1997a3c43e999e0294be2a8089f1bc62\transformed\runtime-release\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.annotation:annotation-experimental:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\06de2606f768cb88f3d9e4b43973132a\transformed\annotation-experimental-1.5.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:17:1-55:12
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\54230f5d9d60dacd6651e1059e33ce77\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
@@ -86,25 +81,23 @@ ADDED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main
 		ADDED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:4:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:5:5-79
-MERGED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:24:5-79
-MERGED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:24:5-79
+MERGED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:24:5-79
+MERGED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:24:5-79
 	android:name
 		ADDED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:5:22-76
 application
 ADDED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:7:5-30:19
 INJECTED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:7:5-30:19
-MERGED from [androidx.compose.ui:ui-tooling-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c3799ff41c026d98b074d981e9c8c9c5\transformed\ui-tooling\AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.compose.ui:ui-tooling-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c3799ff41c026d98b074d981e9c8c9c5\transformed\ui-tooling\AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:28:5-81:19
-MERGED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:28:5-81:19
-MERGED from [androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:22:5-29:19
-MERGED from [androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:22:5-29:19
-MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea76b1d9eb4849165b155bf41a257ba4\transformed\emoji2-1.4.0\AndroidManifest.xml:23:5-33:19
-MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea76b1d9eb4849165b155bf41a257ba4\transformed\emoji2-1.4.0\AndroidManifest.xml:23:5-33:19
-MERGED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:28:5-89
-MERGED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:28:5-89
-MERGED from [androidx.lifecycle:lifecycle-process:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3af85be974345a4e12939d462140a8f1\transformed\lifecycle-process-2.11.0\AndroidManifest.xml:23:5-33:19
-MERGED from [androidx.lifecycle:lifecycle-process:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3af85be974345a4e12939d462140a8f1\transformed\lifecycle-process-2.11.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:28:5-143:19
+MERGED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:28:5-143:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c93e0bb8d25d025989280bc91ef6d631\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c93e0bb8d25d025989280bc91ef6d631\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fc4669ef80ebcffa56bab53078d1d7fd\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fc4669ef80ebcffa56bab53078d1d7fd\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ed33ed4df0e5e83ba4b5dc28688148a0\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ed33ed4df0e5e83ba4b5dc28688148a0\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.room:room-runtime-android:2.8.5] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\8b28f51e659656a8b14eaac6b6aef752\transformed\room-runtime\AndroidManifest.xml:23:5-29:19
 MERGED from [androidx.room:room-runtime-android:2.8.5] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\8b28f51e659656a8b14eaac6b6aef752\transformed\room-runtime\AndroidManifest.xml:23:5-29:19
 MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:23:5-53:19
@@ -118,7 +111,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Ho
 	android:extractNativeLibs
 		INJECTED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:28:18-86
+		ADDED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:28:18-86
 	android:label
 		ADDED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml:12:9-41
 	android:roundIcon
@@ -161,120 +154,110 @@ uses-sdk
 INJECTED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml
-MERGED from [androidx.navigation:navigation-runtime-android:2.10.2] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\6f76a2653f4120177580e3fb3d6391dc\transformed\navigation-runtime\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-runtime-android:2.10.2] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\6f76a2653f4120177580e3fb3d6391dc\transformed\navigation-runtime\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-common-android:2.10.2] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\623a0caa49438095e54c21aa10ccbe71\transformed\navigation-common\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-common-android:2.10.2] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\623a0caa49438095e54c21aa10ccbe71\transformed\navigation-common\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-compose-android:2.10.2] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ec9494d2dbc8e7f2421ccc57acf1de68\transformed\navigation-compose\AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-compose-android:2.10.2] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ec9494d2dbc8e7f2421ccc57acf1de68\transformed\navigation-compose\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-core-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\507b0b60a70c7bc40e395398d33e76f5\transformed\animation-core\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-core-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\507b0b60a70c7bc40e395398d33e76f5\transformed\animation-core\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-ripple-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\59c98d57201dc47edc3fa9d207295a66\transformed\material-ripple\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-ripple-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\59c98d57201dc47edc3fa9d207295a66\transformed\material-ripple\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\4476b5c47b475bdba27d870cae75bc0c\transformed\animation\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\4476b5c47b475bdba27d870cae75bc0c\transformed\animation\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-layout-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\5a27e5384f698917a66ad8aa89848427\transformed\foundation-layout\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-layout-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\5a27e5384f698917a66ad8aa89848427\transformed\foundation-layout\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\35f1ca174abbdd953b419637db266cd2\transformed\foundation\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\35f1ca174abbdd953b419637db266cd2\transformed\foundation\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-unit-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\1780315222890498a98063d9b7bc35f8\transformed\ui-unit\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-unit-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\1780315222890498a98063d9b7bc35f8\transformed\ui-unit\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-graphics-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\12e0ae767f0bb6a136f5ce6fb13bcd49\transformed\ui-graphics\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-graphics-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\12e0ae767f0bb6a136f5ce6fb13bcd49\transformed\ui-graphics\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-geometry-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\124fd88d694a5f5657645ce0176b5271\transformed\ui-geometry\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-geometry-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\124fd88d694a5f5657645ce0176b5271\transformed\ui-geometry\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-tooling-data-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\378511602938ffe2e4149e8bc40033da\transformed\ui-tooling-data\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-tooling-data-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\378511602938ffe2e4149e8bc40033da\transformed\ui-tooling-data\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-util-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\7fd417f9b54899aa8ff689b5be998353\transformed\ui-util\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-util-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\7fd417f9b54899aa8ff689b5be998353\transformed\ui-util\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-text-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fdf27197ee29078a13026b59eb80a5d4\transformed\ui-text\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-text-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fdf27197ee29078a13026b59eb80a5d4\transformed\ui-text\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\75da47a10f4afca6732e272004df86c6\transformed\ui-tooling-preview\AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\75da47a10f4afca6732e272004df86c6\transformed\ui-tooling-preview\AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-tooling-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c3799ff41c026d98b074d981e9c8c9c5\transformed\ui-tooling\AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-tooling-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c3799ff41c026d98b074d981e9c8c9c5\transformed\ui-tooling\AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.material3:material3-android:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ab4cd94ea5526dc8f645e2416e859cc4\transformed\material3\AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.material3:material3-android:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ab4cd94ea5526dc8f645e2416e859cc4\transformed\material3\AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigationevent:navigationevent-android:1.1.2] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2f61277b84980b5002aed80fb203a2bd\transformed\navigationevent\AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigationevent:navigationevent-android:1.1.2] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2f61277b84980b5002aed80fb203a2bd\transformed\navigationevent\AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigationevent:navigationevent-compose-android:1.1.2] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\5491d1e51a4da06eb864b59de61ace8b\transformed\navigationevent-compose\AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigationevent:navigationevent-compose-android:1.1.2] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\5491d1e51a4da06eb864b59de61ace8b\transformed\navigationevent-compose\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-retain-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\09531e7db13773a6bb79ceabb22af225\transformed\runtime-retain\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-retain-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\09531e7db13773a6bb79ceabb22af225\transformed\runtime-retain\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-annotation-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\1656e78d9699fe712b43e4cde9d1772c\transformed\runtime-annotation\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-annotation-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\1656e78d9699fe712b43e4cde9d1772c\transformed\runtime-annotation\AndroidManifest.xml:5:5-44
-MERGED from [androidx.work:work-runtime-ktx:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\d378ffd05daaf88e188ec4e09cf8e8e3\transformed\work-runtime-ktx-2.12.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.work:work-runtime-ktx:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\d378ffd05daaf88e188ec4e09cf8e8e3\transformed\work-runtime-ktx-2.12.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:21:5-44
-MERGED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.navigation:navigation-common:2.8.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\776a9d12c17a3222243b49add07a9b81\transformed\navigation-common-2.8.8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.8.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\776a9d12c17a3222243b49add07a9b81\transformed\navigation-common-2.8.8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\86c22c5072e7a2e580219f010cfb3bad\transformed\navigation-runtime-2.8.8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\86c22c5072e7a2e580219f010cfb3bad\transformed\navigation-runtime-2.8.8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2e493fe654dbf1d48dd48e505ac14156\transformed\navigation-common-ktx-2.8.8\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2e493fe654dbf1d48dd48e505ac14156\transformed\navigation-common-ktx-2.8.8\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\45bced6241eb34b05e0e80ac38843e65\transformed\navigation-runtime-ktx-2.8.8\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\45bced6241eb34b05e0e80ac38843e65\transformed\navigation-runtime-ktx-2.8.8\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.8.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b347fc5e7b8a75d0e286003ddfdbd299\transformed\navigation-compose-2.8.8\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.8.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b347fc5e7b8a75d0e286003ddfdbd299\transformed\navigation-compose-2.8.8\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3fe15d9a1f74eca54ac4d85d9addd54d\transformed\activity-1.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3fe15d9a1f74eca54ac4d85d9addd54d\transformed\activity-1.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.work:work-runtime-ktx:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ec480ca35c3d06656ed12d79e6e97022\transformed\work-runtime-ktx-2.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.work:work-runtime-ktx:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ec480ca35c3d06656ed12d79e6e97022\transformed\work-runtime-ktx-2.10.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\5cc1cb72d6f55233564ffe7709971eab\transformed\material3-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\5cc1cb72d6f55233564ffe7709971eab\transformed\material3-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\4e7211cf9839b9094cd114113a0110a6\transformed\material-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\4e7211cf9839b9094cd114113a0110a6\transformed\material-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\460e8326091ad0c7c54d62e217b565cc\transformed\animation-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\460e8326091ad0c7c54d62e217b565cc\transformed\animation-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\4432758b1160c1a8e0d6398a10bea07c\transformed\material-ripple-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\4432758b1160c1a8e0d6398a10bea07c\transformed\material-ripple-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\10e4caf2c303f97dfc2d3ac063079f1e\transformed\animation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\10e4caf2c303f97dfc2d3ac063079f1e\transformed\animation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\54aba7b2bd6e3479b0117a35c962461d\transformed\foundation-layout-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\54aba7b2bd6e3479b0117a35c962461d\transformed\foundation-layout-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fa9eea5761eb61eb8f50b23923a2dd28\transformed\foundation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fa9eea5761eb61eb8f50b23923a2dd28\transformed\foundation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\39c7063d7d9b560f87988c9d391cd9a5\transformed\ui-unit-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\39c7063d7d9b560f87988c9d391cd9a5\transformed\ui-unit-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a02dfb19033c0d2d5bf25b140a0e6bb6\transformed\ui-graphics-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a02dfb19033c0d2d5bf25b140a0e6bb6\transformed\ui-graphics-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea0dc5b62590ed5cd9cd2ab48fa678f8\transformed\ui-geometry-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea0dc5b62590ed5cd9cd2ab48fa678f8\transformed\ui-geometry-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\75b5071bb6115d916013600860275623\transformed\ui-tooling-data-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\75b5071bb6115d916013600860275623\transformed\ui-tooling-data-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\1fcec0df6a6459492cdae422cdff7365\transformed\ui-util-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\1fcec0df6a6459492cdae422cdff7365\transformed\ui-util-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a848ce289c8fe371bbc4fdb84e4c03e5\transformed\ui-text-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a848ce289c8fe371bbc4fdb84e4c03e5\transformed\ui-text-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\620194066bb8075dd26141b7727f81b4\transformed\ui-tooling-preview-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\620194066bb8075dd26141b7727f81b4\transformed\ui-tooling-preview-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c93e0bb8d25d025989280bc91ef6d631\transformed\ui-tooling-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c93e0bb8d25d025989280bc91ef6d631\transformed\ui-tooling-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3568b714da9bb795f5c4d7801af15858\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3568b714da9bb795f5c4d7801af15858\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\61538547ee43aab31ccbe435361c05b0\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\61538547ee43aab31ccbe435361c05b0\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\8ce176c3f65c326bc2f4c08ecb18f837\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\8ce176c3f65c326bc2f4c08ecb18f837\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.window:window-core-android:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\4310e03797c068f5b23e09a60241cb41\transformed\window-core\AndroidManifest.xml:5:5-44
-MERGED from [androidx.window:window-core-android:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\4310e03797c068f5b23e09a60241cb41\transformed\window-core\AndroidManifest.xml:5:5-44
-MERGED from [androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea76b1d9eb4849165b155bf41a257ba4\transformed\emoji2-1.4.0\AndroidManifest.xml:21:5-44
-MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea76b1d9eb4849165b155bf41a257ba4\transformed\emoji2-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fc4669ef80ebcffa56bab53078d1d7fd\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fc4669ef80ebcffa56bab53078d1d7fd\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
 MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a47093a56a766ae763043c61e7cb67e4\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a47093a56a766ae763043c61e7cb67e4\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-process:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3af85be974345a4e12939d462140a8f1\transformed\lifecycle-process-2.11.0\AndroidManifest.xml:21:5-44
-MERGED from [androidx.lifecycle:lifecycle-process:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3af85be974345a4e12939d462140a8f1\transformed\lifecycle-process-2.11.0\AndroidManifest.xml:21:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\99b3cd6d17752358f80242d67bee494c\transformed\lifecycle-livedata-core-ktx-2.11.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\99b3cd6d17752358f80242d67bee494c\transformed\lifecycle-livedata-core-ktx-2.11.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\e9e8ec5ba8f127469f1bdcbc6ab1fe08\transformed\lifecycle-livedata-core-2.11.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\e9e8ec5ba8f127469f1bdcbc6ab1fe08\transformed\lifecycle-livedata-core-2.11.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\e665ae17ec58cf715164708d17724bf8\transformed\lifecycle-runtime-ktx\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\e665ae17ec58cf715164708d17724bf8\transformed\lifecycle-runtime-ktx\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\017d8cc20dd6fee63708b8e978f1feb0\transformed\lifecycle-runtime\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\017d8cc20dd6fee63708b8e978f1feb0\transformed\lifecycle-runtime\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\f4c1fbdaa4f00dd944ff9d9c5b1273a3\transformed\lifecycle-viewmodel\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\f4c1fbdaa4f00dd944ff9d9c5b1273a3\transformed\lifecycle-viewmodel\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\af9a8343728527f2da3283bca5b44f1e\transformed\lifecycle-viewmodel-ktx-2.11.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\af9a8343728527f2da3283bca5b44f1e\transformed\lifecycle-viewmodel-ktx-2.11.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-service:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\35e4d39220db5cec966f211b9d69122c\transformed\lifecycle-service-2.11.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-service:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\35e4d39220db5cec966f211b9d69122c\transformed\lifecycle-service-2.11.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2f9892336c16f73c9115d1314ede7e47\transformed\lifecycle-livedata-2.11.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2f9892336c16f73c9115d1314ede7e47\transformed\lifecycle-livedata-2.11.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\48ce293e0d707ee2bb18c8301ad3e536\transformed\lifecycle-viewmodel-savedstate\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\48ce293e0d707ee2bb18c8301ad3e536\transformed\lifecycle-viewmodel-savedstate\AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate-android:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3a6bc977a363f8a03ab5fc3a89ada718\transformed\savedstate\AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate-android:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3a6bc977a363f8a03ab5fc3a89ada718\transformed\savedstate\AndroidManifest.xml:20:5-44
-MERGED from [androidx.savedstate:savedstate-ktx:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\7014df3232f3d59b12c0e69af482e725\transformed\savedstate-ktx-1.5.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.savedstate:savedstate-ktx:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\7014df3232f3d59b12c0e69af482e725\transformed\savedstate-ktx-1.5.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.savedstate:savedstate-compose-android:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2ff918c26b8febd29e3f8a3e61334c78\transformed\savedstate-compose\AndroidManifest.xml:5:5-44
-MERGED from [androidx.savedstate:savedstate-compose-android:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2ff918c26b8febd29e3f8a3e61334c78\transformed\savedstate-compose\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\4921dc1c8321cbadc76a26c093777c6e\transformed\runtime\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\4921dc1c8321cbadc76a26c093777c6e\transformed\runtime\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-saveable-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ddb6929e16b0c27eb11268c9279eec3b\transformed\runtime-saveable\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-saveable-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ddb6929e16b0c27eb11268c9279eec3b\transformed\runtime-saveable\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c72dc08b25a44b624744a22568adb8d6\transformed\lifecycle-runtime-compose\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c72dc08b25a44b624744a22568adb8d6\transformed\lifecycle-runtime-compose\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\d5e49d5bd1cbd613fcafbbc82696ff67\transformed\lifecycle-viewmodel-compose\AndroidManifest.xml:5:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\d5e49d5bd1cbd613fcafbbc82696ff67\transformed\lifecycle-viewmodel-compose\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ed33ed4df0e5e83ba4b5dc28688148a0\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ed33ed4df0e5e83ba4b5dc28688148a0\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\eb4fb7badf468f939a7752f8eca390c5\transformed\lifecycle-livedata-core-ktx-2.8.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\eb4fb7badf468f939a7752f8eca390c5\transformed\lifecycle-livedata-core-ktx-2.8.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a2fef47d0849014eba6bc52a3008a7b7\transformed\lifecycle-livedata-core-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a2fef47d0849014eba6bc52a3008a7b7\transformed\lifecycle-livedata-core-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\9480517737f231c1226bf67a4be354e4\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\9480517737f231c1226bf67a4be354e4\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\707944b974ab4295ebeba06dbf824aa2\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\707944b974ab4295ebeba06dbf824aa2\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c9249ab00ea4b82f54f9841a48eb36b4\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c9249ab00ea4b82f54f9841a48eb36b4\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3c1eb68c752262c6bf0529aa239c4652\transformed\lifecycle-service-2.8.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3c1eb68c752262c6bf0529aa239c4652\transformed\lifecycle-service-2.8.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ba9ce52f6845ae34ed68dea2ac20fe56\transformed\lifecycle-livedata-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ba9ce52f6845ae34ed68dea2ac20fe56\transformed\lifecycle-livedata-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\d53606fee2e6368fe3b5a95214510e01\transformed\lifecycle-viewmodel-savedstate-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\d53606fee2e6368fe3b5a95214510e01\transformed\lifecycle-viewmodel-savedstate-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ff80d2105af4a6520feb981c637da9dd\transformed\lifecycle-viewmodel-ktx-2.8.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ff80d2105af4a6520feb981c637da9dd\transformed\lifecycle-viewmodel-ktx-2.8.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a1bc1226f9198738c6e350d9d287d293\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a1bc1226f9198738c6e350d9d287d293\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\66888bdf5bc09613ae6c74dce777d217\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\66888bdf5bc09613ae6c74dce777d217\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.material:material-icons-extended-android:1.7.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\7077ae6bf726a16c941e04f817b243b6\transformed\material-icons-extended-release\AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.material:material-icons-extended-android:1.7.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\7077ae6bf726a16c941e04f817b243b6\transformed\material-icons-extended-release\AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\6f26ec3b085990cf6dc1f7b6275681c7\transformed\material-icons-core-release\AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\6f26ec3b085990cf6dc1f7b6275681c7\transformed\material-icons-core-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc8074c95697bac3723f705a411a538d\transformed\ui\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc8074c95697bac3723f705a411a538d\transformed\ui\AndroidManifest.xml:5:5-44
-MERGED from [androidx.activity:activity-ktx:1.13.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\9e30013b96b8e9381a34dbc0a2b0ed69\transformed\activity-ktx-1.13.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.activity:activity-ktx:1.13.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\9e30013b96b8e9381a34dbc0a2b0ed69\transformed\activity-ktx-1.13.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.activity:activity:1.13.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b9dea51e7a9978004c3d31b56847fa61\transformed\activity-1.13.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.13.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b9dea51e7a9978004c3d31b56847fa61\transformed\activity-1.13.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity-compose:1.13.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fadaa7186be398ae6f0067f0e83f576c\transformed\activity-compose-1.13.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.activity:activity-compose:1.13.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fadaa7186be398ae6f0067f0e83f576c\transformed\activity-compose-1.13.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\337617ac8bb109bdebe8620a8f2e7253\transformed\ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\337617ac8bb109bdebe8620a8f2e7253\transformed\ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\e486c1454440cbaa6748de4f86862826\transformed\activity-ktx-1.10.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\e486c1454440cbaa6748de4f86862826\transformed\activity-ktx-1.10.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\f7d928262261f4bcab763d73e4948bc8\transformed\activity-compose-1.10.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\f7d928262261f4bcab763d73e4948bc8\transformed\activity-compose-1.10.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a641e75699cbbe89d44aaa6e7c310ca7\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
 MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\a641e75699cbbe89d44aaa6e7c310ca7\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
-MERGED from [androidx.core:core-ktx:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\f6acf0bf7b93f250a82151e06daf89b7\transformed\core-ktx-1.19.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.core:core-ktx:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\f6acf0bf7b93f250a82151e06daf89b7\transformed\core-ktx-1.19.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\1b248d8de2d9a44c7aef6eb09d6821c9\transformed\core-ktx-1.15.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\1b248d8de2d9a44c7aef6eb09d6821c9\transformed\core-ktx-1.15.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.room:room-runtime-android:2.8.5] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\8b28f51e659656a8b14eaac6b6aef752\transformed\room-runtime\AndroidManifest.xml:21:5-44
 MERGED from [androidx.room:room-runtime-android:2.8.5] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\8b28f51e659656a8b14eaac6b6aef752\transformed\room-runtime\AndroidManifest.xml:21:5-44
 MERGED from [androidx.room:room-ktx:2.8.5] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\85bf9b65732518b597c035de1984106f\transformed\room-ktx-2.8.5\AndroidManifest.xml:20:5-44
 MERGED from [androidx.room:room-ktx:2.8.5] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\85bf9b65732518b597c035de1984106f\transformed\room-ktx-2.8.5\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core-viewtree:1.0.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\5f694dc14f697f508bb49e905f215c24\transformed\core-viewtree-1.0.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.core:core-viewtree:1.0.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\5f694dc14f697f508bb49e905f215c24\transformed\core-viewtree-1.0.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3b45a17064b31c309db1ee87444ff91a\transformed\runtime-saveable-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3b45a17064b31c309db1ee87444ff91a\transformed\runtime-saveable-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\1997a3c43e999e0294be2a8089f1bc62\transformed\runtime-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\1997a3c43e999e0294be2a8089f1bc62\transformed\runtime-release\AndroidManifest.xml:5:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\06de2606f768cb88f3d9e4b43973132a\transformed\annotation-experimental-1.5.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\06de2606f768cb88f3d9e4b43973132a\transformed\annotation-experimental-1.5.0\AndroidManifest.xml:5:5-44
 MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:21:5-44
@@ -301,170 +284,282 @@ MERGED from [androidx.sqlite:sqlite-android:2.6.2] C:\Users\Honeyboy Ncube\.grad
 		INJECTED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\AndroidManifest.xml
-activity#androidx.compose.ui.tooling.PreviewActivity
-ADDED from [androidx.compose.ui:ui-tooling-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c3799ff41c026d98b074d981e9c8c9c5\transformed\ui-tooling\AndroidManifest.xml:23:9-25:39
-	android:exported
-		ADDED from [androidx.compose.ui:ui-tooling-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c3799ff41c026d98b074d981e9c8c9c5\transformed\ui-tooling\AndroidManifest.xml:25:13-36
-	android:name
-		ADDED from [androidx.compose.ui:ui-tooling-android:1.12.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c3799ff41c026d98b074d981e9c8c9c5\transformed\ui-tooling\AndroidManifest.xml:24:13-71
 uses-permission#android.permission.WAKE_LOCK
-ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:23:5-68
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:23:5-68
 	android:name
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:23:22-65
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:23:22-65
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:25:5-81
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:25:5-81
 	android:name
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:25:22-78
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:25:22-78
 uses-permission#android.permission.FOREGROUND_SERVICE
-ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:26:5-77
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:26:5-77
 	android:name
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:26:22-74
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:26:22-74
 provider#androidx.startup.InitializationProvider
-ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:29:9-37:20
-MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea76b1d9eb4849165b155bf41a257ba4\transformed\emoji2-1.4.0\AndroidManifest.xml:24:9-32:20
-MERGED from [androidx.emoji2:emoji2:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea76b1d9eb4849165b155bf41a257ba4\transformed\emoji2-1.4.0\AndroidManifest.xml:24:9-32:20
-MERGED from [androidx.lifecycle:lifecycle-process:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3af85be974345a4e12939d462140a8f1\transformed\lifecycle-process-2.11.0\AndroidManifest.xml:24:9-32:20
-MERGED from [androidx.lifecycle:lifecycle-process:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3af85be974345a4e12939d462140a8f1\transformed\lifecycle-process-2.11.0\AndroidManifest.xml:24:9-32:20
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:29:9-37:20
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fc4669ef80ebcffa56bab53078d1d7fd\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fc4669ef80ebcffa56bab53078d1d7fd\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ed33ed4df0e5e83ba4b5dc28688148a0\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ed33ed4df0e5e83ba4b5dc28688148a0\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\afd89102765d31c2b37a7fe91087a24a\transformed\profileinstaller-1.4.0\AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\54230f5d9d60dacd6651e1059e33ce77\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\54230f5d9d60dacd6651e1059e33ce77\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
 	tools:node
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:33:13-31
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:33:13-31
 	android:authorities
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:31:13-68
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:31:13-68
 	android:exported
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:32:13-37
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:32:13-37
 	android:name
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:30:13-67
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:30:13-67
 meta-data#androidx.work.WorkManagerInitializer
-ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:34:13-36:52
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:34:13-36:52
 	android:value
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:36:17-49
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:36:17-49
 	android:name
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:35:17-68
-service#androidx.work.impl.background.systemjob.SystemJobService
-ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:39:9-45:35
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:35:17-68
+service#androidx.work.impl.background.systemalarm.SystemAlarmService
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:39:9-45:35
 	android:enabled
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:42:13-70
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:42:13-72
 	android:exported
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:43:13-36
-	android:permission
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:44:13-69
-	tools:targetApi
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:45:13-32
-	android:directBootAware
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:41:13-44
-	android:name
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:40:13-84
-service#androidx.work.impl.foreground.SystemForegroundService
-ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:46:9-52:35
-	android:enabled
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:49:13-77
-	android:exported
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:50:13-37
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:43:13-37
 	tools:ignore
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:51:13-60
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:44:13-60
 	tools:targetApi
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:52:13-32
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:45:13-32
 	android:directBootAware
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:48:13-44
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:41:13-44
 	android:name
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:47:13-81
-receiver#androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver
-ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:54:9-59:35
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:40:13-88
+service#androidx.work.impl.background.systemjob.SystemJobService
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:46:9-52:35
 	android:enabled
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:57:13-35
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:49:13-70
 	android:exported
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:58:13-37
-	tools:targetApi
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:59:13-32
-	android:directBootAware
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:56:13-44
-	android:name
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:55:13-88
-receiver#androidx.work.impl.background.systemalarm.RescheduleReceiver
-ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:60:9-69:20
-	android:enabled
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:63:13-36
-	android:exported
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:64:13-37
-	tools:targetApi
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:65:13-32
-	android:directBootAware
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:62:13-44
-	android:name
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:61:13-88
-intent-filter#action:name:android.intent.action.BOOT_COMPLETED
-ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:66:13-68:29
-action#android.intent.action.BOOT_COMPLETED
-ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:67:17-79
-	android:name
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:67:25-76
-receiver#androidx.work.impl.diagnostics.DiagnosticsReceiver
-ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:70:9-80:20
-	android:enabled
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:73:13-35
-	android:exported
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:74:13-36
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:50:13-36
 	android:permission
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:75:13-57
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:51:13-69
 	tools:targetApi
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:76:13-32
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:52:13-32
 	android:directBootAware
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:72:13-44
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:48:13-44
 	android:name
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:71:13-78
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:47:13-84
+service#androidx.work.impl.foreground.SystemForegroundService
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:53:9-59:35
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:56:13-77
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:57:13-37
+	tools:ignore
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:58:13-60
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:59:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:55:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:54:13-81
+receiver#androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:61:9-66:35
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:64:13-35
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:65:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:66:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:63:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:62:13-88
+receiver#androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:67:9-77:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:70:13-36
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:71:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:72:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:69:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:68:13-106
+intent-filter#action:name:android.intent.action.ACTION_POWER_CONNECTED+action:name:android.intent.action.ACTION_POWER_DISCONNECTED
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:73:13-76:29
+action#android.intent.action.ACTION_POWER_CONNECTED
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:74:17-87
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:74:25-84
+action#android.intent.action.ACTION_POWER_DISCONNECTED
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:75:17-90
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:75:25-87
+receiver#androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:78:9-88:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:81:13-36
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:82:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:83:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:80:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:79:13-104
+intent-filter#action:name:android.intent.action.BATTERY_LOW+action:name:android.intent.action.BATTERY_OKAY
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:84:13-87:29
+action#android.intent.action.BATTERY_OKAY
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:85:17-77
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:85:25-74
+action#android.intent.action.BATTERY_LOW
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:86:17-76
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:86:25-73
+receiver#androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:89:9-99:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:92:13-36
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:93:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:94:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:91:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:90:13-104
+intent-filter#action:name:android.intent.action.DEVICE_STORAGE_LOW+action:name:android.intent.action.DEVICE_STORAGE_OK
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:95:13-98:29
+action#android.intent.action.DEVICE_STORAGE_LOW
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:96:17-83
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:96:25-80
+action#android.intent.action.DEVICE_STORAGE_OK
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:97:17-82
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:97:25-79
+receiver#androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:100:9-109:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:103:13-36
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:104:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:105:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:102:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:101:13-103
+intent-filter#action:name:android.net.conn.CONNECTIVITY_CHANGE
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:106:13-108:29
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:107:17-79
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:107:25-76
+receiver#androidx.work.impl.background.systemalarm.RescheduleReceiver
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:110:9-121:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:113:13-36
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:114:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:115:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:112:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:111:13-88
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.TIMEZONE_CHANGED+action:name:android.intent.action.TIME_SET
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:116:13-120:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:117:17-79
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:117:25-76
+action#android.intent.action.TIME_SET
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:118:17-73
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:118:25-70
+action#android.intent.action.TIMEZONE_CHANGED
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:119:17-81
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:119:25-78
+receiver#androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:122:9-131:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:125:13-72
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:126:13-37
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:127:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:124:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:123:13-99
+intent-filter#action:name:androidx.work.impl.background.systemalarm.UpdateProxies
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:128:13-130:29
+action#androidx.work.impl.background.systemalarm.UpdateProxies
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:129:17-98
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:129:25-95
+receiver#androidx.work.impl.diagnostics.DiagnosticsReceiver
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:132:9-142:20
+	android:enabled
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:135:13-35
+	android:exported
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:136:13-36
+	android:permission
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:137:13-57
+	tools:targetApi
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:138:13-32
+	android:directBootAware
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:134:13-44
+	android:name
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:133:13-78
 intent-filter#action:name:androidx.work.diagnostics.REQUEST_DIAGNOSTICS
-ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:77:13-79:29
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:139:13-141:29
 action#androidx.work.diagnostics.REQUEST_DIAGNOSTICS
-ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:78:17-88
+ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:140:17-88
 	android:name
-		ADDED from [androidx.work:work-runtime:2.12.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\b38f49a06120255bc1fcb7619e5b0e06\transformed\work-runtime-2.12.0\AndroidManifest.xml:78:25-85
-uses-library#androidx.window.extensions
-ADDED from [androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:23:9-25:40
-	android:required
-		ADDED from [androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:25:13-37
+		ADDED from [androidx.work:work-runtime:2.10.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\03c6f952cde49f9d17bf3952a17d4474\transformed\work-runtime-2.10.0\AndroidManifest.xml:140:25-85
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c93e0bb8d25d025989280bc91ef6d631\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c93e0bb8d25d025989280bc91ef6d631\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
 	android:name
-		ADDED from [androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:24:13-54
-uses-library#androidx.window.sidecar
-ADDED from [androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:26:9-28:40
-	android:required
-		ADDED from [androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:28:13-37
-	android:name
-		ADDED from [androidx.window:window:1.5.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\2522670b2d90835f37fc91021a730082\transformed\window-1.5.0\AndroidManifest.xml:27:13-51
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.7.6] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\c93e0bb8d25d025989280bc91ef6d631\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
 meta-data#androidx.emoji2.text.EmojiCompatInitializer
-ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea76b1d9eb4849165b155bf41a257ba4\transformed\emoji2-1.4.0\AndroidManifest.xml:29:13-31:52
+ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fc4669ef80ebcffa56bab53078d1d7fd\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
 	android:value
-		ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea76b1d9eb4849165b155bf41a257ba4\transformed\emoji2-1.4.0\AndroidManifest.xml:31:17-49
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fc4669ef80ebcffa56bab53078d1d7fd\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
 	android:name
-		ADDED from [androidx.emoji2:emoji2:1.4.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ea76b1d9eb4849165b155bf41a257ba4\transformed\emoji2-1.4.0\AndroidManifest.xml:30:17-75
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\fc4669ef80ebcffa56bab53078d1d7fd\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
 permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:22:5-24:47
+ADDED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:22:5-24:47
 	android:protectionLevel
-		ADDED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:24:9-44
+		ADDED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:24:9-44
 	android:name
-		ADDED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:23:9-81
+		ADDED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:23:9-81
 permission#za.co.hbtechinc.isibalo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:22:5-24:47
+ADDED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:22:5-24:47
 	android:protectionLevel
-		ADDED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:24:9-44
+		ADDED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:24:9-44
 	android:name
-		ADDED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:23:9-81
+		ADDED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:23:9-81
 uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:26:5-97
+ADDED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:26:5-97
 	android:name
-		ADDED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:26:22-94
+		ADDED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:26:22-94
 uses-permission#za.co.hbtechinc.isibalo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:26:5-97
+ADDED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:26:5-97
 	android:name
-		ADDED from [androidx.core:core:1.19.1] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\832063633d178a3356bd146899e4db7d\transformed\core-1.19.1\AndroidManifest.xml:26:22-94
+		ADDED from [androidx.core:core:1.15.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\cc36aa38d9df1bf4bfe9575a88e4cfd5\transformed\core-1.15.0\AndroidManifest.xml:26:22-94
 meta-data#androidx.lifecycle.ProcessLifecycleInitializer
-ADDED from [androidx.lifecycle:lifecycle-process:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3af85be974345a4e12939d462140a8f1\transformed\lifecycle-process-2.11.0\AndroidManifest.xml:29:13-31:52
+ADDED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ed33ed4df0e5e83ba4b5dc28688148a0\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
 	android:value
-		ADDED from [androidx.lifecycle:lifecycle-process:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3af85be974345a4e12939d462140a8f1\transformed\lifecycle-process-2.11.0\AndroidManifest.xml:31:17-49
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ed33ed4df0e5e83ba4b5dc28688148a0\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
 	android:name
-		ADDED from [androidx.lifecycle:lifecycle-process:2.11.0] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\3af85be974345a4e12939d462140a8f1\transformed\lifecycle-process-2.11.0\AndroidManifest.xml:30:17-78
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\ed33ed4df0e5e83ba4b5dc28688148a0\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
 service#androidx.room.MultiInstanceInvalidationService
 ADDED from [androidx.room:room-runtime-android:2.8.5] C:\Users\Honeyboy Ncube\.gradle\caches\9.4.1\transforms\8b28f51e659656a8b14eaac6b6aef752\transformed\room-runtime\AndroidManifest.xml:24:9-28:63
 	android:exported

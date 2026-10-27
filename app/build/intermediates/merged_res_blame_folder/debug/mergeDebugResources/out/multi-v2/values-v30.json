@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "za.co.hbtechinc.isibalo.app-mergeDebugResources-43:/values-v30/values-v30.xml",
+            "outputFile": "za.co.hbtechinc.isibalo.app-mergeDebugResources-57:/values-v30/values-v30.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Honeyboy Ncube\\.gradle\\caches\\9.4.1\\transforms\\ab4cd94ea5526dc8f645e2416e859cc4\\transformed\\material3\\res\\values-v30\\values-v30.xml",
+                    "source": "C:\\Users\\Honeyboy Ncube\\.gradle\\caches\\9.4.1\\transforms\\5cc1cb72d6f55233564ffe7709971eab\\transformed\\material3-release\\res\\values-v30\\values-v30.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

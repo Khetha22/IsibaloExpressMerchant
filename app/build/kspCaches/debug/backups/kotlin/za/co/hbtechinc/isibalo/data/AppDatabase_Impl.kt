@@ -35,21 +35,51 @@ public class AppDatabase_Impl : AppDatabase() {
     SalesDao_Impl(this)
   }
 
+  private val _cashUpDao: Lazy<CashUpDao> = lazy {
+    CashUpDao_Impl(this)
+  }
+
+  private val _knowledgeDao: Lazy<KnowledgeDao> = lazy {
+    KnowledgeDao_Impl(this)
+  }
+
+  private val _customerDebtDao: Lazy<CustomerDebtDao> = lazy {
+    CustomerDebtDao_Impl(this)
+  }
+
+  private val _expenseDao: Lazy<ExpenseDao> = lazy {
+    ExpenseDao_Impl(this)
+  }
+
+  private val _pettyCashDao: Lazy<PettyCashDao> = lazy {
+    PettyCashDao_Impl(this)
+  }
+
   protected override fun createOpenDelegate(): RoomOpenDelegate {
-    val _openDelegate: RoomOpenDelegate = object : RoomOpenDelegate(1, "3b9b025f3a1c06aca9f8a0c637b7806e", "dea67f6afe6cff88824b886f836dec5a") {
+    val _openDelegate: RoomOpenDelegate = object : RoomOpenDelegate(4, "5acf2479f8fca360b1db7eb2eedaf468", "06cfd2aa44062b3ad25c6a421eee8e15") {
       public override fun createAllTables(connection: SQLiteConnection) {
-        connection.execSQL("CREATE TABLE IF NOT EXISTS `stock_items` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `quantity` INTEGER NOT NULL, `lowStockThreshold` INTEGER NOT NULL, `costCents` INTEGER NOT NULL, `priceCents` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, `synced` INTEGER NOT NULL)")
+        connection.execSQL("CREATE TABLE IF NOT EXISTS `stock_items` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `quantity` INTEGER NOT NULL, `lowStockThreshold` INTEGER NOT NULL, `costCents` INTEGER NOT NULL, `priceCents` INTEGER NOT NULL, `expiryDate` INTEGER NOT NULL, `updatedAt` INTEGER NOT NULL, `synced` INTEGER NOT NULL)")
         connection.execSQL("CREATE TABLE IF NOT EXISTS `sales` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `totalCents` INTEGER NOT NULL, `method` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `synced` INTEGER NOT NULL)")
         connection.execSQL("CREATE TABLE IF NOT EXISTS `sale_items` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `saleId` INTEGER NOT NULL, `stockItemId` INTEGER, `name` TEXT NOT NULL, `qty` INTEGER NOT NULL, `unitPriceCents` INTEGER NOT NULL, FOREIGN KEY(`saleId`) REFERENCES `sales`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )")
         connection.execSQL("CREATE INDEX IF NOT EXISTS `index_sale_items_saleId` ON `sale_items` (`saleId`)")
+        connection.execSQL("CREATE TABLE IF NOT EXISTS `cash_up_records` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date` INTEGER NOT NULL, `floatCents` INTEGER NOT NULL, `expectedCashCents` INTEGER NOT NULL, `actualCashCents` INTEGER NOT NULL, `varianceCents` INTEGER NOT NULL, `cardTotalCents` INTEGER NOT NULL, `mobileTotalCents` INTEGER NOT NULL, `notes` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `synced` INTEGER NOT NULL)")
+        connection.execSQL("CREATE TABLE IF NOT EXISTS `knowledge_docs` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `content` TEXT NOT NULL, `category` TEXT NOT NULL, `updatedAt` INTEGER NOT NULL)")
+        connection.execSQL("CREATE TABLE IF NOT EXISTS `customer_debts` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `customerName` TEXT NOT NULL, `phone` TEXT NOT NULL, `amountCents` INTEGER NOT NULL, `note` TEXT NOT NULL, `settled` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, `synced` INTEGER NOT NULL)")
+        connection.execSQL("CREATE TABLE IF NOT EXISTS `expenses` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `amountCents` INTEGER NOT NULL, `category` TEXT NOT NULL, `createdAt` INTEGER NOT NULL, `synced` INTEGER NOT NULL)")
+        connection.execSQL("CREATE TABLE IF NOT EXISTS `petty_cash` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `recipient` TEXT NOT NULL, `amountCents` INTEGER NOT NULL, `note` TEXT NOT NULL, `issuedAt` INTEGER NOT NULL, `settled` INTEGER NOT NULL, `synced` INTEGER NOT NULL)")
         connection.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)")
-        connection.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3b9b025f3a1c06aca9f8a0c637b7806e')")
+        connection.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5acf2479f8fca360b1db7eb2eedaf468')")
       }
 
       public override fun dropAllTables(connection: SQLiteConnection) {
         connection.execSQL("DROP TABLE IF EXISTS `stock_items`")
         connection.execSQL("DROP TABLE IF EXISTS `sales`")
         connection.execSQL("DROP TABLE IF EXISTS `sale_items`")
+        connection.execSQL("DROP TABLE IF EXISTS `cash_up_records`")
+        connection.execSQL("DROP TABLE IF EXISTS `knowledge_docs`")
+        connection.execSQL("DROP TABLE IF EXISTS `customer_debts`")
+        connection.execSQL("DROP TABLE IF EXISTS `expenses`")
+        connection.execSQL("DROP TABLE IF EXISTS `petty_cash`")
       }
 
       public override fun onCreate(connection: SQLiteConnection) {
@@ -75,6 +105,7 @@ public class AppDatabase_Impl : AppDatabase() {
         _columnsStockItems.put("lowStockThreshold", TableInfo.Column("lowStockThreshold", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
         _columnsStockItems.put("costCents", TableInfo.Column("costCents", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
         _columnsStockItems.put("priceCents", TableInfo.Column("priceCents", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsStockItems.put("expiryDate", TableInfo.Column("expiryDate", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
         _columnsStockItems.put("updatedAt", TableInfo.Column("updatedAt", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
         _columnsStockItems.put("synced", TableInfo.Column("synced", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
         val _foreignKeysStockItems: MutableSet<TableInfo.ForeignKey> = mutableSetOf()
@@ -131,6 +162,113 @@ public class AppDatabase_Impl : AppDatabase() {
               | Found:
               |""".trimMargin() + _existingSaleItems)
         }
+        val _columnsCashUpRecords: MutableMap<String, TableInfo.Column> = mutableMapOf()
+        _columnsCashUpRecords.put("id", TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCashUpRecords.put("date", TableInfo.Column("date", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCashUpRecords.put("floatCents", TableInfo.Column("floatCents", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCashUpRecords.put("expectedCashCents", TableInfo.Column("expectedCashCents", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCashUpRecords.put("actualCashCents", TableInfo.Column("actualCashCents", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCashUpRecords.put("varianceCents", TableInfo.Column("varianceCents", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCashUpRecords.put("cardTotalCents", TableInfo.Column("cardTotalCents", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCashUpRecords.put("mobileTotalCents", TableInfo.Column("mobileTotalCents", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCashUpRecords.put("notes", TableInfo.Column("notes", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCashUpRecords.put("createdAt", TableInfo.Column("createdAt", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCashUpRecords.put("synced", TableInfo.Column("synced", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        val _foreignKeysCashUpRecords: MutableSet<TableInfo.ForeignKey> = mutableSetOf()
+        val _indicesCashUpRecords: MutableSet<TableInfo.Index> = mutableSetOf()
+        val _infoCashUpRecords: TableInfo = TableInfo("cash_up_records", _columnsCashUpRecords, _foreignKeysCashUpRecords, _indicesCashUpRecords)
+        val _existingCashUpRecords: TableInfo = read(connection, "cash_up_records")
+        if (!_infoCashUpRecords.equals(_existingCashUpRecords)) {
+          return RoomOpenDelegate.ValidationResult(false, """
+              |cash_up_records(za.co.hbtechinc.isibalo.data.CashUpRecord).
+              | Expected:
+              |""".trimMargin() + _infoCashUpRecords + """
+              |
+              | Found:
+              |""".trimMargin() + _existingCashUpRecords)
+        }
+        val _columnsKnowledgeDocs: MutableMap<String, TableInfo.Column> = mutableMapOf()
+        _columnsKnowledgeDocs.put("id", TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsKnowledgeDocs.put("title", TableInfo.Column("title", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsKnowledgeDocs.put("content", TableInfo.Column("content", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsKnowledgeDocs.put("category", TableInfo.Column("category", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsKnowledgeDocs.put("updatedAt", TableInfo.Column("updatedAt", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        val _foreignKeysKnowledgeDocs: MutableSet<TableInfo.ForeignKey> = mutableSetOf()
+        val _indicesKnowledgeDocs: MutableSet<TableInfo.Index> = mutableSetOf()
+        val _infoKnowledgeDocs: TableInfo = TableInfo("knowledge_docs", _columnsKnowledgeDocs, _foreignKeysKnowledgeDocs, _indicesKnowledgeDocs)
+        val _existingKnowledgeDocs: TableInfo = read(connection, "knowledge_docs")
+        if (!_infoKnowledgeDocs.equals(_existingKnowledgeDocs)) {
+          return RoomOpenDelegate.ValidationResult(false, """
+              |knowledge_docs(za.co.hbtechinc.isibalo.data.KnowledgeDoc).
+              | Expected:
+              |""".trimMargin() + _infoKnowledgeDocs + """
+              |
+              | Found:
+              |""".trimMargin() + _existingKnowledgeDocs)
+        }
+        val _columnsCustomerDebts: MutableMap<String, TableInfo.Column> = mutableMapOf()
+        _columnsCustomerDebts.put("id", TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCustomerDebts.put("customerName", TableInfo.Column("customerName", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCustomerDebts.put("phone", TableInfo.Column("phone", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCustomerDebts.put("amountCents", TableInfo.Column("amountCents", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCustomerDebts.put("note", TableInfo.Column("note", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCustomerDebts.put("settled", TableInfo.Column("settled", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCustomerDebts.put("createdAt", TableInfo.Column("createdAt", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsCustomerDebts.put("synced", TableInfo.Column("synced", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        val _foreignKeysCustomerDebts: MutableSet<TableInfo.ForeignKey> = mutableSetOf()
+        val _indicesCustomerDebts: MutableSet<TableInfo.Index> = mutableSetOf()
+        val _infoCustomerDebts: TableInfo = TableInfo("customer_debts", _columnsCustomerDebts, _foreignKeysCustomerDebts, _indicesCustomerDebts)
+        val _existingCustomerDebts: TableInfo = read(connection, "customer_debts")
+        if (!_infoCustomerDebts.equals(_existingCustomerDebts)) {
+          return RoomOpenDelegate.ValidationResult(false, """
+              |customer_debts(za.co.hbtechinc.isibalo.data.CustomerDebt).
+              | Expected:
+              |""".trimMargin() + _infoCustomerDebts + """
+              |
+              | Found:
+              |""".trimMargin() + _existingCustomerDebts)
+        }
+        val _columnsExpenses: MutableMap<String, TableInfo.Column> = mutableMapOf()
+        _columnsExpenses.put("id", TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsExpenses.put("title", TableInfo.Column("title", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsExpenses.put("amountCents", TableInfo.Column("amountCents", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsExpenses.put("category", TableInfo.Column("category", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsExpenses.put("createdAt", TableInfo.Column("createdAt", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsExpenses.put("synced", TableInfo.Column("synced", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        val _foreignKeysExpenses: MutableSet<TableInfo.ForeignKey> = mutableSetOf()
+        val _indicesExpenses: MutableSet<TableInfo.Index> = mutableSetOf()
+        val _infoExpenses: TableInfo = TableInfo("expenses", _columnsExpenses, _foreignKeysExpenses, _indicesExpenses)
+        val _existingExpenses: TableInfo = read(connection, "expenses")
+        if (!_infoExpenses.equals(_existingExpenses)) {
+          return RoomOpenDelegate.ValidationResult(false, """
+              |expenses(za.co.hbtechinc.isibalo.data.Expense).
+              | Expected:
+              |""".trimMargin() + _infoExpenses + """
+              |
+              | Found:
+              |""".trimMargin() + _existingExpenses)
+        }
+        val _columnsPettyCash: MutableMap<String, TableInfo.Column> = mutableMapOf()
+        _columnsPettyCash.put("id", TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsPettyCash.put("recipient", TableInfo.Column("recipient", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsPettyCash.put("amountCents", TableInfo.Column("amountCents", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsPettyCash.put("note", TableInfo.Column("note", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsPettyCash.put("issuedAt", TableInfo.Column("issuedAt", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsPettyCash.put("settled", TableInfo.Column("settled", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsPettyCash.put("synced", TableInfo.Column("synced", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        val _foreignKeysPettyCash: MutableSet<TableInfo.ForeignKey> = mutableSetOf()
+        val _indicesPettyCash: MutableSet<TableInfo.Index> = mutableSetOf()
+        val _infoPettyCash: TableInfo = TableInfo("petty_cash", _columnsPettyCash, _foreignKeysPettyCash, _indicesPettyCash)
+        val _existingPettyCash: TableInfo = read(connection, "petty_cash")
+        if (!_infoPettyCash.equals(_existingPettyCash)) {
+          return RoomOpenDelegate.ValidationResult(false, """
+              |petty_cash(za.co.hbtechinc.isibalo.data.PettyCash).
+              | Expected:
+              |""".trimMargin() + _infoPettyCash + """
+              |
+              | Found:
+              |""".trimMargin() + _existingPettyCash)
+        }
         return RoomOpenDelegate.ValidationResult(true, null)
       }
     }
@@ -140,17 +278,22 @@ public class AppDatabase_Impl : AppDatabase() {
   protected override fun createInvalidationTracker(): InvalidationTracker {
     val _shadowTablesMap: MutableMap<String, String> = mutableMapOf()
     val _viewTables: MutableMap<String, Set<String>> = mutableMapOf()
-    return InvalidationTracker(this, _shadowTablesMap, _viewTables, "stock_items", "sales", "sale_items")
+    return InvalidationTracker(this, _shadowTablesMap, _viewTables, "stock_items", "sales", "sale_items", "cash_up_records", "knowledge_docs", "customer_debts", "expenses", "petty_cash")
   }
 
   public override fun clearAllTables() {
-    super.performClear(true, "stock_items", "sales", "sale_items")
+    super.performClear(true, "stock_items", "sales", "sale_items", "cash_up_records", "knowledge_docs", "customer_debts", "expenses", "petty_cash")
   }
 
   protected override fun getRequiredTypeConverterClasses(): Map<KClass<*>, List<KClass<*>>> {
     val _typeConvertersMap: MutableMap<KClass<*>, List<KClass<*>>> = mutableMapOf()
     _typeConvertersMap.put(StockDao::class, StockDao_Impl.getRequiredConverters())
     _typeConvertersMap.put(SalesDao::class, SalesDao_Impl.getRequiredConverters())
+    _typeConvertersMap.put(CashUpDao::class, CashUpDao_Impl.getRequiredConverters())
+    _typeConvertersMap.put(KnowledgeDao::class, KnowledgeDao_Impl.getRequiredConverters())
+    _typeConvertersMap.put(CustomerDebtDao::class, CustomerDebtDao_Impl.getRequiredConverters())
+    _typeConvertersMap.put(ExpenseDao::class, ExpenseDao_Impl.getRequiredConverters())
+    _typeConvertersMap.put(PettyCashDao::class, PettyCashDao_Impl.getRequiredConverters())
     return _typeConvertersMap
   }
 
@@ -167,4 +310,14 @@ public class AppDatabase_Impl : AppDatabase() {
   public override fun stockDao(): StockDao = _stockDao.value
 
   public override fun salesDao(): SalesDao = _salesDao.value
+
+  public override fun cashUpDao(): CashUpDao = _cashUpDao.value
+
+  public override fun knowledgeDao(): KnowledgeDao = _knowledgeDao.value
+
+  public override fun customerDebtDao(): CustomerDebtDao = _customerDebtDao.value
+
+  public override fun expenseDao(): ExpenseDao = _expenseDao.value
+
+  public override fun pettyCashDao(): PettyCashDao = _pettyCashDao.value
 }

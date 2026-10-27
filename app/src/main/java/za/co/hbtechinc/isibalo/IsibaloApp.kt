@@ -15,7 +15,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class AppContainer(app: Context) {
-    private val db = Room.databaseBuilder(app, AppDatabase::class.java, "isibalo.db").build()
+    private val db = Room.databaseBuilder(app, AppDatabase::class.java, "isibalo.db")
+        .fallbackToDestructiveMigration()
+        .build()
     val repository = Repository(db)
     val themeStore = ThemeStore(app)
     val ai = LocalAi(app)

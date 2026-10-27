@@ -19,7 +19,12 @@ import kotlinx.coroutines.launch
 
 class PosViewModel(private val repo: Repository) : ViewModel() {
 
-    val items = repo.stock().stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+    val searchQuery = MutableStateFlow("")
+
+    val items = combine(repo.stock(), searchQuery) { list, q ->
+        if (q.isBlank()) list
+        else list.filter { it.name.contains(q.trim(), ignoreCase = true) }
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     private val _cart = MutableStateFlow<List<CartLine>>(emptyList())
     val cart = _cart.asStateFlow()

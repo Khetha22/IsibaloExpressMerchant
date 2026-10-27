@@ -43,7 +43,7 @@ public class StockDao_Impl(
       }
     }
     this.__upsertAdapterOfStockItem = EntityUpsertAdapter<StockItem>(object : EntityInsertAdapter<StockItem>() {
-      protected override fun createQuery(): String = "INSERT INTO `stock_items` (`id`,`name`,`quantity`,`lowStockThreshold`,`costCents`,`priceCents`,`updatedAt`,`synced`) VALUES (nullif(?, 0),?,?,?,?,?,?,?)"
+      protected override fun createQuery(): String = "INSERT INTO `stock_items` (`id`,`name`,`quantity`,`lowStockThreshold`,`costCents`,`priceCents`,`expiryDate`,`updatedAt`,`synced`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?)"
 
       protected override fun bind(statement: SQLiteStatement, entity: StockItem) {
         statement.bindLong(1, entity.id)
@@ -52,12 +52,13 @@ public class StockDao_Impl(
         statement.bindLong(4, entity.lowStockThreshold.toLong())
         statement.bindLong(5, entity.costCents)
         statement.bindLong(6, entity.priceCents)
-        statement.bindLong(7, entity.updatedAt)
+        statement.bindLong(7, entity.expiryDate)
+        statement.bindLong(8, entity.updatedAt)
         val _tmp: Int = if (entity.synced) 1 else 0
-        statement.bindLong(8, _tmp.toLong())
+        statement.bindLong(9, _tmp.toLong())
       }
     }, object : EntityDeleteOrUpdateAdapter<StockItem>() {
-      protected override fun createQuery(): String = "UPDATE `stock_items` SET `id` = ?,`name` = ?,`quantity` = ?,`lowStockThreshold` = ?,`costCents` = ?,`priceCents` = ?,`updatedAt` = ?,`synced` = ? WHERE `id` = ?"
+      protected override fun createQuery(): String = "UPDATE `stock_items` SET `id` = ?,`name` = ?,`quantity` = ?,`lowStockThreshold` = ?,`costCents` = ?,`priceCents` = ?,`expiryDate` = ?,`updatedAt` = ?,`synced` = ? WHERE `id` = ?"
 
       protected override fun bind(statement: SQLiteStatement, entity: StockItem) {
         statement.bindLong(1, entity.id)
@@ -66,10 +67,11 @@ public class StockDao_Impl(
         statement.bindLong(4, entity.lowStockThreshold.toLong())
         statement.bindLong(5, entity.costCents)
         statement.bindLong(6, entity.priceCents)
-        statement.bindLong(7, entity.updatedAt)
+        statement.bindLong(7, entity.expiryDate)
+        statement.bindLong(8, entity.updatedAt)
         val _tmp: Int = if (entity.synced) 1 else 0
-        statement.bindLong(8, _tmp.toLong())
-        statement.bindLong(9, entity.id)
+        statement.bindLong(9, _tmp.toLong())
+        statement.bindLong(10, entity.id)
       }
     })
   }
@@ -93,6 +95,7 @@ public class StockDao_Impl(
         val _columnIndexOfLowStockThreshold: Int = getColumnIndexOrThrow(_stmt, "lowStockThreshold")
         val _columnIndexOfCostCents: Int = getColumnIndexOrThrow(_stmt, "costCents")
         val _columnIndexOfPriceCents: Int = getColumnIndexOrThrow(_stmt, "priceCents")
+        val _columnIndexOfExpiryDate: Int = getColumnIndexOrThrow(_stmt, "expiryDate")
         val _columnIndexOfUpdatedAt: Int = getColumnIndexOrThrow(_stmt, "updatedAt")
         val _columnIndexOfSynced: Int = getColumnIndexOrThrow(_stmt, "synced")
         val _result: MutableList<StockItem> = mutableListOf()
@@ -110,13 +113,15 @@ public class StockDao_Impl(
           _tmpCostCents = _stmt.getLong(_columnIndexOfCostCents)
           val _tmpPriceCents: Long
           _tmpPriceCents = _stmt.getLong(_columnIndexOfPriceCents)
+          val _tmpExpiryDate: Long
+          _tmpExpiryDate = _stmt.getLong(_columnIndexOfExpiryDate)
           val _tmpUpdatedAt: Long
           _tmpUpdatedAt = _stmt.getLong(_columnIndexOfUpdatedAt)
           val _tmpSynced: Boolean
           val _tmp: Int
           _tmp = _stmt.getLong(_columnIndexOfSynced).toInt()
           _tmpSynced = _tmp != 0
-          _item = StockItem(_tmpId,_tmpName,_tmpQuantity,_tmpLowStockThreshold,_tmpCostCents,_tmpPriceCents,_tmpUpdatedAt,_tmpSynced)
+          _item = StockItem(_tmpId,_tmpName,_tmpQuantity,_tmpLowStockThreshold,_tmpCostCents,_tmpPriceCents,_tmpExpiryDate,_tmpUpdatedAt,_tmpSynced)
           _result.add(_item)
         }
         _result
@@ -137,6 +142,7 @@ public class StockDao_Impl(
         val _columnIndexOfLowStockThreshold: Int = getColumnIndexOrThrow(_stmt, "lowStockThreshold")
         val _columnIndexOfCostCents: Int = getColumnIndexOrThrow(_stmt, "costCents")
         val _columnIndexOfPriceCents: Int = getColumnIndexOrThrow(_stmt, "priceCents")
+        val _columnIndexOfExpiryDate: Int = getColumnIndexOrThrow(_stmt, "expiryDate")
         val _columnIndexOfUpdatedAt: Int = getColumnIndexOrThrow(_stmt, "updatedAt")
         val _columnIndexOfSynced: Int = getColumnIndexOrThrow(_stmt, "synced")
         val _result: MutableList<StockItem> = mutableListOf()
@@ -154,13 +160,15 @@ public class StockDao_Impl(
           _tmpCostCents = _stmt.getLong(_columnIndexOfCostCents)
           val _tmpPriceCents: Long
           _tmpPriceCents = _stmt.getLong(_columnIndexOfPriceCents)
+          val _tmpExpiryDate: Long
+          _tmpExpiryDate = _stmt.getLong(_columnIndexOfExpiryDate)
           val _tmpUpdatedAt: Long
           _tmpUpdatedAt = _stmt.getLong(_columnIndexOfUpdatedAt)
           val _tmpSynced: Boolean
           val _tmp: Int
           _tmp = _stmt.getLong(_columnIndexOfSynced).toInt()
           _tmpSynced = _tmp != 0
-          _item = StockItem(_tmpId,_tmpName,_tmpQuantity,_tmpLowStockThreshold,_tmpCostCents,_tmpPriceCents,_tmpUpdatedAt,_tmpSynced)
+          _item = StockItem(_tmpId,_tmpName,_tmpQuantity,_tmpLowStockThreshold,_tmpCostCents,_tmpPriceCents,_tmpExpiryDate,_tmpUpdatedAt,_tmpSynced)
           _result.add(_item)
         }
         _result
@@ -201,6 +209,7 @@ public class StockDao_Impl(
         val _columnIndexOfLowStockThreshold: Int = getColumnIndexOrThrow(_stmt, "lowStockThreshold")
         val _columnIndexOfCostCents: Int = getColumnIndexOrThrow(_stmt, "costCents")
         val _columnIndexOfPriceCents: Int = getColumnIndexOrThrow(_stmt, "priceCents")
+        val _columnIndexOfExpiryDate: Int = getColumnIndexOrThrow(_stmt, "expiryDate")
         val _columnIndexOfUpdatedAt: Int = getColumnIndexOrThrow(_stmt, "updatedAt")
         val _columnIndexOfSynced: Int = getColumnIndexOrThrow(_stmt, "synced")
         val _result: MutableList<StockItem> = mutableListOf()
@@ -218,13 +227,15 @@ public class StockDao_Impl(
           _tmpCostCents = _stmt.getLong(_columnIndexOfCostCents)
           val _tmpPriceCents: Long
           _tmpPriceCents = _stmt.getLong(_columnIndexOfPriceCents)
+          val _tmpExpiryDate: Long
+          _tmpExpiryDate = _stmt.getLong(_columnIndexOfExpiryDate)
           val _tmpUpdatedAt: Long
           _tmpUpdatedAt = _stmt.getLong(_columnIndexOfUpdatedAt)
           val _tmpSynced: Boolean
           val _tmp: Int
           _tmp = _stmt.getLong(_columnIndexOfSynced).toInt()
           _tmpSynced = _tmp != 0
-          _item = StockItem(_tmpId,_tmpName,_tmpQuantity,_tmpLowStockThreshold,_tmpCostCents,_tmpPriceCents,_tmpUpdatedAt,_tmpSynced)
+          _item = StockItem(_tmpId,_tmpName,_tmpQuantity,_tmpLowStockThreshold,_tmpCostCents,_tmpPriceCents,_tmpExpiryDate,_tmpUpdatedAt,_tmpSynced)
           _result.add(_item)
         }
         _result

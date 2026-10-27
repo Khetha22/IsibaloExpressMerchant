@@ -17,10 +17,13 @@ data class StockItem(
     val lowStockThreshold: Int = 5,
     val costCents: Long = 0,
     val priceCents: Long,
+    val expiryDate: Long = 0L, // 0 = no expiry set
     val updatedAt: Long = System.currentTimeMillis(),
     val synced: Boolean = false
 ) {
     val isLow: Boolean get() = quantity <= lowStockThreshold
+    val isExpired: Boolean get() = expiryDate > 0L && expiryDate < System.currentTimeMillis()
+    val isExpiringSoon: Boolean get() = expiryDate > 0L && !isExpired && (expiryDate - System.currentTimeMillis() <= 7L * 24 * 60 * 60 * 1000)
 }
 
 @Entity(tableName = "sales")
@@ -56,6 +59,68 @@ data class SaleWithItems(
 
 data class MethodTotal(val method: PaymentMethod, val total: Long)
 data class TopSeller(val name: String, val qty: Int, val revenue: Long)
+
+/** End-of-day reconciliation record. */
+@Entity(tableName = "cash_up_records")
+data class CashUpRecord(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val date: Long = System.currentTimeMillis(),
+    val floatCents: Long,
+    val expectedCashCents: Long,
+    val actualCashCents: Long,
+    val varianceCents: Long,
+    val cardTotalCents: Long = 0,
+    val mobileTotalCents: Long = 0,
+    val notes: String = "",
+    val createdAt: Long = System.currentTimeMillis(),
+    val synced: Boolean = false
+)
+
+/** Knowledge document used for On-Device RAG (Retrieval-Augmented Generation). */
+@Entity(tableName = "knowledge_docs")
+data class KnowledgeDoc(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val title: String,
+    val content: String,
+    val category: String = "General",
+    val updatedAt: Long = System.currentTimeMillis()
+)
+
+/** Customer credit / tab book (Isikwelete). */
+@Entity(tableName = "customer_debts")
+data class CustomerDebt(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val customerName: String,
+    val phone: String,
+    val amountCents: Long,
+    val note: String = "",
+    val settled: Boolean = false,
+    val createdAt: Long = System.currentTimeMillis(),
+    val synced: Boolean = false
+)
+
+/** Business expense tracking. */
+@Entity(tableName = "expenses")
+data class Expense(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val title: String,
+    val amountCents: Long,
+    val category: String = "General",
+    val createdAt: Long = System.currentTimeMillis(),
+    val synced: Boolean = false
+)
+
+/** Petty cash issuance and reconciliation. */
+@Entity(tableName = "petty_cash")
+data class PettyCash(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val recipient: String,
+    val amountCents: Long,
+    val note: String = "",
+    val issuedAt: Long = System.currentTimeMillis(),
+    val settled: Boolean = false,
+    val synced: Boolean = false
+)
 
 /** A line in the POS cart. stockItemId == null means a quick/custom amount. */
 data class CartLine(

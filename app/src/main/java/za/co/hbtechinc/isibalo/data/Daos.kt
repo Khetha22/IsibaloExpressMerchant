@@ -53,3 +53,69 @@ interface SalesDao {
 
     @Query("UPDATE sales SET synced = 1 WHERE id IN (:ids)") suspend fun markSynced(ids: List<Long>)
 }
+
+@Dao
+interface CashUpDao {
+    @Query("SELECT * FROM cash_up_records ORDER BY createdAt DESC")
+    fun observeAll(): Flow<List<CashUpRecord>>
+
+    @Insert suspend fun insert(record: CashUpRecord): Long
+
+    @Query("SELECT * FROM cash_up_records WHERE createdAt >= :from ORDER BY createdAt DESC LIMIT 1")
+    suspend fun latestSince(from: Long): CashUpRecord?
+}
+
+@Dao
+interface KnowledgeDao {
+    @Query("SELECT * FROM knowledge_docs ORDER BY updatedAt DESC")
+    fun observeAll(): Flow<List<KnowledgeDoc>>
+
+    @Query("SELECT * FROM knowledge_docs")
+    suspend fun getAll(): List<KnowledgeDoc>
+
+    @Upsert suspend fun upsert(doc: KnowledgeDoc)
+    @Delete suspend fun delete(doc: KnowledgeDoc)
+    @Query("SELECT COUNT(*) FROM knowledge_docs") suspend fun count(): Int
+}
+
+@Dao
+interface CustomerDebtDao {
+    @Query("SELECT * FROM customer_debts ORDER BY settled ASC, createdAt DESC")
+    fun observeAll(): Flow<List<CustomerDebt>>
+
+    @Insert suspend fun insert(debt: CustomerDebt): Long
+
+    @Query("UPDATE customer_debts SET settled = 1 WHERE id = :id")
+    suspend fun settle(id: Long)
+
+    @Delete suspend fun delete(debt: CustomerDebt)
+}
+
+@Dao
+interface ExpenseDao {
+    @Query("SELECT * FROM expenses ORDER BY createdAt DESC")
+    fun observeAll(): Flow<List<Expense>>
+
+    @Insert suspend fun insert(expense: Expense): Long
+
+    @Query("SELECT SUM(amountCents) FROM expenses WHERE createdAt >= :from")
+    fun observeTotalSince(from: Long): Flow<Long?>
+
+    @Delete suspend fun delete(expense: Expense)
+}
+
+@Dao
+interface PettyCashDao {
+    @Query("SELECT * FROM petty_cash ORDER BY settled ASC, issuedAt DESC")
+    fun observeAll(): Flow<List<PettyCash>>
+
+    @Insert suspend fun insert(record: PettyCash): Long
+
+    @Query("UPDATE petty_cash SET settled = 1 WHERE id = :id")
+    suspend fun settle(id: Long)
+
+    @Delete suspend fun delete(record: PettyCash)
+}
+
+
+
