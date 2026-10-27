@@ -1,8 +1,0 @@
-za.co.hbtechinc.isibalo.app-pngs-0 C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\build\generated\res\pngs\debug
-za.co.hbtechinc.isibalo.app-updated_navigation_xml-1 C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\build\generated\updated_navigation_xml\debug
-za.co.hbtechinc.isibalo.app-packageDebugResources-2 C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-za.co.hbtechinc.isibalo.app-packageDebugResources-3 C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-za.co.hbtechinc.isibalo.app-debug-4 C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\build\intermediates\merged_res\debug\mergeDebugResources
-za.co.hbtechinc.isibalo.app-debug-5 C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\debug\res
-za.co.hbtechinc.isibalo.app-main-6 C:\Users\Honeyboy Ncube\Downloads\IsibaloExpressMerchant\app\src\main\res
-gradleHome-0 C:\Users\Honeyboy Ncube\.gradle

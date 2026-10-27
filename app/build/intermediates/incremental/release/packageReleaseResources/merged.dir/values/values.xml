@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="ic_launcher_background">#0A4FD8</color>
-    <string name="app_name">Isibalo Express Merchant</string>
-    <style name="Theme.Isibalo" parent="android:Theme.Material.NoActionBar"/>
-</resources>
