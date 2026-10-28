@@ -7,7 +7,13 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 import androidx.room.Relation
 
-enum class PaymentMethod(val label: String) { CASH("Cash"), CARD("Card"), MOBILE("Mobile") }
+enum class PaymentMethod(val label: String) {
+    CASH("Cash"),
+    CARD("Card (Reader)"),
+    QR_CODE("Scan to Pay (QR)"),
+    MOBILE("Mobile Money"),
+    GATEWAY("Digital Link")
+}
 
 @Entity(tableName = "stock_items")
 data class StockItem(

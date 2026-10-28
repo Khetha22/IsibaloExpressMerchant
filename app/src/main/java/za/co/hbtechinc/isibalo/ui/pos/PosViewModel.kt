@@ -6,6 +6,8 @@ import za.co.hbtechinc.isibalo.data.CartLine
 import za.co.hbtechinc.isibalo.data.PaymentMethod
 import za.co.hbtechinc.isibalo.data.Repository
 import za.co.hbtechinc.isibalo.data.StockItem
+import za.co.hbtechinc.isibalo.util.calculateCommissionCents
+import za.co.hbtechinc.isibalo.util.rands
 import za.co.hbtechinc.isibalo.util.toCents
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -70,10 +72,19 @@ class PosViewModel(private val repo: Repository) : ViewModel() {
             val quick = quickAmount.value.toCents() ?: 0L
             val lines = _cart.value + if (quick > 0) listOf(CartLine(null, "Quick sale", quick, 1)) else emptyList()
             if (lines.isEmpty()) return@launch
+            val finalTotal = lines.sumOf { it.unitPriceCents * it.qty }
             repo.checkout(lines, method.value)
+
+            val m = method.value
+            if (m == PaymentMethod.QR_CODE || m == PaymentMethod.GATEWAY || m == PaymentMethod.CARD) {
+                val commission = finalTotal.calculateCommissionCents()
+                _message.tryEmit("Sale saved via ${m.label}. Platform fee (2.5%): ${commission.rands()} deducted.")
+            } else {
+                _message.tryEmit("Cash sale saved successfully")
+            }
+
             _cart.value = emptyList()
             quickAmount.value = ""
-            _message.tryEmit("Sale saved")
         }
     }
 }
