@@ -44,8 +44,10 @@
 | Feature | Description | Benefit |
 | :--- | :--- | :--- |
 | **Point of Sale (POS)** | Fast barcode scanning / item tapping & cart management | Speeds up checkout queues |
-| **Inventory & Stock** | Real-time stock tracking with low-stock alerts | Prevents stockouts & shrinkage |
+| **Inventory & Stock** | Real-time stock tracking with low-stock & expiry alerts | Prevents stockouts & shrinkage |
 | **Sales Analytics** | Daily, weekly, and monthly revenue summaries | Clear financial oversight |
+| **Instant Media Search** | Local photo search by plain text via MediaPipe embeddings | Fast visual stock inspection |
+| **Video Moment Finder** | Natural language clip search inside store security recordings | Quick video evidence retrieval |
 | **Offline Sync** | Queued background sync with idempotency | Zero data loss during outages |
 | **AI Business Advisor** | Local AI assistant answering business questions | Data-driven decision making |
 

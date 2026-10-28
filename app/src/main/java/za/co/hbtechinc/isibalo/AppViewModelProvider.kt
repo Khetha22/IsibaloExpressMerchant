@@ -10,6 +10,7 @@ import za.co.hbtechinc.isibalo.ui.cashup.CashUpViewModel
 import za.co.hbtechinc.isibalo.ui.credit.CreditViewModel
 import za.co.hbtechinc.isibalo.ui.expenses.ExpenseViewModel
 import za.co.hbtechinc.isibalo.ui.loans.LoanViewModel
+import za.co.hbtechinc.isibalo.ui.media.MediaSearchViewModel
 import za.co.hbtechinc.isibalo.ui.petty_cash.PettyCashViewModel
 import za.co.hbtechinc.isibalo.ui.pos.PosViewModel
 import za.co.hbtechinc.isibalo.ui.sales.SalesViewModel
@@ -30,5 +31,6 @@ object AppViewModelProvider {
         initializer { ExpenseViewModel(app().container.repository) }
         initializer { PettyCashViewModel(app().container.repository) }
         initializer { LoanViewModel(app().container.repository) }
+        initializer { MediaSearchViewModel(app().container.repository) }
     }
 }

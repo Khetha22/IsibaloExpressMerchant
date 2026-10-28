@@ -25,6 +25,7 @@ import androidx.compose.material.icons.filled.PointOfSale
 import androidx.compose.material.icons.filled.Psychology
 import androidx.compose.material.icons.filled.ReceiptLong
 import androidx.compose.material.icons.filled.RequestQuote
+import androidx.compose.material.icons.filled.VideoLibrary
 import androidx.compose.material.icons.filled.Wallet
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.Icon
@@ -62,6 +63,7 @@ import za.co.hbtechinc.isibalo.ui.cashup.CashUpScreen
 import za.co.hbtechinc.isibalo.ui.credit.CreditScreen
 import za.co.hbtechinc.isibalo.ui.expenses.ExpenseScreen
 import za.co.hbtechinc.isibalo.ui.loans.LoanScreen
+import za.co.hbtechinc.isibalo.ui.media.MediaSearchScreen
 import za.co.hbtechinc.isibalo.ui.petty_cash.PettyCashScreen
 import za.co.hbtechinc.isibalo.ui.pos.PosScreen
 import za.co.hbtechinc.isibalo.ui.sales.SalesScreen
@@ -81,6 +83,7 @@ private enum class NavDestination(val route: String, val label: String, val icon
     Expenses("expenses", "Expenses & Profit", Icons.Filled.ReceiptLong, false),
     PettyCash("pettycash", "Petty Cash", Icons.Filled.Wallet, false),
     Loans("loans", "Working Capital Advances", Icons.Filled.RequestQuote, false),
+    MediaSearch("mediasearch", "Media & Video Search", Icons.Filled.VideoLibrary, false),
     AiSetup("aisetup", "AI Models & RAG", Icons.Filled.Psychology, false)
 }
 
@@ -222,6 +225,7 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
                     composable(NavDestination.Expenses.route) { ExpenseScreen() }
                     composable(NavDestination.PettyCash.route) { PettyCashScreen() }
                     composable(NavDestination.Loans.route) { LoanScreen() }
+                    composable(NavDestination.MediaSearch.route) { MediaSearchScreen() }
                     composable(NavDestination.AiSetup.route) { AiSetupScreen() }
                 }
             }
