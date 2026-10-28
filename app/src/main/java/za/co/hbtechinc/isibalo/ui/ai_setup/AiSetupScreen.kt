@@ -66,6 +66,10 @@ fun AiSetupScreen(vm: AiSetupViewModel = viewModel(factory = AppViewModelProvide
         uri?.let(vm::importPdfDocument)
     }
 
+    val videoPicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        uri?.let(vm::importVideoDocument)
+    }
+
     LazyColumn(
         modifier = Modifier.fillMaxSize().padding(12.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -161,11 +165,18 @@ fun AiSetupScreen(vm: AiSetupViewModel = viewModel(factory = AppViewModelProvide
         item {
             SquareCard(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text("Add Document to Local RAG Knowledge Base", fontWeight = FontWeight.Bold)
+                    Text("Add Document & Video to Local RAG", fontWeight = FontWeight.Bold)
 
                     SquareButton(
                         text = "UPLOAD PDF / TEXT DOCUMENT",
                         onClick = { pdfPicker.launch(arrayOf("application/pdf", "text/*", "*/*")) },
+                        modifier = Modifier.fillMaxWidth(),
+                        outlined = true
+                    )
+
+                    SquareButton(
+                        text = "IMPORT VIDEO / CCTV CLIP FOR RAG",
+                        onClick = { videoPicker.launch(arrayOf("video/*")) },
                         modifier = Modifier.fillMaxWidth(),
                         outlined = true
                     )

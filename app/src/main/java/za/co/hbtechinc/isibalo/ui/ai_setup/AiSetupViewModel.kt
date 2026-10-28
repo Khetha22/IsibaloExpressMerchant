@@ -86,6 +86,19 @@ class AiSetupViewModel(
         }
     }
 
+    fun importVideoDocument(uri: Uri) {
+        viewModelScope.launch {
+            val fileName = uri.lastPathSegment ?: "Store Security Video Clip"
+            repo.saveKnowledgeDoc(
+                KnowledgeDoc(
+                    title = "Video Recording: $fileName",
+                    content = "Local store security camera footage / video recording indexed for Video Moment Finder. URI: $uri",
+                    category = "Video / CCTV"
+                )
+            )
+        }
+    }
+
     fun deleteKnowledgeDoc(doc: KnowledgeDoc) {
         viewModelScope.launch { repo.deleteKnowledgeDoc(doc) }
     }
