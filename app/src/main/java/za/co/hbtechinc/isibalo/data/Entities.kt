@@ -128,6 +128,18 @@ data class PettyCash(
     val synced: Boolean = false
 )
 
+/** Merchant Cash Advance (MCA) / Working Capital Loan. */
+@Entity(tableName = "merchant_loans")
+data class MerchantLoan(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val principalCents: Long,
+    val feeCents: Long,
+    val totalRepayCents: Long,
+    val remainingCents: Long,
+    val status: String = "Active", // Active, Repaid
+    val createdAt: Long = System.currentTimeMillis()
+)
+
 /** A line in the POS cart. stockItemId == null means a quick/custom amount. */
 data class CartLine(
     val stockItemId: Long?,

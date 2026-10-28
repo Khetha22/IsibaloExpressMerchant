@@ -117,5 +117,17 @@ interface PettyCashDao {
     @Delete suspend fun delete(record: PettyCash)
 }
 
+@Dao
+interface MerchantLoanDao {
+    @Query("SELECT * FROM merchant_loans ORDER BY createdAt DESC")
+    fun observeAll(): Flow<List<MerchantLoan>>
+
+    @Insert suspend fun insert(loan: MerchantLoan): Long
+
+    @Query("UPDATE merchant_loans SET remainingCents = MAX(remainingCents - :payment, 0), status = CASE WHEN remainingCents - :payment <= 0 THEN 'Repaid' ELSE 'Active' END WHERE id = :id")
+    suspend fun makePayment(id: Long, payment: Long)
+}
+
+
 
 
