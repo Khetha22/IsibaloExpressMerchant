@@ -105,8 +105,12 @@ fun StockScreen(vm: StockViewModel = viewModel(factory = AppViewModelProvider.Fa
                     Column(Modifier.weight(1f)) {
                         Text(item.name, style = MaterialTheme.typography.titleMedium)
                         val expiryText = if (item.expiryDate > 0L) "Exp: ${dateFormatter.format(Date(item.expiryDate))}" else "No expiry set"
-                        Text("${item.priceCents.rands()}  |  $expiryText",
+                        val profitC = item.priceCents - item.costCents
+                        val margin = if (item.priceCents > 0) (profitC.toDouble() / item.priceCents * 100).toInt() else 0
+                        Text("${item.priceCents.rands()}  |  Profit: ${profitC.rands()} ($margin%)",
                             style = MaterialTheme.typography.labelSmall)
+                        Text(expiryText, style = MaterialTheme.typography.labelSmall, color = cs.onSurfaceVariant)
+
                         if (item.isExpired) {
                             Text("EXPIRED", color = cs.error, fontWeight = FontWeight.Bold, style = MaterialTheme.typography.labelSmall)
                         } else if (item.isExpiringSoon) {
@@ -154,6 +158,11 @@ private fun ItemDialog(
         )
     }
 
+    val pCents = price.toCents() ?: 0L
+    val cCents = cost.toCents() ?: 0L
+    val profitCents = pCents - cCents
+    val marginPercent = if (pCents > 0) (profitCents.toDouble() / pCents * 100).toInt() else 0
+
     @Composable
     fun field(v: String, set: (String) -> Unit, label: String, num: Boolean = true) =
         OutlinedTextField(
@@ -173,6 +182,16 @@ private fun ItemDialog(
                 field(low, { low = it.filter(Char::isDigit) }, "Warn when stock reaches")
                 field(price, { price = it }, "Selling price (R)")
                 field(cost, { cost = it }, "Cost price (R)")
+
+                if (pCents > 0 && cCents > 0) {
+                    Text(
+                        "Estimated Profit: ${profitCents.rands()} per unit ($marginPercent% Margin)",
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.primary,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+
                 field(daysToExpiry, { daysToExpiry = it.filter(Char::isDigit) }, "Expiry in Days (0 = None)")
                 if (initial != null) SquareButton("DELETE ITEM", onDelete, Modifier.fillMaxWidth(), outlined = true)
             }

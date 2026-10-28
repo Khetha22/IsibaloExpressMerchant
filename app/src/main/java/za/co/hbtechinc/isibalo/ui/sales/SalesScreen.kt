@@ -1,5 +1,7 @@
 package za.co.hbtechinc.isibalo.ui.sales
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -16,6 +18,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -36,6 +39,7 @@ fun SalesScreen(vm: SalesViewModel = viewModel(factory = AppViewModelProvider.Fa
     val pending by vm.pending.collectAsStateWithLifecycle()
     val query by vm.searchQuery.collectAsStateWithLifecycle()
     val fmt = SimpleDateFormat("HH:mm", Locale.ROOT)
+    val context = LocalContext.current
     val cs = MaterialTheme.colorScheme
 
     LazyColumn(
@@ -94,12 +98,20 @@ fun SalesScreen(vm: SalesViewModel = viewModel(factory = AppViewModelProvider.Fa
                 Row(Modifier.padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
                     Column(Modifier.weight(1f)) {
                         Text(s.totalCents.rands(), fontWeight = FontWeight.Bold)
-                        Text("${fmt.format(Date(s.createdAt))}  ${s.method.label}",
-                            style = MaterialTheme.typography.labelSmall)
+                        Text("${fmt.format(Date(s.createdAt))}  ${s.method.label}  •  ${if (s.synced) "Synced" else "Pending"}",
+                            style = MaterialTheme.typography.labelSmall, color = cs.onSurfaceVariant)
                     }
-                    Text(if (s.synced) "Synced" else "Pending",
-                        color = if (s.synced) cs.primary else cs.onSurfaceVariant,
-                        style = MaterialTheme.typography.labelSmall)
+                    SquareButton(
+                        text = "WHATSAPP",
+                        onClick = {
+                            val receiptText = "🧾 *Isibalo Express Receipt*\nTotal: ${s.totalCents.rands()}\nMethod: ${s.method.label}\nTime: ${fmt.format(Date(s.createdAt))}\nThank you for shopping with us!"
+                            val intent = Intent(Intent.ACTION_VIEW).apply {
+                                data = Uri.parse("https://api.whatsapp.com/send?text=${Uri.encode(receiptText)}")
+                            }
+                            try { context.startActivity(intent) } catch (_: Exception) {}
+                        },
+                        outlined = true
+                    )
                 }
             }
         }
