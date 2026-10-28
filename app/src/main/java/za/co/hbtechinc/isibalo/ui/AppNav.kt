@@ -4,8 +4,10 @@ package za.co.hbtechinc.isibalo.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -34,6 +36,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.NavigationDrawerItemDefaults
+import androidx.compose.material3.PermanentNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -79,6 +82,55 @@ private enum class NavDestination(val route: String, val label: String, val icon
 }
 
 @Composable
+private fun AppDrawerContent(
+    current: NavDestination,
+    onNavigate: (NavDestination) -> Unit
+) {
+    ModalDrawerSheet(
+        drawerContainerColor = MaterialTheme.colorScheme.surface,
+        drawerContentColor = MaterialTheme.colorScheme.onSurface
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(NavBlue)
+                .padding(20.dp)
+        ) {
+            Column {
+                Text(
+                    "ISIBALO",
+                    style = MaterialTheme.typography.headlineMedium.copy(fontSize = 32.sp, lineHeight = 30.sp),
+                    color = Color.White
+                )
+                Text(
+                    "EXPRESS MERCHANT",
+                    style = MaterialTheme.typography.titleMedium.copy(fontSize = 14.sp, letterSpacing = 2.sp),
+                    color = NavMuted
+                )
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    "On-The-Go Business OS • Offline-First",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = Color.White.copy(alpha = 0.8f)
+                )
+            }
+        }
+
+        Spacer(Modifier.height(12.dp))
+
+        NavDestination.entries.forEach { item ->
+            NavigationDrawerItem(
+                icon = { Icon(item.icon, contentDescription = item.label) },
+                label = { Text(item.label) },
+                selected = current == item,
+                onClick = { onNavigate(item) },
+                modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+            )
+        }
+    }
+}
+
+@Composable
 fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
     val nav = rememberNavController()
     val entry by nav.currentBackStackEntryAsState()
@@ -87,132 +139,119 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
-    ModalNavigationDrawer(
-        drawerState = drawerState,
-        drawerContent = {
-            ModalDrawerSheet(
-                drawerContainerColor = MaterialTheme.colorScheme.surface,
-                drawerContentColor = MaterialTheme.colorScheme.onSurface
-            ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .background(NavBlue)
-                        .padding(20.dp)
-                ) {
-                    Column {
-                        Text(
-                            "ISIBALO",
-                            style = MaterialTheme.typography.headlineMedium.copy(fontSize = 32.sp, lineHeight = 30.sp),
-                            color = Color.White
-                        )
-                        Text(
-                            "EXPRESS MERCHANT",
-                            style = MaterialTheme.typography.titleMedium.copy(fontSize = 14.sp, letterSpacing = 2.sp),
-                            color = NavMuted
-                        )
-                        Spacer(Modifier.height(8.dp))
-                        Text(
-                            "On-The-Go Business OS • Offline-First",
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = Color.White.copy(alpha = 0.8f)
-                        )
-                    }
-                }
+    BoxWithConstraints(Modifier.fillMaxSize()) {
+        val isWideScreen = this.maxWidth >= 840.dp
 
-                Spacer(Modifier.height(12.dp))
-
-                NavDestination.entries.forEach { item ->
-                    NavigationDrawerItem(
-                        icon = { Icon(item.icon, contentDescription = item.label) },
-                        label = { Text(item.label) },
-                        selected = current == item,
-                        onClick = {
-                            scope.launch { drawerState.close() }
-                            nav.navigate(item.route) {
-                                popUpTo(nav.graph.findStartDestination().id) { saveState = true }
-                                launchSingleTop = true
-                                restoreState = true
+        val scaffoldContent = @Composable {
+            Scaffold(
+                topBar = {
+                    TopAppBar(
+                        navigationIcon = {
+                            if (!isWideScreen) {
+                                IconButton(onClick = { scope.launch { drawerState.open() } }) {
+                                    Icon(Icons.Filled.Menu, contentDescription = "Open Navigation Menu", tint = Color.White)
+                                }
                             }
                         },
-                        modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                        title = {
+                            Column {
+                                Text(current.label, style = MaterialTheme.typography.titleLarge.copy(fontSize = 20.sp), color = Color.White)
+                                Text("ISIBALO EXPRESS", style = MaterialTheme.typography.labelSmall.copy(letterSpacing = 1.5.sp), color = NavMuted)
+                            }
+                        },
+                        colors = TopAppBarDefaults.topAppBarColors(
+                            containerColor = NavBlue, titleContentColor = Color.White,
+                            actionIconContentColor = Color.White
+                        ),
+                        actions = {
+                            IconButton(onClick = {
+                                onTheme(when (themeMode) {
+                                    ThemeMode.SYSTEM -> ThemeMode.LIGHT
+                                    ThemeMode.LIGHT -> ThemeMode.DARK
+                                    ThemeMode.DARK -> ThemeMode.SYSTEM
+                                })
+                            }) {
+                                Icon(
+                                    when (themeMode) {
+                                        ThemeMode.SYSTEM -> Icons.Filled.BrightnessAuto
+                                        ThemeMode.LIGHT -> Icons.Filled.LightMode
+                                        ThemeMode.DARK -> Icons.Filled.DarkMode
+                                    },
+                                    contentDescription = "Theme: ${themeMode.name.lowercase()}"
+                                )
+                            }
+                        }
                     )
+                },
+                bottomBar = {
+                    if (!isWideScreen) {
+                        NavigationBar(containerColor = NavBlue, contentColor = Color.White) {
+                            NavDestination.entries.filter { it.inBottomBar }.forEach { item ->
+                                NavigationBarItem(
+                                    selected = item == current,
+                                    onClick = {
+                                        nav.navigate(item.route) {
+                                            popUpTo(nav.graph.findStartDestination().id) { saveState = true }
+                                            launchSingleTop = true
+                                            restoreState = true
+                                        }
+                                    },
+                                    icon = { Icon(item.icon, item.label) },
+                                    label = { Text(item.label, fontSize = 11.sp) },
+                                    colors = NavigationBarItemDefaults.colors(
+                                        selectedIconColor = NavBlue, selectedTextColor = Color.White,
+                                        indicatorColor = Color.White,
+                                        unselectedIconColor = NavMuted, unselectedTextColor = NavMuted
+                                    )
+                                )
+                            }
+                        }
+                    }
+                }
+            ) { pad ->
+                NavHost(nav, startDestination = NavDestination.Sell.route, modifier = Modifier.padding(pad)) {
+                    composable(NavDestination.Sell.route) { PosScreen() }
+                    composable(NavDestination.Sales.route) { SalesScreen() }
+                    composable(NavDestination.Stock.route) { StockScreen() }
+                    composable(NavDestination.CashUp.route) { CashUpScreen() }
+                    composable(NavDestination.Assistant.route) { AssistantScreen() }
+                    composable(NavDestination.Credit.route) { CreditScreen() }
+                    composable(NavDestination.Expenses.route) { ExpenseScreen() }
+                    composable(NavDestination.PettyCash.route) { PettyCashScreen() }
+                    composable(NavDestination.AiSetup.route) { AiSetupScreen() }
                 }
             }
         }
-    ) {
-        Scaffold(
-            topBar = {
-                TopAppBar(
-                    navigationIcon = {
-                        IconButton(onClick = { scope.launch { drawerState.open() } }) {
-                            Icon(Icons.Filled.Menu, contentDescription = "Open Navigation Menu", tint = Color.White)
+
+        if (isWideScreen) {
+            PermanentNavigationDrawer(
+                drawerContent = {
+                    AppDrawerContent(current) { item ->
+                        nav.navigate(item.route) {
+                            popUpTo(nav.graph.findStartDestination().id) { saveState = true }
+                            launchSingleTop = true
+                            restoreState = true
                         }
-                    },
-                    title = {
-                        Column {
-                            Text(current.label, style = MaterialTheme.typography.titleLarge.copy(fontSize = 20.sp), color = Color.White)
-                            Text("ISIBALO EXPRESS", style = MaterialTheme.typography.labelSmall.copy(letterSpacing = 1.5.sp), color = NavMuted)
-                        }
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = NavBlue, titleContentColor = Color.White,
-                        actionIconContentColor = Color.White
-                    ),
-                    actions = {
-                        IconButton(onClick = {
-                            onTheme(when (themeMode) {
-                                ThemeMode.SYSTEM -> ThemeMode.LIGHT
-                                ThemeMode.LIGHT -> ThemeMode.DARK
-                                ThemeMode.DARK -> ThemeMode.SYSTEM
-                            })
-                        }) {
-                            Icon(
-                                when (themeMode) {
-                                    ThemeMode.SYSTEM -> Icons.Filled.BrightnessAuto
-                                    ThemeMode.LIGHT -> Icons.Filled.LightMode
-                                    ThemeMode.DARK -> Icons.Filled.DarkMode
-                                },
-                                contentDescription = "Theme: ${themeMode.name.lowercase()}"
-                            )
-                        }
-                    }
-                )
-            },
-            bottomBar = {
-                NavigationBar(containerColor = NavBlue, contentColor = Color.White) {
-                    NavDestination.entries.filter { it.inBottomBar }.forEach { item ->
-                        NavigationBarItem(
-                            selected = item == current,
-                            onClick = {
-                                nav.navigate(item.route) {
-                                    popUpTo(nav.graph.findStartDestination().id) { saveState = true }
-                                    launchSingleTop = true
-                                    restoreState = true
-                                }
-                            },
-                            icon = { Icon(item.icon, item.label) },
-                            label = { Text(item.label, fontSize = 11.sp) },
-                            colors = NavigationBarItemDefaults.colors(
-                                selectedIconColor = NavBlue, selectedTextColor = Color.White,
-                                indicatorColor = Color.White,
-                                unselectedIconColor = NavMuted, unselectedTextColor = NavMuted
-                            )
-                        )
                     }
                 }
+            ) {
+                scaffoldContent()
             }
-        ) { pad ->
-            NavHost(nav, startDestination = NavDestination.Sell.route, modifier = Modifier.padding(pad)) {
-                composable(NavDestination.Sell.route) { PosScreen() }
-                composable(NavDestination.Sales.route) { SalesScreen() }
-                composable(NavDestination.Stock.route) { StockScreen() }
-                composable(NavDestination.CashUp.route) { CashUpScreen() }
-                composable(NavDestination.Assistant.route) { AssistantScreen() }
-                composable(NavDestination.Credit.route) { CreditScreen() }
-                composable(NavDestination.Expenses.route) { ExpenseScreen() }
-                composable(NavDestination.PettyCash.route) { PettyCashScreen() }
-                composable(NavDestination.AiSetup.route) { AiSetupScreen() }
+        } else {
+            ModalNavigationDrawer(
+                drawerState = drawerState,
+                drawerContent = {
+                    AppDrawerContent(current) { item ->
+                        scope.launch { drawerState.close() }
+                        nav.navigate(item.route) {
+                            popUpTo(nav.graph.findStartDestination().id) { saveState = true }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+                    }
+                }
+            ) {
+                scaffoldContent()
             }
         }
     }

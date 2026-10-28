@@ -69,8 +69,8 @@ fun PosScreen(vm: PosViewModel = viewModel(factory = AppViewModelProvider.Factor
                 shape = RectangleShape
             )
             LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
-                modifier = Modifier.weight(1f),
+                columns = GridCells.Adaptive(minSize = 150.dp),
+                modifier = Modifier.weight(1f).fillMaxWidth(),
                 contentPadding = PaddingValues(12.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -114,7 +114,7 @@ private fun CheckoutPanel(
     Surface(color = MaterialTheme.colorScheme.surfaceVariant, shape = RectangleShape, tonalElevation = 0.dp) {
         Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             if (cart.isNotEmpty()) {
-                LazyColumn(Modifier.heightIn(max = 120.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                LazyColumn(Modifier.heightIn(max = 140.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     items(cart, key = { it.stockItemId ?: -1L }) { line ->
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Column(Modifier.weight(1f)) {
