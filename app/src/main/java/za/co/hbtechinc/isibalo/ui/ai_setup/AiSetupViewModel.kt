@@ -68,6 +68,24 @@ class AiSetupViewModel(
         }
     }
 
+    fun importPdfDocument(uri: Uri) {
+        viewModelScope.launch {
+            try {
+                val text = withContext(Dispatchers.IO) {
+                    val sb = StringBuilder()
+                    app.contentResolver.openInputStream(uri)?.bufferedReader()?.use { reader ->
+                        sb.append(reader.readText())
+                    }
+                    sb.toString()
+                }
+                if (text.isNotBlank()) {
+                    val title = uri.lastPathSegment ?: "Imported PDF Document"
+                    repo.saveKnowledgeDoc(KnowledgeDoc(title = title, content = text.take(4000), category = "PDF / Document"))
+                }
+            } catch (_: Exception) { }
+        }
+    }
+
     fun deleteKnowledgeDoc(doc: KnowledgeDoc) {
         viewModelScope.launch { repo.deleteKnowledgeDoc(doc) }
     }

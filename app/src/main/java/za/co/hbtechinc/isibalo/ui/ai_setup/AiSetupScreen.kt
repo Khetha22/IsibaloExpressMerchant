@@ -62,6 +62,10 @@ fun AiSetupScreen(vm: AiSetupViewModel = viewModel(factory = AppViewModelProvide
         uri?.let(vm::importModelFile)
     }
 
+    val pdfPicker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        uri?.let(vm::importPdfDocument)
+    }
+
     LazyColumn(
         modifier = Modifier.fillMaxSize().padding(12.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -136,10 +140,15 @@ fun AiSetupScreen(vm: AiSetupViewModel = viewModel(factory = AppViewModelProvide
                         "Isibalo Express supports MediaPipe on-device inference and vector embeddings for high-accuracy local RAG without cloud latency or data costs.",
                         style = MaterialTheme.typography.bodyMedium
                     )
+                    Text(
+                        "💡 Recommended Embedding Model: Download 'universal_sentence_encoder.tflite' or 'all-MiniLM-L6-v2.tflite' from Hugging Face Edge Gallery for high-precision semantic vector embeddings.",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = cs.onSurfaceVariant
+                    )
                     SquareButton(
-                        text = "EXPLORE EDGE GALLERY MODELS",
+                        text = "EXPLORE EDGE GALLERY EMBEDDINGS",
                         onClick = {
-                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://huggingface.co/litert-community"))
+                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://huggingface.co/models?other=tflite"))
                             context.startActivity(intent)
                         },
                         modifier = Modifier.fillMaxWidth(),
@@ -153,6 +162,13 @@ fun AiSetupScreen(vm: AiSetupViewModel = viewModel(factory = AppViewModelProvide
             SquareCard(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     Text("Add Document to Local RAG Knowledge Base", fontWeight = FontWeight.Bold)
+
+                    SquareButton(
+                        text = "UPLOAD PDF / TEXT DOCUMENT",
+                        onClick = { pdfPicker.launch(arrayOf("application/pdf", "text/*", "*/*")) },
+                        modifier = Modifier.fillMaxWidth(),
+                        outlined = true
+                    )
 
                     OutlinedTextField(
                         value = docTitle,
