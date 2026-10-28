@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBalanceWallet
 import androidx.compose.material.icons.filled.AutoAwesome
@@ -96,42 +98,49 @@ private fun AppDrawerContent(
         drawerContainerColor = MaterialTheme.colorScheme.surface,
         drawerContentColor = MaterialTheme.colorScheme.onSurface
     ) {
-        Box(
+        Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .background(NavBlue)
-                .padding(20.dp)
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
         ) {
-            Column {
-                Text(
-                    "ISIBALO",
-                    style = MaterialTheme.typography.headlineMedium.copy(fontSize = 32.sp, lineHeight = 30.sp),
-                    color = Color.White
-                )
-                Text(
-                    "EXPRESS MERCHANT",
-                    style = MaterialTheme.typography.titleMedium.copy(fontSize = 14.sp, letterSpacing = 2.sp),
-                    color = NavMuted
-                )
-                Spacer(Modifier.height(8.dp))
-                Text(
-                    "On-The-Go Business OS • Offline-First",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = Color.White.copy(alpha = 0.8f)
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(NavBlue)
+                    .padding(20.dp)
+            ) {
+                Column {
+                    Text(
+                        "ISIBALO",
+                        style = MaterialTheme.typography.headlineMedium.copy(fontSize = 32.sp, lineHeight = 30.sp),
+                        color = Color.White
+                    )
+                    Text(
+                        "EXPRESS MERCHANT",
+                        style = MaterialTheme.typography.titleMedium.copy(fontSize = 14.sp, letterSpacing = 2.sp),
+                        color = NavMuted
+                    )
+                    Spacer(Modifier.height(8.dp))
+                    Text(
+                        "On-The-Go Business OS • Offline-First",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = Color.White.copy(alpha = 0.8f)
+                    )
+                }
+            }
+
+            Spacer(Modifier.height(12.dp))
+
+            NavDestination.entries.forEach { item ->
+                NavigationDrawerItem(
+                    icon = { Icon(item.icon, contentDescription = item.label) },
+                    label = { Text(item.label) },
+                    selected = current == item,
+                    onClick = { onNavigate(item) },
+                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
                 )
             }
-        }
-
-        Spacer(Modifier.height(12.dp))
-
-        NavDestination.entries.forEach { item ->
-            NavigationDrawerItem(
-                icon = { Icon(item.icon, contentDescription = item.label) },
-                label = { Text(item.label) },
-                selected = current == item,
-                onClick = { onNavigate(item) },
-                modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-            )
+            Spacer(Modifier.height(24.dp))
         }
     }
 }
