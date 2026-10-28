@@ -11,9 +11,6 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -59,31 +56,52 @@ fun PosScreen(vm: PosViewModel = viewModel(factory = AppViewModelProvider.Factor
     LaunchedEffect(Unit) { vm.message.collect { snack.showSnackbar(it) } }
 
     Box(Modifier.fillMaxSize()) {
-        Column(Modifier.fillMaxSize()) {
-            OutlinedTextField(
-                value = query,
-                onValueChange = { vm.searchQuery.value = it },
-                modifier = Modifier.fillMaxWidth().padding(12.dp).padding(bottom = 0.dp),
-                placeholder = { Text("Search products to sell...") },
-                singleLine = true,
-                shape = RectangleShape
-            )
-            LazyVerticalGrid(
-                columns = GridCells.Adaptive(minSize = 150.dp),
-                modifier = Modifier.weight(1f).fillMaxWidth(),
-                contentPadding = PaddingValues(12.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                items(items, key = { it.id }) { ProductTile(it) { vm.add(it) } }
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = PaddingValues(12.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            item {
+                OutlinedTextField(
+                    value = query,
+                    onValueChange = { vm.searchQuery.value = it },
+                    modifier = Modifier.fillMaxWidth(),
+                    placeholder = { Text("Search products to sell...") },
+                    singleLine = true,
+                    shape = RectangleShape
+                )
             }
-            CheckoutPanel(
-                cart = cart, quick = quick, method = method, total = total,
-                onQuick = vm::setQuick,
-                onMethod = { vm.method.value = it },
-                onChange = vm::change,
-                onCharge = vm::charge
-            )
+
+            item {
+                Text("Product Catalog (${items.size})", style = MaterialTheme.typography.titleMedium, modifier = Modifier.padding(top = 4.dp))
+            }
+
+            // Render product grid in rows of 2 for unified scrolling
+            items(items.chunked(2), key = { rowItems -> rowItems.firstOrNull()?.id ?: 0L }) { rowItems ->
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    rowItems.forEach { item ->
+                        Box(modifier = Modifier.weight(1f)) {
+                            ProductTile(item) { vm.add(item) }
+                        }
+                    }
+                    if (rowItems.size == 1) {
+                        Box(modifier = Modifier.weight(1f))
+                    }
+                }
+            }
+
+            item {
+                CheckoutPanel(
+                    cart = cart, quick = quick, method = method, total = total,
+                    onQuick = vm::setQuick,
+                    onMethod = { vm.method.value = it },
+                    onChange = vm::change,
+                    onCharge = vm::charge
+                )
+            }
         }
         SnackbarHost(snack, Modifier.align(Alignment.TopCenter))
     }
@@ -113,10 +131,11 @@ private fun CheckoutPanel(
 ) {
     Surface(color = MaterialTheme.colorScheme.surfaceVariant, shape = RectangleShape, tonalElevation = 0.dp) {
         Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Text("Current Cart / Checkout", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
             if (cart.isNotEmpty()) {
-                LazyColumn(Modifier.heightIn(max = 140.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    items(cart, key = { it.stockItemId ?: -1L }) { line ->
-                        Row(verticalAlignment = Alignment.CenterVertically) {
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    cart.forEach { line ->
+                        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
                             Column(Modifier.weight(1f)) {
                                 Text(line.name, fontWeight = FontWeight.SemiBold, maxLines = 1)
                                 Text("${line.qty} x ${line.unitPriceCents.rands()}",
@@ -128,6 +147,8 @@ private fun CheckoutPanel(
                         }
                     }
                 }
+            } else {
+                Text("Cart is empty. Tap products above to add.", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodyMedium)
             }
             OutlinedTextField(
                 value = quick, onValueChange = onQuick, modifier = Modifier.fillMaxWidth(),
