@@ -15,10 +15,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBalanceWallet
+import androidx.compose.material.icons.filled.Assessment
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.BrightnessAuto
 import androidx.compose.material.icons.filled.DarkMode
+import androidx.compose.material.icons.filled.Inventory
 import androidx.compose.material.icons.filled.Inventory2
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Menu
@@ -68,6 +70,8 @@ import za.co.hbtechinc.isibalo.ui.loans.LoanScreen
 import za.co.hbtechinc.isibalo.ui.media.MediaSearchScreen
 import za.co.hbtechinc.isibalo.ui.petty_cash.PettyCashScreen
 import za.co.hbtechinc.isibalo.ui.pos.PosScreen
+import za.co.hbtechinc.isibalo.ui.reports.FinancialReportScreen
+import za.co.hbtechinc.isibalo.ui.reports.StockTakeScreen
 import za.co.hbtechinc.isibalo.ui.sales.SalesScreen
 import za.co.hbtechinc.isibalo.ui.stock.StockScreen
 import za.co.hbtechinc.isibalo.ui.theme.NavBlue
@@ -85,6 +89,8 @@ private enum class NavDestination(val route: String, val label: String, val icon
     Expenses("expenses", "Expenses & Profit", Icons.Filled.ReceiptLong, false),
     PettyCash("pettycash", "Petty Cash", Icons.Filled.Wallet, false),
     Loans("loans", "Working Capital Advances", Icons.Filled.RequestQuote, false),
+    FinancialReport("financialreport", "Financial Report", Icons.Filled.Assessment, false),
+    StockTake("stocktake", "Stock Take Audit", Icons.Filled.Inventory, false),
     MediaSearch("mediasearch", "Media & Video Search", Icons.Filled.VideoLibrary, false),
     AiSetup("aisetup", "AI Models & RAG", Icons.Filled.Psychology, false)
 }
@@ -234,6 +240,8 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
                     composable(NavDestination.Expenses.route) { ExpenseScreen() }
                     composable(NavDestination.PettyCash.route) { PettyCashScreen() }
                     composable(NavDestination.Loans.route) { LoanScreen() }
+                    composable(NavDestination.FinancialReport.route) { FinancialReportScreen() }
+                    composable(NavDestination.StockTake.route) { StockTakeScreen() }
                     composable(NavDestination.MediaSearch.route) { MediaSearchScreen() }
                     composable(NavDestination.AiSetup.route) { AiSetupScreen() }
                 }
