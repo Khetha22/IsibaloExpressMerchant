@@ -60,4 +60,7 @@ dependencies {
 
     // On-device AI (offline)
     implementation("com.google.mediapipe:tasks-genai:0.10.35")
+
+    // Unit Testing
+    testImplementation("junit:junit:4.13.2")
 }
