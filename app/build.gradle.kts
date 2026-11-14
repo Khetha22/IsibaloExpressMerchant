@@ -14,7 +14,7 @@ android {
         versionCode = 1
         versionName = "1.0"
         buildConfigField("String", "SYNC_URL", "\"https://hbtechinc.co.za/sync.php?action=push&store=main\"")
-        buildConfigField("String", "SYNC_API_KEY", "\"CHANGE-ME-TO-A-LONG-RANDOM-STRING\"")
+        buildConfigField("String", "SYNC_API_KEY", "\"isibalo_live_sec_998877665544332211\"")
     }
     buildTypes {
         release { isMinifyEnabled = false }
