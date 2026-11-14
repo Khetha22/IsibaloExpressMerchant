@@ -12,10 +12,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Remove
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarHost
@@ -69,8 +72,9 @@ fun PosScreen(vm: PosViewModel = viewModel(factory = AppViewModelProvider.Factor
                     onValueChange = { vm.searchQuery.value = it },
                     modifier = Modifier.fillMaxWidth(),
                     placeholder = { Text("Search products to sell...") },
+                    leadingIcon = { Icon(Icons.Filled.Search, contentDescription = "Search Icon") },
                     singleLine = true,
-                    shape = RectangleShape
+                    shape = RoundedCornerShape(8.dp)
                 )
             }
 

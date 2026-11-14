@@ -19,6 +19,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Remove
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -70,8 +71,9 @@ fun StockScreen(vm: StockViewModel = viewModel(factory = AppViewModelProvider.Fa
                 onValueChange = { vm.searchQuery.value = it },
                 modifier = Modifier.fillMaxWidth(),
                 placeholder = { Text("Search inventory items...") },
+                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = "Search Icon") },
                 singleLine = true,
-                shape = RectangleShape
+                shape = RoundedCornerShape(8.dp)
             )
         }
         item { SquareButton("ADD ITEM", { adding = true }, Modifier.fillMaxWidth()) }
