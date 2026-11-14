@@ -43,11 +43,17 @@ data class Sale(
 
 @Entity(
     tableName = "sale_items",
-    foreignKeys = [ForeignKey(
-        entity = Sale::class, parentColumns = ["id"],
-        childColumns = ["saleId"], onDelete = ForeignKey.CASCADE
-    )],
-    indices = [Index("saleId")]
+    foreignKeys = [
+        ForeignKey(
+            entity = Sale::class, parentColumns = ["id"],
+            childColumns = ["saleId"], onDelete = ForeignKey.CASCADE
+        ),
+        ForeignKey(
+            entity = StockItem::class, parentColumns = ["id"],
+            childColumns = ["stockItemId"], onDelete = ForeignKey.SET_NULL
+        )
+    ],
+    indices = [Index("saleId"), Index("stockItemId")]
 )
 data class SaleItem(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
