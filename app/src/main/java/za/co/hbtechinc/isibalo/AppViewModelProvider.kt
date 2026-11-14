@@ -19,6 +19,7 @@ import za.co.hbtechinc.isibalo.ui.sales.SalesViewModel
 import za.co.hbtechinc.isibalo.ui.staff.StaffViewModel
 import za.co.hbtechinc.isibalo.ui.statements.FinancialStatementViewModel
 import za.co.hbtechinc.isibalo.ui.stock.StockViewModel
+import za.co.hbtechinc.isibalo.ui.whatsapp_log.WhatsAppLogViewModel
 
 fun CreationExtras.app(): IsibaloApp =
     this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as IsibaloApp
@@ -40,5 +41,6 @@ object AppViewModelProvider {
         initializer { StockTakeViewModel(app().container.repository) }
         initializer { FinancialStatementViewModel(app().container.repository) }
         initializer { StaffViewModel(app().container.repository) }
+        initializer { WhatsAppLogViewModel(app().container.repository) }
     }
 }

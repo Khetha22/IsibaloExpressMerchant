@@ -35,6 +35,7 @@ import androidx.compose.material.icons.filled.PointOfSale
 import androidx.compose.material.icons.filled.Psychology
 import androidx.compose.material.icons.filled.ReceiptLong
 import androidx.compose.material.icons.filled.RequestQuote
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.VideoLibrary
 import androidx.compose.material.icons.filled.Wallet
 import androidx.compose.material3.DrawerValue
@@ -92,6 +93,7 @@ import za.co.hbtechinc.isibalo.ui.stock.StockScreen
 import za.co.hbtechinc.isibalo.ui.theme.NavBlue
 import za.co.hbtechinc.isibalo.ui.theme.NavMuted
 import za.co.hbtechinc.isibalo.ui.theme.ThemeMode
+import za.co.hbtechinc.isibalo.ui.whatsapp_log.WhatsAppLogScreen
 import kotlinx.coroutines.launch
 
 private enum class NavDestination(val route: String, val label: String, val icon: ImageVector, val inBottomBar: Boolean = true) {
@@ -108,6 +110,7 @@ private enum class NavDestination(val route: String, val label: String, val icon
     Staff("staff", "Staff & Payroll", Icons.Filled.Group, false),
     FinancialReport("financialreport", "Financial Report", Icons.Filled.Assessment, false),
     StockTake("stocktake", "Stock Take Audit", Icons.Filled.Inventory, false),
+    WhatsAppLog("whatsapplog", "WhatsApp Share Activity", Icons.Filled.Share, false),
     MediaSearch("mediasearch", "Media & Video Search", Icons.Filled.VideoLibrary, false),
     AiSetup("aisetup", "AI Models & RAG", Icons.Filled.Psychology, false)
 }
@@ -316,6 +319,7 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
                     composable(NavDestination.Staff.route) { StaffScreen() }
                     composable(NavDestination.FinancialReport.route) { FinancialReportScreen() }
                     composable(NavDestination.StockTake.route) { StockTakeScreen() }
+                    composable(NavDestination.WhatsAppLog.route) { WhatsAppLogScreen() }
                     composable(NavDestination.MediaSearch.route) { MediaSearchScreen() }
                     composable(NavDestination.AiSetup.route) { AiSetupScreen() }
                 }

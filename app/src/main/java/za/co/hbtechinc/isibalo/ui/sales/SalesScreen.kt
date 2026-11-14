@@ -104,6 +104,7 @@ fun SalesScreen(vm: SalesViewModel = viewModel(factory = AppViewModelProvider.Fa
                     SquareButton(
                         text = "WHATSAPP",
                         onClick = {
+                            vm.logWhatsAppShare("Sales Receipt", "Receipt of ${s.totalCents.rands()} (${s.method.label})")
                             val receiptText = "🧾 *Isibalo Express Receipt*\nTotal: ${s.totalCents.rands()}\nMethod: ${s.method.label}\nTime: ${fmt.format(Date(s.createdAt))}\nThank you for shopping with us!"
                             val intent = Intent(Intent.ACTION_VIEW).apply {
                                 data = Uri.parse("https://api.whatsapp.com/send?text=${Uri.encode(receiptText)}")

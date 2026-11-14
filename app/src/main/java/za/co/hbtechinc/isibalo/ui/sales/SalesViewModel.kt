@@ -9,8 +9,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
-class SalesViewModel(private val app: Application, repo: Repository) : ViewModel() {
+class SalesViewModel(private val app: Application, private val repo: Repository) : ViewModel() {
     private val wl = SharingStarted.WhileSubscribed(5000)
 
     val searchQuery = MutableStateFlow("")
@@ -26,4 +27,10 @@ class SalesViewModel(private val app: Application, repo: Repository) : ViewModel
     val totals = repo.todayTotals().stateIn(viewModelScope, wl, emptyList())
     val pending = repo.pendingSales().stateIn(viewModelScope, wl, 0)
     fun syncNow() = SyncScheduler.syncNow(app)
+
+    fun logWhatsAppShare(title: String, summary: String) {
+        viewModelScope.launch {
+            repo.logWhatsAppShare(title, summary)
+        }
+    }
 }

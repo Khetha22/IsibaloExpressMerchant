@@ -4,8 +4,8 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [StockItem::class, Sale::class, SaleItem::class, CashUpRecord::class, KnowledgeDoc::class, CustomerDebt::class, Expense::class, PettyCash::class, MerchantLoan::class, Staff::class],
-    version = 7,
+    entities = [StockItem::class, Sale::class, SaleItem::class, CashUpRecord::class, KnowledgeDoc::class, CustomerDebt::class, Expense::class, PettyCash::class, MerchantLoan::class, Staff::class, WhatsAppShareLog::class],
+    version = 8,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -18,4 +18,5 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun pettyCashDao(): PettyCashDao
     abstract fun merchantLoanDao(): MerchantLoanDao
     abstract fun staffDao(): StaffDao
+    abstract fun whatsAppShareLogDao(): WhatsAppShareLogDao
 }

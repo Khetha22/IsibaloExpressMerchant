@@ -15,6 +15,7 @@ class Repository(private val db: AppDatabase) {
     private val pettyCashDao = db.pettyCashDao()
     private val loanDao = db.merchantLoanDao()
     private val staffDao = db.staffDao()
+    private val whatsappLogDao = db.whatsAppShareLogDao()
 
     fun stock() = stockDao.observeAll()
     fun lowStock() = stockDao.observeLow()
@@ -29,6 +30,12 @@ class Repository(private val db: AppDatabase) {
     fun pettyCashRecords() = pettyCashDao.observeAll()
     fun merchantLoans() = loanDao.observeAll()
     fun staff() = staffDao.observeAll()
+    fun whatsappLogs() = whatsappLogDao.observeAll()
+
+    suspend fun logWhatsAppShare(title: String, summary: String) =
+        whatsappLogDao.insert(WhatsAppShareLog(title = title, summary = summary))
+
+    suspend fun deleteWhatsAppLog(log: WhatsAppShareLog) = whatsappLogDao.delete(log)
 
     suspend fun saveStaff(staff: Staff) = staffDao.upsert(staff)
     suspend fun deleteStaff(staff: Staff) = staffDao.delete(staff)

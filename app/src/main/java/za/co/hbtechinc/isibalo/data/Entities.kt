@@ -158,6 +158,16 @@ data class Staff(
     val synced: Boolean = false
 )
 
+/** Audit log tracking WhatsApp receipt and report sharing. */
+@Entity(tableName = "whatsapp_share_logs")
+data class WhatsAppShareLog(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val title: String,
+    val summary: String,
+    val sharedAt: Long = System.currentTimeMillis(),
+    val synced: Boolean = false
+)
+
 /** A line in the POS cart. stockItemId == null means a quick/custom amount. */
 data class CartLine(
     val stockItemId: Long?,

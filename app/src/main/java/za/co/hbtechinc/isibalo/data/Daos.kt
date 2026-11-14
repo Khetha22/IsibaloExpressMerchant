@@ -138,6 +138,16 @@ interface StaffDao {
     @Delete suspend fun delete(staff: Staff)
 }
 
+@Dao
+interface WhatsAppShareLogDao {
+    @Query("SELECT * FROM whatsapp_share_logs ORDER BY sharedAt DESC")
+    fun observeAll(): Flow<List<WhatsAppShareLog>>
+
+    @Insert suspend fun insert(log: WhatsAppShareLog): Long
+
+    @Delete suspend fun delete(log: WhatsAppShareLog)
+}
+
 
 
 
