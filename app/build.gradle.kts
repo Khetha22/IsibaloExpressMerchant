@@ -13,8 +13,8 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-        buildConfigField("String", "SYNC_URL", "\"https://hbtechinc.co.za/isibalo/api/sync.php\"")
-        buildConfigField("String", "SYNC_API_KEY", "\"CHANGE_ME\"")
+        buildConfigField("String", "SYNC_URL", "\"https://hbtechinc.co.za/sync.php?action=push&store=main\"")
+        buildConfigField("String", "SYNC_API_KEY", "\"CHANGE-ME-TO-A-LONG-RANDOM-STRING\"")
     }
     buildTypes {
         release { isMinifyEnabled = false }
