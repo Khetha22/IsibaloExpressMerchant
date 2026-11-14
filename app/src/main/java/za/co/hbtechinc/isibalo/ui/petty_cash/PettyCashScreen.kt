@@ -4,20 +4,26 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -26,10 +32,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import za.co.hbtechinc.isibalo.AppViewModelProvider
@@ -56,27 +63,26 @@ fun PettyCashScreen(vm: PettyCashViewModel = viewModel(factory = AppViewModelPro
     ) {
         item {
             SquareCard(Modifier.fillMaxWidth(), color = cs.primaryContainer) {
-                Column(Modifier.padding(16.dp)) {
-                    Text("Unsettled Petty Cash Issued", color = cs.onPrimaryContainer, style = MaterialTheme.typography.labelLarge)
-                    Text(unsettledTotal.rands(), color = cs.onPrimaryContainer, style = MaterialTheme.typography.headlineMedium)
-                    Text("${records.count { !it.settled }} active petty cash vouchers", color = cs.onPrimaryContainer, style = MaterialTheme.typography.labelSmall)
+                Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Text("Petty Cash Management", color = cs.onPrimaryContainer, style = MaterialTheme.typography.labelLarge)
+                    Text("Unsettled Vouchers: ${unsettledTotal.rands()}", color = cs.onPrimaryContainer, style = MaterialTheme.typography.headlineMedium)
+                    Text("Issued vouchers and staff expense advances", color = cs.onPrimaryContainer.copy(alpha = 0.9f), style = MaterialTheme.typography.bodyMedium)
                 }
             }
         }
+
         item {
-            SquareButton("ISSUE PETTY CASH", { issuing = true }, Modifier.fillMaxWidth())
+            SquareButton("ISSUE PETTY CASH VOUCHER", { issuing = true }, Modifier.fillMaxWidth())
         }
+
         if (records.isEmpty()) {
             item {
-                Text("No petty cash vouchers recorded yet. Track cash advances here.", color = cs.onSurfaceVariant)
+                Text("No petty cash vouchers issued yet.", color = cs.onSurfaceVariant)
             }
         }
+
         items(records, key = { it.id }) { record ->
-            PettyCashItem(
-                record = record,
-                onSettle = { vm.settle(record.id) },
-                onDelete = { vm.delete(record) }
-            )
+            PettyCashItem(record = record, onSettle = { vm.settle(record.id) }, onDelete = { vm.delete(record) })
         }
     }
 
@@ -132,34 +138,35 @@ private fun IssuePettyCashDialog(onDismiss: () -> Unit, onSave: (String, String,
     var amount by remember { mutableStateOf("") }
     var note by remember { mutableStateOf("") }
 
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        shape = RectangleShape,
-        title = { Text("Issue Petty Cash") },
-        text = {
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                OutlinedTextField(
-                    value = recipient, onValueChange = { recipient = it }, label = { Text("Recipient / Staff Name") },
-                    singleLine = true, shape = RectangleShape, modifier = Modifier.fillMaxWidth()
-                )
-                OutlinedTextField(
-                    value = amount, onValueChange = { amount = it }, label = { Text("Amount Issued (R)") },
-                    singleLine = true, shape = RectangleShape, modifier = Modifier.fillMaxWidth(),
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal)
-                )
-                OutlinedTextField(
-                    value = note, onValueChange = { note = it }, label = { Text("Reason / Purpose (e.g. Change, Transport)") },
-                    shape = RectangleShape, modifier = Modifier.fillMaxWidth()
-                )
-            }
-        },
-        confirmButton = {
-            SquareButton("ISSUE", {
-                if (recipient.isNotBlank() && amount.isNotBlank()) {
-                    onSave(recipient, amount, note)
+    Dialog(onDismissRequest = onDismiss, properties = DialogProperties(usePlatformDefaultWidth = false)) {
+        Surface(
+            modifier = Modifier.fillMaxWidth(0.95f).fillMaxHeight(0.85f).padding(12.dp),
+            shape = RoundedCornerShape(12.dp), color = MaterialTheme.colorScheme.surface, tonalElevation = 6.dp
+        ) {
+            Column(Modifier.fillMaxSize().padding(16.dp)) {
+                Text("Issue Petty Cash", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+                Spacer(Modifier.height(12.dp))
+                Column(Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    OutlinedTextField(
+                        value = recipient, onValueChange = { recipient = it }, label = { Text("Recipient / Staff Name") },
+                        singleLine = true, shape = RoundedCornerShape(8.dp), modifier = Modifier.fillMaxWidth()
+                    )
+                    OutlinedTextField(
+                        value = amount, onValueChange = { amount = it }, label = { Text("Amount Issued (R)") },
+                        singleLine = true, shape = RoundedCornerShape(8.dp), modifier = Modifier.fillMaxWidth(),
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal)
+                    )
+                    OutlinedTextField(
+                        value = note, onValueChange = { note = it }, label = { Text("Reason / Purpose (e.g. Change, Transport)") },
+                        shape = RoundedCornerShape(8.dp), modifier = Modifier.fillMaxWidth()
+                    )
                 }
-            })
-        },
-        dismissButton = { SquareButton("CANCEL", onDismiss, outlined = true) }
-    )
+                Spacer(Modifier.height(12.dp))
+                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    SquareButton("CANCEL", onDismiss, Modifier.weight(1f), outlined = true)
+                    SquareButton("ISSUE", { if (recipient.isNotBlank() && amount.isNotBlank()) onSave(recipient, amount, note) }, Modifier.weight(1f))
+                }
+            }
+        }
+    }
 }
