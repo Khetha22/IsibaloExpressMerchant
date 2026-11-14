@@ -33,6 +33,9 @@ class Repository(private val db: AppDatabase) {
     suspend fun saveStaff(staff: Staff) = staffDao.upsert(staff)
     suspend fun deleteStaff(staff: Staff) = staffDao.delete(staff)
 
+    suspend fun getPendingSalesForSync() = salesDao.unsynced().map { it.sale }
+    suspend fun markSalesSynced(ids: List<Long>) = salesDao.markSynced(ids)
+
     suspend fun applyForLoan(principalCents: Long): Long {
         val feeCents = (principalCents * 0.10).toLong() // 10% flat working capital fee
         val total = principalCents + feeCents
