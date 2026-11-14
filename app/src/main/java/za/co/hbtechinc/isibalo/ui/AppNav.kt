@@ -20,6 +20,7 @@ import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.BrightnessAuto
 import androidx.compose.material.icons.filled.DarkMode
+import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.Inventory
 import androidx.compose.material.icons.filled.Inventory2
 import androidx.compose.material.icons.filled.LightMode
@@ -73,6 +74,7 @@ import za.co.hbtechinc.isibalo.ui.pos.PosScreen
 import za.co.hbtechinc.isibalo.ui.reports.FinancialReportScreen
 import za.co.hbtechinc.isibalo.ui.reports.StockTakeScreen
 import za.co.hbtechinc.isibalo.ui.sales.SalesScreen
+import za.co.hbtechinc.isibalo.ui.statements.FinancialStatementScreen
 import za.co.hbtechinc.isibalo.ui.stock.StockScreen
 import za.co.hbtechinc.isibalo.ui.theme.NavBlue
 import za.co.hbtechinc.isibalo.ui.theme.NavMuted
@@ -85,6 +87,7 @@ private enum class NavDestination(val route: String, val label: String, val icon
     Stock("stock", "Stock & Inventory", Icons.Filled.Inventory2, true),
     CashUp("cashup", "Cash-Up", Icons.Filled.AccountBalanceWallet, true),
     Assistant("assistant", "AI Assistant", Icons.Filled.AutoAwesome, true),
+    Statements("statements", "PDF Financial Statements", Icons.Filled.Description, false),
     Credit("credit", "Customer Credit (Tab)", Icons.Filled.People, false),
     Expenses("expenses", "Expenses & Profit", Icons.Filled.ReceiptLong, false),
     PettyCash("pettycash", "Petty Cash", Icons.Filled.Wallet, false),
@@ -236,6 +239,7 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
                     composable(NavDestination.Stock.route) { StockScreen() }
                     composable(NavDestination.CashUp.route) { CashUpScreen() }
                     composable(NavDestination.Assistant.route) { AssistantScreen() }
+                    composable(NavDestination.Statements.route) { FinancialStatementScreen() }
                     composable(NavDestination.Credit.route) { CreditScreen() }
                     composable(NavDestination.Expenses.route) { ExpenseScreen() }
                     composable(NavDestination.PettyCash.route) { PettyCashScreen() }

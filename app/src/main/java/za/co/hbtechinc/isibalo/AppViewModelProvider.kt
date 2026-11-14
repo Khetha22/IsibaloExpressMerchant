@@ -16,6 +16,7 @@ import za.co.hbtechinc.isibalo.ui.pos.PosViewModel
 import za.co.hbtechinc.isibalo.ui.reports.FinancialReportViewModel
 import za.co.hbtechinc.isibalo.ui.reports.StockTakeViewModel
 import za.co.hbtechinc.isibalo.ui.sales.SalesViewModel
+import za.co.hbtechinc.isibalo.ui.statements.FinancialStatementViewModel
 import za.co.hbtechinc.isibalo.ui.stock.StockViewModel
 
 fun CreationExtras.app(): IsibaloApp =
@@ -36,5 +37,6 @@ object AppViewModelProvider {
         initializer { MediaSearchViewModel(app().container.repository) }
         initializer { FinancialReportViewModel(app().container.repository) }
         initializer { StockTakeViewModel(app().container.repository) }
+        initializer { FinancialStatementViewModel(app().container.repository) }
     }
 }
