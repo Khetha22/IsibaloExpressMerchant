@@ -5,8 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import za.co.hbtechinc.isibalo.data.Repository
 import za.co.hbtechinc.isibalo.sync.SyncScheduler
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -26,7 +28,14 @@ class SalesViewModel(private val app: Application, private val repo: Repository)
 
     val totals = repo.todayTotals().stateIn(viewModelScope, wl, emptyList())
     val pending = repo.pendingSales().stateIn(viewModelScope, wl, 0)
-    fun syncNow() = SyncScheduler.syncNow(app)
+
+    private val _syncMessage = MutableSharedFlow<String>(extraBufferCapacity = 1)
+    val syncMessage = _syncMessage.asSharedFlow()
+
+    fun syncNow() {
+        SyncScheduler.syncNow(app)
+        _syncMessage.tryEmit("Sync triggered with hbtechinc.co.za")
+    }
 
     fun logWhatsAppShare(title: String, summary: String) {
         viewModelScope.launch {
