@@ -1,6 +1,7 @@
 package za.co.hbtechinc.isibalo.ui.components
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -17,10 +18,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+
+private val CardShape = RoundedCornerShape(8.dp)
 
 @Composable
 fun SquareButton(
@@ -34,12 +36,12 @@ fun SquareButton(
     if (outlined) {
         OutlinedButton(
             onClick = onClick, modifier = modifier.height(48.dp), enabled = enabled,
-            shape = RectangleShape, border = BorderStroke(1.5.dp, cs.primary)
+            shape = CardShape, border = BorderStroke(1.5.dp, cs.primary)
         ) { Text(text, fontWeight = FontWeight.Bold) }
     } else {
         Button(
             onClick = onClick, modifier = modifier.height(48.dp), enabled = enabled,
-            shape = RectangleShape,
+            shape = CardShape,
             colors = ButtonDefaults.buttonColors(containerColor = cs.primary, contentColor = cs.onPrimary)
         ) { Text(text, fontWeight = FontWeight.Bold) }
     }
@@ -49,8 +51,9 @@ fun SquareButton(
 fun SquareIconButton(icon: ImageVector, desc: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
     val cs = MaterialTheme.colorScheme
     Surface(
-        onClick = onClick, modifier = modifier.size(40.dp), shape = RectangleShape,
-        color = cs.primary, contentColor = cs.onPrimary
+        onClick = onClick, modifier = modifier.size(40.dp), shape = CardShape,
+        color = cs.primary, contentColor = cs.onPrimary,
+        tonalElevation = 2.dp
     ) { Box(contentAlignment = Alignment.Center) { Icon(icon, desc) } }
 }
 
@@ -61,24 +64,24 @@ fun SquareCard(
     onClick: (() -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit
 ) {
-    val border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+    val border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.5f))
     if (onClick != null) {
-        Surface(onClick = onClick, modifier = modifier, shape = RectangleShape, color = color, border = border) {
+        Surface(onClick = onClick, modifier = modifier, shape = CardShape, color = color, border = border, shadowElevation = 2.dp) {
             Column(content = content)
         }
     } else {
-        Surface(modifier = modifier, shape = RectangleShape, color = color, border = border) {
+        Surface(modifier = modifier, shape = CardShape, color = color, border = border, shadowElevation = 1.dp) {
             Column(content = content)
         }
     }
 }
 
-/** Square toggle used for payment method selection and quick prompts. */
+/** Toggle used for payment method selection and quick prompts. */
 @Composable
 fun SquareChoice(text: String, selected: Boolean, onClick: () -> Unit, modifier: Modifier = Modifier) {
     val cs = MaterialTheme.colorScheme
     Surface(
-        onClick = onClick, modifier = modifier, shape = RectangleShape,
+        onClick = onClick, modifier = modifier, shape = CardShape,
         color = if (selected) cs.primary else cs.surface,
         contentColor = if (selected) cs.onPrimary else cs.onSurface,
         border = BorderStroke(1.5.dp, cs.primary)

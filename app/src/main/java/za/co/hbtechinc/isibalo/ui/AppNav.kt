@@ -164,7 +164,8 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
     val scope = rememberCoroutineScope()
 
     BoxWithConstraints(Modifier.fillMaxSize()) {
-        val isWideScreen = this.maxWidth >= 840.dp
+        // Automatically place navigation permanently on the side when rotated to landscape or on wide screen/tablet
+        val isWideScreen = this.maxWidth >= 560.dp || this.maxWidth > this.maxHeight
 
         val scaffoldContent = @Composable {
             Scaffold(
