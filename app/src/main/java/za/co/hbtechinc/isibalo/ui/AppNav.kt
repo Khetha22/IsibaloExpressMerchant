@@ -2,11 +2,15 @@
 
 package za.co.hbtechinc.isibalo.ui
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -19,6 +23,7 @@ import androidx.compose.material.icons.filled.Assessment
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.BrightnessAuto
+import androidx.compose.material.icons.filled.ChevronLeft
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.Inventory
@@ -43,6 +48,9 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.NavigationDrawerItemDefaults
+import androidx.compose.material3.NavigationRail
+import androidx.compose.material3.NavigationRailItem
+import androidx.compose.material3.NavigationRailItemDefaults
 import androidx.compose.material3.PermanentNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -51,7 +59,11 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -99,9 +111,50 @@ private enum class NavDestination(val route: String, val label: String, val icon
 }
 
 @Composable
+private fun AppRailContent(
+    current: NavDestination,
+    onNavigate: (NavDestination) -> Unit,
+    onExpand: () -> Unit
+) {
+    NavigationRail(
+        containerColor = NavBlue,
+        contentColor = Color.White,
+        header = {
+            IconButton(onClick = onExpand, modifier = Modifier.padding(vertical = 8.dp)) {
+                Icon(Icons.Filled.Menu, contentDescription = "Expand Navigation Menu", tint = Color.White)
+            }
+        }
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxHeight()
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            NavDestination.entries.forEach { item ->
+                NavigationRailItem(
+                    selected = item == current,
+                    onClick = { onNavigate(item) },
+                    icon = { Icon(item.icon, contentDescription = item.label) },
+                    label = { Text(item.label.take(6) + "..", fontSize = 9.sp) },
+                    colors = NavigationRailItemDefaults.colors(
+                        selectedIconColor = NavBlue,
+                        selectedTextColor = Color.White,
+                        indicatorColor = Color.White,
+                        unselectedIconColor = NavMuted,
+                        unselectedTextColor = NavMuted
+                    )
+                )
+            }
+        }
+    }
+}
+
+@Composable
 private fun AppDrawerContent(
     current: NavDestination,
-    onNavigate: (NavDestination) -> Unit
+    onNavigate: (NavDestination) -> Unit,
+    onCollapse: (() -> Unit)? = null
 ) {
     ModalDrawerSheet(
         drawerContainerColor = MaterialTheme.colorScheme.surface,
@@ -119,16 +172,29 @@ private fun AppDrawerContent(
                     .padding(20.dp)
             ) {
                 Column {
-                    Text(
-                        "ISIBALO",
-                        style = MaterialTheme.typography.headlineMedium.copy(fontSize = 32.sp, lineHeight = 30.sp),
-                        color = Color.White
-                    )
-                    Text(
-                        "EXPRESS MERCHANT",
-                        style = MaterialTheme.typography.titleMedium.copy(fontSize = 14.sp, letterSpacing = 2.sp),
-                        color = NavMuted
-                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(
+                                "ISIBALO",
+                                style = MaterialTheme.typography.headlineMedium.copy(fontSize = 32.sp, lineHeight = 30.sp),
+                                color = Color.White
+                            )
+                            Text(
+                                "EXPRESS MERCHANT",
+                                style = MaterialTheme.typography.titleMedium.copy(fontSize = 14.sp, letterSpacing = 2.sp),
+                                color = NavMuted
+                            )
+                        }
+                        if (onCollapse != null) {
+                            IconButton(onClick = onCollapse) {
+                                Icon(Icons.Filled.ChevronLeft, contentDescription = "Collapse Menu", tint = Color.White)
+                            }
+                        }
+                    }
                     Spacer(Modifier.height(8.dp))
                     Text(
                         "On-The-Go Business OS • Offline-First",
@@ -162,9 +228,9 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
+    var isRailExpanded by remember { mutableStateOf(false) }
 
     BoxWithConstraints(Modifier.fillMaxSize()) {
-        // Automatically place navigation permanently on the side when rotated to landscape or on wide screen/tablet
         val isWideScreen = this.maxWidth >= 560.dp || this.maxWidth > this.maxHeight
 
         val scaffoldContent = @Composable {
@@ -254,31 +320,51 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
         }
 
         if (isWideScreen) {
-            PermanentNavigationDrawer(
-                drawerContent = {
-                    AppDrawerContent(current) { item ->
-                        nav.navigate(item.route) {
-                            popUpTo(nav.graph.findStartDestination().id) { saveState = true }
-                            launchSingleTop = true
-                            restoreState = true
-                        }
-                    }
+            Row(Modifier.fillMaxSize()) {
+                if (isRailExpanded) {
+                    AppDrawerContent(
+                        current = current,
+                        onNavigate = { item ->
+                            nav.navigate(item.route) {
+                                popUpTo(nav.graph.findStartDestination().id) { saveState = true }
+                                launchSingleTop = true
+                                restoreState = true
+                            }
+                        },
+                        onCollapse = { isRailExpanded = false }
+                    )
+                } else {
+                    AppRailContent(
+                        current = current,
+                        onNavigate = { item ->
+                            nav.navigate(item.route) {
+                                popUpTo(nav.graph.findStartDestination().id) { saveState = true }
+                                launchSingleTop = true
+                                restoreState = true
+                            }
+                        },
+                        onExpand = { isRailExpanded = true }
+                    )
                 }
-            ) {
-                scaffoldContent()
+                Box(Modifier.weight(1f)) {
+                    scaffoldContent()
+                }
             }
         } else {
             ModalNavigationDrawer(
                 drawerState = drawerState,
                 drawerContent = {
-                    AppDrawerContent(current) { item ->
-                        scope.launch { drawerState.close() }
-                        nav.navigate(item.route) {
-                            popUpTo(nav.graph.findStartDestination().id) { saveState = true }
-                            launchSingleTop = true
-                            restoreState = true
+                    AppDrawerContent(
+                        current = current,
+                        onNavigate = { item ->
+                            scope.launch { drawerState.close() }
+                            nav.navigate(item.route) {
+                                popUpTo(nav.graph.findStartDestination().id) { saveState = true }
+                                launchSingleTop = true
+                                restoreState = true
+                            }
                         }
-                    }
+                    )
                 }
             ) {
                 scaffoldContent()

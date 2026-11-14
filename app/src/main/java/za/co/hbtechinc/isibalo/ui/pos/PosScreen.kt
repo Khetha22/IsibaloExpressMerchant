@@ -50,6 +50,8 @@ fun PosScreen(vm: PosViewModel = viewModel(factory = AppViewModelProvider.Factor
     val query by vm.searchQuery.collectAsStateWithLifecycle()
     val cart by vm.cart.collectAsStateWithLifecycle()
     val quick by vm.quickAmount.collectAsStateWithLifecycle()
+    val cashTendered by vm.cashTendered.collectAsStateWithLifecycle()
+    val changeDue by vm.changeDue.collectAsStateWithLifecycle()
     val method by vm.method.collectAsStateWithLifecycle()
     val total by vm.total.collectAsStateWithLifecycle()
     val snack = remember { SnackbarHostState() }
@@ -95,8 +97,10 @@ fun PosScreen(vm: PosViewModel = viewModel(factory = AppViewModelProvider.Factor
 
             item {
                 CheckoutPanel(
-                    cart = cart, quick = quick, method = method, total = total,
+                    cart = cart, quick = quick, cashTendered = cashTendered, changeDue = changeDue,
+                    method = method, total = total,
                     onQuick = vm::setQuick,
+                    onCashTendered = vm::setCashTendered,
                     onMethod = { vm.method.value = it },
                     onChange = vm::change,
                     onCharge = vm::charge
@@ -125,11 +129,14 @@ private fun ProductTile(item: StockItem, onClick: () -> Unit) {
 
 @Composable
 private fun CheckoutPanel(
-    cart: List<CartLine>, quick: String, method: PaymentMethod, total: Long,
-    onQuick: (String) -> Unit, onMethod: (PaymentMethod) -> Unit,
+    cart: List<CartLine>, quick: String, cashTendered: String, changeDue: Long,
+    method: PaymentMethod, total: Long,
+    onQuick: (String) -> Unit, onCashTendered: (String) -> Unit,
+    onMethod: (PaymentMethod) -> Unit,
     onChange: (CartLine, Int) -> Unit, onCharge: () -> Unit
 ) {
-    Surface(color = MaterialTheme.colorScheme.surfaceVariant, shape = RectangleShape, tonalElevation = 0.dp) {
+    val cs = MaterialTheme.colorScheme
+    Surface(color = cs.surfaceVariant, shape = RectangleShape, tonalElevation = 0.dp) {
         Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             Text("Current Cart / Checkout", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
             if (cart.isNotEmpty()) {
@@ -148,18 +155,39 @@ private fun CheckoutPanel(
                     }
                 }
             } else {
-                Text("Cart is empty. Tap products above to add.", color = MaterialTheme.colorScheme.onSurfaceVariant, style = MaterialTheme.typography.bodyMedium)
+                Text("Cart is empty. Tap products above to add.", color = cs.onSurfaceVariant, style = MaterialTheme.typography.bodyMedium)
             }
+
             OutlinedTextField(
                 value = quick, onValueChange = onQuick, modifier = Modifier.fillMaxWidth(),
-                label = { Text("Quick amount (R)") }, singleLine = true, shape = RectangleShape,
+                label = { Text("Quick custom amount (R)") }, singleLine = true, shape = RectangleShape,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal)
             )
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+
+            Text("Payment Method", style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.Bold)
+            Row(horizontalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.fillMaxWidth()) {
                 PaymentMethod.entries.forEach {
                     SquareChoice(it.label, it == method, { onMethod(it) }, Modifier.weight(1f))
                 }
             }
+
+            if (method == PaymentMethod.CASH) {
+                SquareCard(Modifier.fillMaxWidth(), color = cs.surface) {
+                    Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                        Text("Cash Tendered & Change Calculator", fontWeight = FontWeight.Bold, color = cs.primary)
+                        OutlinedTextField(
+                            value = cashTendered, onValueChange = onCashTendered, modifier = Modifier.fillMaxWidth(),
+                            label = { Text("Amount Tendered by Customer (R)") }, singleLine = true, shape = RectangleShape,
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal)
+                        )
+                        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                            Text("Total Due: ${total.rands()}", fontWeight = FontWeight.SemiBold)
+                            Text("Change Due: ${changeDue.rands()}", fontWeight = FontWeight.Bold, color = cs.primary, style = MaterialTheme.typography.titleMedium)
+                        }
+                    }
+                }
+            }
+
             SquareButton("CHARGE ${total.rands()}", onCharge, Modifier.fillMaxWidth().heightIn(min = 56.dp), enabled = total > 0)
         }
     }

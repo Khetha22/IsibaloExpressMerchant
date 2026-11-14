@@ -32,10 +32,16 @@ class PosViewModel(private val repo: Repository) : ViewModel() {
     val cart = _cart.asStateFlow()
 
     val quickAmount = MutableStateFlow("")
+    val cashTendered = MutableStateFlow("")
     val method = MutableStateFlow(PaymentMethod.CASH)
 
     val total = combine(_cart, quickAmount) { c, q ->
         c.sumOf { it.unitPriceCents * it.qty } + (q.toCents() ?: 0L)
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), 0L)
+
+    val changeDue = combine(total, cashTendered) { t, tendered ->
+        val tenderedCents = tendered.toCents() ?: 0L
+        if (tenderedCents > t) tenderedCents - t else 0L
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), 0L)
 
     private val _message = MutableSharedFlow<String>(extraBufferCapacity = 1)
@@ -66,6 +72,7 @@ class PosViewModel(private val repo: Repository) : ViewModel() {
     }
 
     fun setQuick(v: String) { quickAmount.value = v.filter { it.isDigit() || it == '.' || it == ',' } }
+    fun setCashTendered(v: String) { cashTendered.value = v.filter { it.isDigit() || it == '.' || it == ',' } }
 
     fun charge() {
         viewModelScope.launch {
@@ -80,11 +87,12 @@ class PosViewModel(private val repo: Repository) : ViewModel() {
                 val commission = finalTotal.calculateCommissionCents()
                 _message.tryEmit("Sale saved via ${m.label}. Platform fee (2.5%): ${commission.rands()} deducted.")
             } else {
-                _message.tryEmit("Cash sale saved successfully")
+                _message.tryEmit("Cash sale saved successfully. Change calculated.")
             }
 
             _cart.value = emptyList()
             quickAmount.value = ""
+            cashTendered.value = ""
         }
     }
 }
