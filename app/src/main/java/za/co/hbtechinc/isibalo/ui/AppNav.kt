@@ -2,7 +2,6 @@
 
 package za.co.hbtechinc.isibalo.ui
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,12 +17,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.AccountBalanceWallet
 import androidx.compose.material.icons.filled.Assessment
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.BrightnessAuto
 import androidx.compose.material.icons.filled.ChevronLeft
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.Inventory
@@ -35,6 +36,7 @@ import androidx.compose.material.icons.filled.PointOfSale
 import androidx.compose.material.icons.filled.Psychology
 import androidx.compose.material.icons.filled.ReceiptLong
 import androidx.compose.material.icons.filled.RequestQuote
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.VideoLibrary
 import androidx.compose.material.icons.filled.Wallet
 import androidx.compose.material3.DrawerValue
@@ -51,6 +53,8 @@ import androidx.compose.material3.NavigationDrawerItemDefaults
 import androidx.compose.material3.NavigationRail
 import androidx.compose.material3.NavigationRailItem
 import androidx.compose.material3.NavigationRailItemDefaults
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.PermanentNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -121,7 +125,7 @@ private fun AppRailContent(
         contentColor = Color.White,
         header = {
             IconButton(onClick = onExpand, modifier = Modifier.padding(vertical = 8.dp)) {
-                Icon(Icons.Filled.Menu, contentDescription = "Expand Navigation Menu", tint = Color.White)
+                Icon(Icons.Filled.Menu, contentDescription = "Expand Menu", tint = Color.White)
             }
         }
     ) {
@@ -229,6 +233,8 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
     var isRailExpanded by remember { mutableStateOf(false) }
+    var isSearchActive by remember { mutableStateOf(false) }
+    var searchTopQuery by remember { mutableStateOf("") }
 
     BoxWithConstraints(Modifier.fillMaxSize()) {
         val isWideScreen = this.maxWidth >= 560.dp || this.maxWidth > this.maxHeight
@@ -238,16 +244,43 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
                 topBar = {
                     TopAppBar(
                         navigationIcon = {
-                            if (!isWideScreen) {
+                            if (isSearchActive) {
+                                IconButton(onClick = { isSearchActive = false; searchTopQuery = "" }) {
+                                    Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Close Search", tint = Color.White)
+                                }
+                            } else if (!isWideScreen) {
                                 IconButton(onClick = { scope.launch { drawerState.open() } }) {
                                     Icon(Icons.Filled.Menu, contentDescription = "Open Navigation Menu", tint = Color.White)
                                 }
                             }
                         },
                         title = {
-                            Column {
-                                Text(current.label, style = MaterialTheme.typography.titleLarge.copy(fontSize = 20.sp), color = Color.White)
-                                Text("ISIBALO EXPRESS", style = MaterialTheme.typography.labelSmall.copy(letterSpacing = 1.5.sp), color = NavMuted)
+                            if (isSearchActive) {
+                                OutlinedTextField(
+                                    value = searchTopQuery,
+                                    onValueChange = { searchTopQuery = it },
+                                    placeholder = { Text("Search across Isibalo...", color = Color.White.copy(alpha = 0.7f)) },
+                                    singleLine = true,
+                                    colors = OutlinedTextFieldDefaults.colors(
+                                        focusedBorderColor = Color.Transparent,
+                                        unfocusedBorderColor = Color.Transparent,
+                                        focusedTextColor = Color.White,
+                                        unfocusedTextColor = Color.White
+                                    ),
+                                    modifier = Modifier.fillMaxWidth().height(48.dp),
+                                    trailingIcon = {
+                                        if (searchTopQuery.isNotEmpty()) {
+                                            IconButton(onClick = { searchTopQuery = "" }) {
+                                                Icon(Icons.Filled.Close, contentDescription = "Clear Search", tint = Color.White)
+                                            }
+                                        }
+                                    }
+                                )
+                            } else {
+                                Column {
+                                    Text(current.label, style = MaterialTheme.typography.titleLarge.copy(fontSize = 20.sp), color = Color.White)
+                                    Text("ISIBALO EXPRESS", style = MaterialTheme.typography.labelSmall.copy(letterSpacing = 1.5.sp), color = NavMuted)
+                                }
                             }
                         },
                         colors = TopAppBarDefaults.topAppBarColors(
@@ -255,6 +288,11 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
                             actionIconContentColor = Color.White
                         ),
                         actions = {
+                            if (!isSearchActive) {
+                                IconButton(onClick = { isSearchActive = true }) {
+                                    Icon(Icons.Filled.Search, contentDescription = "Universal Search", tint = Color.White)
+                                }
+                            }
                             IconButton(onClick = {
                                 onTheme(when (themeMode) {
                                     ThemeMode.SYSTEM -> ThemeMode.LIGHT
@@ -275,7 +313,7 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
                     )
                 },
                 bottomBar = {
-                    if (!isWideScreen) {
+                    if (!isWideScreen && !isSearchActive) {
                         NavigationBar(containerColor = NavBlue, contentColor = Color.White) {
                             NavDestination.entries.filter { it.inBottomBar }.forEach { item ->
                                 NavigationBarItem(
