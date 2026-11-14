@@ -4,22 +4,26 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material.icons.filled.Warning
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -32,6 +36,8 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import za.co.hbtechinc.isibalo.AppViewModelProvider
@@ -174,57 +180,83 @@ private fun ItemDialog(
             keyboardOptions = KeyboardOptions(keyboardType = if (num) KeyboardType.Decimal else KeyboardType.Text)
         )
 
-    AlertDialog(
+    Dialog(
         onDismissRequest = onDismiss,
-        shape = RectangleShape,
-        title = { Text(if (initial == null) "New stock item" else "Edit stock item") },
-        text = {
+        properties = DialogProperties(usePlatformDefaultWidth = false)
+    ) {
+        Surface(
+            modifier = Modifier
+                .fillMaxWidth(0.95f)
+                .fillMaxHeight(0.9f)
+                .padding(12.dp),
+            shape = RoundedCornerShape(12.dp),
+            color = MaterialTheme.colorScheme.surface,
+            tonalElevation = 6.dp
+        ) {
             Column(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .heightIn(max = 450.dp)
-                    .verticalScroll(rememberScrollState())
-                    .padding(vertical = 4.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
+                    .fillMaxSize()
+                    .padding(16.dp)
             ) {
-                field(name, { name = it }, "Name", num = false)
-                field(qty, { qty = it.filter(Char::isDigit) }, "In stock")
-                field(low, { low = it.filter(Char::isDigit) }, "Warn when stock reaches")
-                field(price, { price = it }, "Selling price (R)")
-                field(cost, { cost = it }, "Cost price (R)")
+                Text(
+                    text = if (initial == null) "New stock item" else "Edit stock item",
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(bottom = 12.dp)
+                )
 
-                if (pCents > 0 && cCents > 0) {
-                    Text(
-                        "Estimated Profit: ${profitCents.rands()} per unit ($marginPercent% Margin)",
-                        style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.primary,
-                        fontWeight = FontWeight.Bold
-                    )
-                }
+                Column(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth()
+                        .verticalScroll(rememberScrollState()),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    field(name, { name = it }, "Name", num = false)
+                    field(qty, { qty = it.filter(Char::isDigit) }, "In stock")
+                    field(low, { low = it.filter(Char::isDigit) }, "Warn when stock reaches")
+                    field(price, { price = it }, "Selling price (R)")
+                    field(cost, { cost = it }, "Cost price (R)")
 
-                field(daysToExpiry, { daysToExpiry = it.filter(Char::isDigit) }, "Expiry in Days (0 = None)")
-                if (initial != null) SquareButton("DELETE ITEM", onDelete, Modifier.fillMaxWidth(), outlined = true)
-            }
-        },
-        confirmButton = {
-            SquareButton("SAVE", {
-                val p = price.toCents()
-                if (name.isNotBlank() && p != null) {
-                    val days = daysToExpiry.toLongOrNull() ?: 0L
-                    val expiryTimestamp = if (days > 0) System.currentTimeMillis() + (days * 24L * 60 * 60 * 1000) else 0L
-                    onSave(
-                        (initial ?: StockItem(name = "", quantity = 0, priceCents = 0)).copy(
-                            name = name.trim(),
-                            quantity = qty.toIntOrNull() ?: 0,
-                            lowStockThreshold = low.toIntOrNull() ?: 5,
-                            priceCents = p,
-                            costCents = cost.toCents() ?: 0L,
-                            expiryDate = expiryTimestamp
+                    if (pCents > 0 && cCents > 0) {
+                        Text(
+                            "Estimated Profit: ${profitCents.rands()} per unit ($marginPercent% Margin)",
+                            style = MaterialTheme.typography.labelLarge,
+                            color = MaterialTheme.colorScheme.primary,
+                            fontWeight = FontWeight.Bold
                         )
-                    )
+                    }
+
+                    field(daysToExpiry, { daysToExpiry = it.filter(Char::isDigit) }, "Expiry in Days (0 = None)")
+                    if (initial != null) SquareButton("DELETE ITEM", onDelete, Modifier.fillMaxWidth(), outlined = true)
                 }
-            })
-        },
-        dismissButton = { SquareButton("CANCEL", onDismiss, outlined = true) }
-    )
+
+                Spacer(Modifier.height(12.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    SquareButton("CANCEL", onDismiss, Modifier.weight(1f), outlined = true)
+                    SquareButton("SAVE", {
+                        val p = price.toCents()
+                        if (name.isNotBlank() && p != null) {
+                            val days = daysToExpiry.toLongOrNull() ?: 0L
+                            val expiryTimestamp = if (days > 0) System.currentTimeMillis() + (days * 24L * 60 * 60 * 1000) else 0L
+                            onSave(
+                                (initial ?: StockItem(name = "", quantity = 0, priceCents = 0)).copy(
+                                    name = name.trim(),
+                                    quantity = qty.toIntOrNull() ?: 0,
+                                    lowStockThreshold = low.toIntOrNull() ?: 5,
+                                    priceCents = p,
+                                    costCents = cost.toCents() ?: 0L,
+                                    expiryDate = expiryTimestamp
+                                )
+                            )
+                        }
+                    }, Modifier.weight(1f))
+                }
+            }
+        }
+    }
 }
