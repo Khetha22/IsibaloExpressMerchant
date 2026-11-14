@@ -146,6 +146,18 @@ data class MerchantLoan(
     val createdAt: Long = System.currentTimeMillis()
 )
 
+/** Staff member shift & payroll record. */
+@Entity(tableName = "staff_members")
+data class Staff(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val name: String,
+    val role: String = "Cashier",
+    val dailyWageCents: Long,
+    val phone: String = "",
+    val active: Boolean = true,
+    val synced: Boolean = false
+)
+
 /** A line in the POS cart. stockItemId == null means a quick/custom amount. */
 data class CartLine(
     val stockItemId: Long?,

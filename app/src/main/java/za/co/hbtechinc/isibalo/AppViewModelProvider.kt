@@ -16,6 +16,7 @@ import za.co.hbtechinc.isibalo.ui.pos.PosViewModel
 import za.co.hbtechinc.isibalo.ui.reports.FinancialReportViewModel
 import za.co.hbtechinc.isibalo.ui.reports.StockTakeViewModel
 import za.co.hbtechinc.isibalo.ui.sales.SalesViewModel
+import za.co.hbtechinc.isibalo.ui.staff.StaffViewModel
 import za.co.hbtechinc.isibalo.ui.statements.FinancialStatementViewModel
 import za.co.hbtechinc.isibalo.ui.stock.StockViewModel
 
@@ -38,5 +39,6 @@ object AppViewModelProvider {
         initializer { FinancialReportViewModel(app().container.repository) }
         initializer { StockTakeViewModel(app().container.repository) }
         initializer { FinancialStatementViewModel(app().container.repository) }
+        initializer { StaffViewModel(app().container.repository) }
     }
 }

@@ -128,6 +128,16 @@ interface MerchantLoanDao {
     suspend fun makePayment(id: Long, payment: Long)
 }
 
+@Dao
+interface StaffDao {
+    @Query("SELECT * FROM staff_members ORDER BY name ASC")
+    fun observeAll(): Flow<List<Staff>>
+
+    @Insert suspend fun upsert(staff: Staff): Long
+
+    @Delete suspend fun delete(staff: Staff)
+}
+
 
 
 

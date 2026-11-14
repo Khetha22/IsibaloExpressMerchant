@@ -14,6 +14,7 @@ class Repository(private val db: AppDatabase) {
     private val expenseDao = db.expenseDao()
     private val pettyCashDao = db.pettyCashDao()
     private val loanDao = db.merchantLoanDao()
+    private val staffDao = db.staffDao()
 
     fun stock() = stockDao.observeAll()
     fun lowStock() = stockDao.observeLow()
@@ -27,6 +28,10 @@ class Repository(private val db: AppDatabase) {
     fun todayExpenses() = expenseDao.observeTotalSince(startOfDay())
     fun pettyCashRecords() = pettyCashDao.observeAll()
     fun merchantLoans() = loanDao.observeAll()
+    fun staff() = staffDao.observeAll()
+
+    suspend fun saveStaff(staff: Staff) = staffDao.upsert(staff)
+    suspend fun deleteStaff(staff: Staff) = staffDao.delete(staff)
 
     suspend fun applyForLoan(principalCents: Long): Long {
         val feeCents = (principalCents * 0.10).toLong() // 10% flat working capital fee
