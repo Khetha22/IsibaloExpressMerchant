@@ -7,6 +7,13 @@ import android.graphics.Paint
 import android.graphics.Typeface
 import android.graphics.pdf.PdfDocument
 import android.net.Uri
+import android.os.Bundle
+import android.os.CancellationSignal
+import android.print.PageRange
+import android.print.PrintAttributes
+import android.print.PrintDocumentAdapter
+import android.print.PrintDocumentInfo
+import android.print.PrintManager
 import androidx.core.content.FileProvider
 import za.co.hbtechinc.isibalo.data.MethodTotal
 import java.io.File
@@ -17,6 +24,54 @@ import java.util.Locale
 
 object PdfReportGenerator {
 
+    fun generateGenericReportPdf(context: Context, title: String, subtitle: String, rows: List<Pair<String, String>>): File? {
+        val document = PdfDocument()
+        val pageInfo = PdfDocument.PageInfo.Builder(595, 842, 1).create()
+        val page = document.startPage(pageInfo)
+        val canvas = page.canvas
+
+        val paint = Paint()
+        paint.color = Color.parseColor("#0A4FD8")
+        canvas.drawRect(0f, 0f, 595f, 100f, paint)
+
+        paint.color = Color.WHITE
+        paint.textSize = 22f
+        paint.typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
+        canvas.drawText("ISIBALO EXPRESS MERCHANT", 40f, 45f, paint)
+
+        paint.textSize = 13f
+        paint.typeface = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL)
+        canvas.drawText(title, 40f, 72f, paint)
+
+        val dateStr = SimpleDateFormat("dd MMMM yyyy, HH:mm", Locale.ROOT).format(Date())
+        paint.color = Color.parseColor("#44506B")
+        paint.textSize = 11f
+        canvas.drawText("Subtitle: $subtitle  |  Generated: $dateStr", 40f, 125f, paint)
+
+        var yPos = 160f
+        rows.forEach { (label, value) ->
+            if (yPos > 780f) return@forEach
+            paint.color = Color.parseColor("#0A1226")
+            paint.textSize = 12f
+            paint.typeface = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL)
+            canvas.drawText(label, 45f, yPos, paint)
+            canvas.drawText(value, 400f, yPos, paint)
+            yPos += 22f
+        }
+
+        document.finishPage(page)
+
+        val pdfFile = File(context.cacheDir, "Isibalo_${title.replace(" ", "_")}.pdf")
+        try {
+            document.writeTo(FileOutputStream(pdfFile))
+            document.close()
+            return pdfFile
+        } catch (_: Exception) {
+            document.close()
+            return null
+        }
+    }
+
     fun generateFinancialStatementPdf(
         context: Context,
         totalRevenueCents: Long,
@@ -26,106 +81,19 @@ object PdfReportGenerator {
         outstandingTabsCents: Long,
         paymentTotals: List<MethodTotal>
     ): File? {
-        val document = PdfDocument()
-        val pageInfo = PdfDocument.PageInfo.Builder(595, 842, 1).create() // A4 page size
-        val page = document.startPage(pageInfo)
-        val canvas = page.canvas
-
-        val paint = Paint()
-        val titlePaint = Paint()
-
-        // Brand Blue Top Header Box
-        paint.color = Color.parseColor("#0A4FD8")
-        canvas.drawRect(0f, 0f, 595f, 100f, paint)
-
-        // Title Text
-        titlePaint.color = Color.WHITE
-        titlePaint.textSize = 24f
-        titlePaint.typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
-        canvas.drawText("ISIBALO EXPRESS MERCHANT", 40f, 50f, titlePaint)
-
-        titlePaint.textSize = 14f
-        titlePaint.typeface = Typeface.create(Typeface.DEFAULT, Typeface.NORMAL)
-        canvas.drawText("Audited Financial Statement & P&L Report", 40f, 75f, titlePaint)
-
-        // Date String
-        val dateStr = SimpleDateFormat("dd MMMM yyyy, HH:mm", Locale.ROOT).format(Date())
-        paint.color = Color.parseColor("#44506B")
-        paint.textSize = 11f
-        canvas.drawText("Generated: $dateStr", 40f, 125f, paint)
-
-        var yPos = 160f
-
-        // Helper for drawing rows
-        fun drawSectionHeader(title: String) {
-            paint.color = Color.parseColor("#0A4FD8")
-            paint.textSize = 14f
-            paint.typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
-            canvas.drawText(title, 40f, yPos, paint)
-            yPos += 8f
-            paint.color = Color.parseColor("#B4C3E6")
-            paint.strokeWidth = 1f
-            canvas.drawLine(40f, yPos, 555f, yPos, paint)
-            yPos += 20f
+        val rows = mutableListOf<Pair<String, String>>()
+        rows.add(Pair("Total Sales Revenue", totalRevenueCents.rands()))
+        rows.add(Pair("Operating Expenses", "-${totalExpensesCents.rands()}"))
+        rows.add(Pair("Net Profit / Income", netProfitCents.rands()))
+        rows.add(Pair("Inventory Asset Valuation", stockValuationCents.rands()))
+        rows.add(Pair("Outstanding Customer Credit", outstandingTabsCents.rands()))
+        paymentTotals.forEach { pt ->
+            rows.add(Pair("Payment Method: ${pt.method.label}", pt.total.rands()))
         }
-
-        fun drawRow(label: String, value: String, isBold: Boolean = false, colorHex: String = "#0A1226") {
-            paint.color = Color.parseColor(colorHex)
-            paint.textSize = 12f
-            paint.typeface = if (isBold) Typeface.create(Typeface.DEFAULT, Typeface.BOLD) else Typeface.create(Typeface.DEFAULT, Typeface.NORMAL)
-            canvas.drawText(label, 45f, yPos, paint)
-            canvas.drawText(value, 460f, yPos, paint)
-            yPos += 20f
-        }
-
-        // 1. Income Statement (P&L)
-        drawSectionHeader("1. INCOME STATEMENT (PROFIT & LOSS)")
-        drawRow("Total Sales Revenue:", totalRevenueCents.rands())
-        drawRow("Operating Expenses:", "-${totalExpensesCents.rands()}", colorHex = "#C62828")
-        drawRow("Net Income / Profit:", netProfitCents.rands(), isBold = true, colorHex = if (netProfitCents >= 0) "#0A4FD8" else "#C62828")
-
-        yPos += 15f
-
-        // 2. Revenue Breakdown
-        drawSectionHeader("2. REVENUE BY PAYMENT METHOD")
-        if (paymentTotals.isEmpty()) {
-            drawRow("No sales recorded today", "R0.00")
-        } else {
-            paymentTotals.forEach { pt ->
-                drawRow(pt.method.label, pt.total.rands())
-            }
-        }
-
-        yPos += 15f
-
-        // 3. Balance Sheet Summary
-        drawSectionHeader("3. BALANCE SHEET & ASSET AUDIT")
-        drawRow("Inventory Valuation (Retail Value):", stockValuationCents.rands())
-        drawRow("Outstanding Customer Credit (Isikwelete):", outstandingTabsCents.rands(), colorHex = "#C62828")
-        drawRow("Estimated Total Asset Base:", (totalRevenueCents + stockValuationCents).rands(), isBold = true)
-
-        yPos += 40f
-
-        // Footer
-        paint.color = Color.parseColor("#888888")
-        paint.textSize = 10f
-        canvas.drawText("Generated by Isibalo Express • Offline-First Merchant Operating System", 40f, 800f, paint)
-
-        document.finishPage(page)
-
-        // Save PDF File to Cache/Files
-        val pdfFile = File(context.cacheDir, "Financial_Statement_IsibaloExpress.pdf")
-        try {
-            document.writeTo(FileOutputStream(pdfFile))
-            document.close()
-            return pdfFile
-        } catch (e: Exception) {
-            document.close()
-            return null
-        }
+        return generateGenericReportPdf(context, "Audited Financial Statement", "P&L and Balance Sheet Audit", rows)
     }
 
-    fun sharePdf(context: Context, pdfFile: File) {
+    fun sharePdf(context: Context, pdfFile: File, title: String = "Isibalo Report") {
         val uri: Uri = FileProvider.getUriForFile(
             context,
             "${context.packageName}.fileprovider",
@@ -134,10 +102,34 @@ object PdfReportGenerator {
         val shareIntent = Intent(Intent.ACTION_SEND).apply {
             type = "application/pdf"
             putExtra(Intent.EXTRA_STREAM, uri)
-            putExtra(Intent.EXTRA_SUBJECT, "Financial Statement - Isibalo Express")
-            putExtra(Intent.EXTRA_TEXT, "Attached is the audited Financial Statement generated by Isibalo Express Merchant OS.")
+            putExtra(Intent.EXTRA_SUBJECT, title)
+            putExtra(Intent.EXTRA_TEXT, "Attached is the official report generated by Isibalo Express Merchant OS.")
             addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         }
-        context.startActivity(Intent.createChooser(shareIntent, "Share Financial Statement PDF"))
+        context.startActivity(Intent.createChooser(shareIntent, "Share $title PDF"))
+    }
+
+    fun printPdf(context: Context, pdfFile: File, jobName: String = "Isibalo Report Print") {
+        val printManager = context.getSystemService(Context.PRINT_SERVICE) as? PrintManager
+        printManager?.print(jobName, object : PrintDocumentAdapter() {
+            override fun onWrite(pages: Array<out PageRange>, destination: android.os.ParcelFileDescriptor, cancellationSignal: CancellationSignal, callback: WriteResultCallback) {
+                try {
+                    val input = pdfFile.inputStream()
+                    val output = FileOutputStream(destination.fileDescriptor)
+                    input.copyTo(output)
+                    input.close()
+                    output.close()
+                    callback.onWriteFinished(arrayOf(PageRange.ALL_PAGES))
+                } catch (e: Exception) {
+                    callback.onWriteFailed(e.localizedMessage)
+                }
+            }
+            override fun onLayout(oldAttributes: PrintAttributes?, newAttributes: PrintAttributes?, cancellationSignal: CancellationSignal?, callback: LayoutResultCallback?, extras: Bundle?) {
+                callback?.onLayoutFinished(
+                    PrintDocumentInfo.Builder(jobName).setContentType(PrintDocumentInfo.CONTENT_TYPE_DOCUMENT).setPageCount(1).build(),
+                    true
+                )
+            }
+        }, null)
     }
 }

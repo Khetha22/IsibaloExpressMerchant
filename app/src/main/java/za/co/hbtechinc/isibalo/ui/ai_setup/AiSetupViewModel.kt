@@ -13,7 +13,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -71,16 +70,22 @@ class AiSetupViewModel(
     fun importPdfDocument(uri: Uri) {
         viewModelScope.launch {
             try {
-                val text = withContext(Dispatchers.IO) {
+                val extractedText = withContext(Dispatchers.IO) {
                     val sb = StringBuilder()
-                    app.contentResolver.openInputStream(uri)?.bufferedReader()?.use { reader ->
-                        sb.append(reader.readText())
+                    app.contentResolver.openInputStream(uri)?.use { inputStream ->
+                        val bytes = inputStream.readBytes()
+                        val cleaned = bytes.map { if ((it in 32..126) || it.toInt() == 10 || it.toInt() == 13) it.toInt().toChar() else ' ' }.joinToString("")
+                        sb.append(cleaned)
                     }
-                    sb.toString()
+                    sb.toString().replace(Regex("\\s+"), " ").trim()
                 }
-                if (text.isNotBlank()) {
+                if (extractedText.isNotBlank()) {
                     val title = uri.lastPathSegment ?: "Imported PDF Document"
-                    repo.saveKnowledgeDoc(KnowledgeDoc(title = title, content = text.take(4000), category = "PDF / Document"))
+                    val chunks = extractedText.chunked(2000)
+                    chunks.forEachIndexed { index, chunk ->
+                        val chunkTitle = if (chunks.size > 1) "$title (Part ${index + 1})" else title
+                        repo.saveKnowledgeDoc(KnowledgeDoc(title = chunkTitle, content = chunk, category = "PDF / Document"))
+                    }
                 }
             } catch (_: Exception) { }
         }
