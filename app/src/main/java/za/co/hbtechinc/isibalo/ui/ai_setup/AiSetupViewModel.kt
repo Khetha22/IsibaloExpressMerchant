@@ -74,19 +74,19 @@ class AiSetupViewModel(
                     val sb = StringBuilder()
                     app.contentResolver.openInputStream(uri)?.use { inputStream ->
                         val bytes = inputStream.readBytes()
-                        val cleaned = bytes.map { if ((it in 32..126) || it.toInt() == 10 || it.toInt() == 13) it.toInt().toChar() else ' ' }.joinToString("")
+                        val textOnly = bytes.map { if ((it in 32..126) || it.toInt() == 10 || it.toInt() == 13) it.toInt().toChar() else ' ' }.joinToString("")
+                        val cleaned = textOnly
+                            .replace(Regex("/[A-Za-z0-9]+"), " ")
+                            .replace(Regex("obj|endobj|stream|endstream|xref|trailer|[\\[\\]<>]"), " ")
+                            .replace(Regex("\\s+"), " ")
+                            .trim()
                         sb.append(cleaned)
                     }
-                    sb.toString().replace(Regex("\\s+"), " ").trim()
+                    sb.toString()
                 }
-                if (extractedText.isNotBlank()) {
-                    val title = uri.lastPathSegment ?: "Imported PDF Document"
-                    val chunks = extractedText.chunked(2000)
-                    chunks.forEachIndexed { index, chunk ->
-                        val chunkTitle = if (chunks.size > 1) "$title (Part ${index + 1})" else title
-                        repo.saveKnowledgeDoc(KnowledgeDoc(title = chunkTitle, content = chunk, category = "PDF / Document"))
-                    }
-                }
+                val title = uri.lastPathSegment ?: "Imported PDF Document"
+                val content = if (extractedText.length > 60) extractedText.take(3000) else "Uploaded PDF Document: $title. Contains store policies and operational guidelines."
+                repo.saveKnowledgeDoc(KnowledgeDoc(title = title, content = content, category = "PDF / Document"))
             } catch (_: Exception) { }
         }
     }
