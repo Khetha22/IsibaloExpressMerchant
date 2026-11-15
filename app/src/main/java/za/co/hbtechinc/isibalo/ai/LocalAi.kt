@@ -22,36 +22,40 @@ enum class AiModelType(val displayName: String, val fileName: String, val descri
 }
 
 /**
- * Offline LLM & On-Device RAG engine manager.
- * Supports MediaPipe Gemma 3 and Phi-3 models with zero network dependency.
+ * Offline LLM & On-Device RAG engine manager implementing the Compose Multiplatform PlatformAiEngine abstraction.
  */
-class LocalAi(private val context: Context) {
+class LocalAi(private val context: Context) : PlatformAiEngine {
     private var engine: LlmInference? = null
     private val lock = Mutex()
 
-    var activeModel: AiModelType = AiModelType.MEDIAPIPE_GEMMA3_1B
+    override var activeModel: AiModelType = AiModelType.MEDIAPIPE_GEMMA3_1B
         private set
 
     var maxTokens: Int = 1024
 
-    fun modelFile(model: AiModelType = activeModel) =
-        File(context.getExternalFilesDir(null) ?: context.filesDir, model.fileName)
+    override fun modelFile(type: AiModelType) =
+        File(context.getExternalFilesDir(null) ?: context.filesDir, type.fileName)
 
-    fun isModelPresent(model: AiModelType = activeModel) =
-        modelFile(model).let { it.exists() && it.length() > 500_000 } // Valid task file is > 500KB
+    override fun isModelPresent(type: AiModelType) =
+        modelFile(type).let { it.exists() && it.length() > 500_000 }
 
-    fun selectModel(model: AiModelType) {
-        if (activeModel != model) {
-            activeModel = model
+    override fun selectModel(type: AiModelType) {
+        if (activeModel != type) {
+            activeModel = type
             reset()
         }
     }
 
+    override suspend fun generate(prompt: String, context: String): String {
+        val fullPrompt = if (context.isNotBlank()) "$context\n\nUser Question: $prompt" else prompt
+        return generate(fullPrompt)
+    }
+
     suspend fun generate(prompt: String): String = lock.withLock {
         withContext(Dispatchers.Default) {
-            val file = modelFile()
+            val file = modelFile(activeModel)
             if (!file.exists() || file.length() < 500_000) {
-                throw IllegalStateException("Model file ${file.name} is missing or invalid. Please import a valid .task model file (ensure download completed successfully).")
+                throw IllegalStateException("Model file ${file.name} is missing or invalid. Please import a valid .task model file.")
             }
             val e = engine ?: try {
                 LlmInference.createFromOptions(
@@ -63,13 +67,13 @@ class LocalAi(private val context: Context) {
                 ).also { engine = it }
             } catch (ex: Exception) {
                 reset()
-                throw Exception("Failed to initialize AI engine: ${ex.message}. Ensure model.task is compatible with MediaPipe GenAI.")
+                throw Exception("Failed to initialize AI engine: ${ex.message}")
             }
             e.generateResponse(prompt)
         }
     }
 
-    fun reset() {
+    override fun reset() {
         engine?.close()
         engine = null
     }
