@@ -15,6 +15,7 @@ import za.co.hbtechinc.isibalo.ui.petty_cash.PettyCashViewModel
 import za.co.hbtechinc.isibalo.ui.pos.PosViewModel
 import za.co.hbtechinc.isibalo.ui.reports.FinancialReportViewModel
 import za.co.hbtechinc.isibalo.ui.reports.StockTakeViewModel
+import za.co.hbtechinc.isibalo.ui.dashboard.OwnerDashboardViewModel
 import za.co.hbtechinc.isibalo.ui.sales.SalesViewModel
 import za.co.hbtechinc.isibalo.ui.staff.StaffViewModel
 import za.co.hbtechinc.isibalo.ui.statements.FinancialStatementViewModel
@@ -42,5 +43,6 @@ object AppViewModelProvider {
         initializer { FinancialStatementViewModel(app().container.repository) }
         initializer { StaffViewModel(app().container.repository) }
         initializer { WhatsAppLogViewModel(app().container.repository) }
+        initializer { OwnerDashboardViewModel(app(), app().container.repository) }
     }
 }

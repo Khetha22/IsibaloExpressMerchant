@@ -23,6 +23,7 @@ import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.BrightnessAuto
 import androidx.compose.material.icons.filled.ChevronLeft
+import androidx.compose.material.icons.filled.Dashboard
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.Group
@@ -79,6 +80,7 @@ import za.co.hbtechinc.isibalo.ui.ai_setup.AiSetupScreen
 import za.co.hbtechinc.isibalo.ui.assistant.AssistantScreen
 import za.co.hbtechinc.isibalo.ui.cashup.CashUpScreen
 import za.co.hbtechinc.isibalo.ui.credit.CreditScreen
+import za.co.hbtechinc.isibalo.ui.dashboard.OwnerDashboardScreen
 import za.co.hbtechinc.isibalo.ui.expenses.ExpenseScreen
 import za.co.hbtechinc.isibalo.ui.loans.LoanScreen
 import za.co.hbtechinc.isibalo.ui.media.MediaSearchScreen
@@ -97,6 +99,7 @@ import za.co.hbtechinc.isibalo.ui.whatsapp_log.WhatsAppLogScreen
 import kotlinx.coroutines.launch
 
 private enum class NavDestination(val route: String, val label: String, val icon: ImageVector, val inBottomBar: Boolean = true) {
+    OwnerDashboard("ownerdashboard", "Owner Dashboard", Icons.Filled.Dashboard, true),
     Sell("sell", "Point of Sale", Icons.Filled.PointOfSale, true),
     Sales("sales", "Sales Analytics", Icons.Filled.BarChart, true),
     Stock("stock", "Stock & Inventory", Icons.Filled.Inventory2, true),
@@ -229,7 +232,7 @@ private fun AppDrawerContent(
 fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
     val nav = rememberNavController()
     val entry by nav.currentBackStackEntryAsState()
-    val current = NavDestination.entries.firstOrNull { it.route == entry?.destination?.route } ?: NavDestination.Sell
+    val current = NavDestination.entries.firstOrNull { it.route == entry?.destination?.route } ?: NavDestination.OwnerDashboard
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
@@ -305,7 +308,8 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
                     }
                 }
             ) { pad ->
-                NavHost(nav, startDestination = NavDestination.Sell.route, modifier = Modifier.padding(pad)) {
+                NavHost(nav, startDestination = NavDestination.OwnerDashboard.route, modifier = Modifier.padding(pad)) {
+                    composable(NavDestination.OwnerDashboard.route) { OwnerDashboardScreen() }
                     composable(NavDestination.Sell.route) { PosScreen() }
                     composable(NavDestination.Sales.route) { SalesScreen() }
                     composable(NavDestination.Stock.route) { StockScreen() }
