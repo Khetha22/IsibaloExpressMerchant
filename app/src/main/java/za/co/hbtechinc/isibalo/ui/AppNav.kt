@@ -99,12 +99,12 @@ import za.co.hbtechinc.isibalo.ui.whatsapp_log.WhatsAppLogScreen
 import kotlinx.coroutines.launch
 
 private enum class NavDestination(val route: String, val label: String, val icon: ImageVector, val inBottomBar: Boolean = true) {
-    OwnerDashboard("ownerdashboard", "Owner Dashboard", Icons.Filled.Dashboard, true),
+    OwnerDashboard("ownerdashboard", "Dashboard", Icons.Filled.Dashboard, true),
     Sell("sell", "Point of Sale", Icons.Filled.PointOfSale, true),
-    Sales("sales", "Sales Analytics", Icons.Filled.BarChart, true),
     Stock("stock", "Stock & Inventory", Icons.Filled.Inventory2, true),
-    CashUp("cashup", "Cash-Up", Icons.Filled.AccountBalanceWallet, true),
     Assistant("assistant", "AI Assistant", Icons.Filled.AutoAwesome, true),
+    Sales("sales", "Sales Analytics", Icons.Filled.BarChart, false),
+    CashUp("cashup", "Cash-Up", Icons.Filled.AccountBalanceWallet, false),
     Statements("statements", "PDF Financial Statements", Icons.Filled.Description, false),
     Credit("credit", "Customer Credit (Tab)", Icons.Filled.People, false),
     Expenses("expenses", "Expenses & Profit", Icons.Filled.ReceiptLong, false),
