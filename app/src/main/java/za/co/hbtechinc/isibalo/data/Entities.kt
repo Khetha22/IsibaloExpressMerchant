@@ -172,7 +172,9 @@ data class WhatsAppShareLog(
 data class CartLine(
     val stockItemId: Long?,
     val name: String,
-    val unitPriceCents: Long,
+    val unitPriceCents: Long, // Price per unit or per kg
     val qty: Int,
-    val maxQty: Int = Int.MAX_VALUE
+    val maxQty: Int = Int.MAX_VALUE,
+    val weightKg: Double? = null, // For weighing scale items (veg, meat, fruit)
+    val kitchenNote: String = ""  // For restaurant food service (e.g. "No onions", "Medium rare")
 )

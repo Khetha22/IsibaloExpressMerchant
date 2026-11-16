@@ -18,6 +18,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import java.util.Locale
 
 class PosViewModel(private val repo: Repository) : ViewModel() {
 
@@ -34,6 +35,7 @@ class PosViewModel(private val repo: Repository) : ViewModel() {
     val quickAmount = MutableStateFlow("")
     val cashTendered = MutableStateFlow("")
     val method = MutableStateFlow(PaymentMethod.CASH)
+    val orderType = MutableStateFlow("Dine-in") // Dine-in, Takeaway, Delivery
 
     val total = combine(_cart, quickAmount) { c, q ->
         c.sumOf { it.unitPriceCents * it.qty } + (q.toCents() ?: 0L)
@@ -47,15 +49,38 @@ class PosViewModel(private val repo: Repository) : ViewModel() {
     private val _message = MutableSharedFlow<String>(extraBufferCapacity = 1)
     val message = _message.asSharedFlow()
 
+    fun setOrderType(type: String) { orderType.value = type }
+
     fun add(item: StockItem) {
         if (item.quantity <= 0) { _message.tryEmit("${item.name} is out of stock"); return }
         _cart.update { list ->
-            val ex = list.find { it.stockItemId == item.id }
+            val ex = list.find { it.stockItemId == item.id && it.weightKg == null }
             when {
                 ex == null -> list + CartLine(item.id, item.name, item.priceCents, 1, item.quantity)
                 ex.qty >= ex.maxQty -> list
                 else -> list.map { if (it === ex) it.copy(qty = it.qty + 1) else it }
             }
+        }
+    }
+
+    fun addWeighted(item: StockItem, weightKg: Double) {
+        if (weightKg <= 0.0) return
+        val calculatedPriceCents = (item.priceCents * weightKg).toLong()
+        _cart.update { list ->
+            list + CartLine(
+                stockItemId = item.id,
+                name = "${item.name} (${String.format(Locale.ROOT, "%.2f", weightKg)} kg)",
+                unitPriceCents = calculatedPriceCents,
+                qty = 1,
+                maxQty = item.quantity,
+                weightKg = weightKg
+            )
+        }
+    }
+
+    fun updateKitchenNote(line: CartLine, note: String) {
+        _cart.update { list ->
+            list.map { if (it === line) it.copy(kitchenNote = note.trim()) else it }
         }
     }
 
