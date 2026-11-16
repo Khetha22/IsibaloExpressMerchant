@@ -9,7 +9,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.CloudSync
+import androidx.compose.material.icons.filled.Description
+import androidx.compose.material.icons.filled.PointOfSale
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -51,24 +54,32 @@ fun OwnerDashboardScreen(vm: OwnerDashboardViewModel = viewModel(factory = AppVi
         }
 
         item {
-            SquareButton(
-                text = "📄 GENERATE & SHARE AUDITED PDF STATEMENT",
-                onClick = {
-                    val pdfFile = PdfReportGenerator.generateFinancialStatementPdf(
-                        context = context,
-                        totalRevenueCents = state.totalRevenue,
-                        totalExpensesCents = state.todayExpenses,
-                        netProfitCents = state.netProfit,
-                        stockValuationCents = state.stockItems.sumOf { it.priceCents * it.quantity },
-                        outstandingTabsCents = 0L,
-                        paymentTotals = state.paymentTotals
-                    )
-                    if (pdfFile != null) {
-                        PdfReportGenerator.sharePdf(context, pdfFile, "Owner Dashboard Financial Statement")
+            SquareCard(Modifier.fillMaxWidth()) {
+                Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text("Quick Actions & Management", fontWeight = FontWeight.Bold, color = cs.primary)
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        SquareButton(
+                            text = "📄 EXPORT PDF STATEMENT",
+                            onClick = {
+                                val pdfFile = PdfReportGenerator.generateFinancialStatementPdf(
+                                    context = context,
+                                    totalRevenueCents = state.totalRevenue,
+                                    totalExpensesCents = state.todayExpenses,
+                                    netProfitCents = state.netProfit,
+                                    stockValuationCents = state.stockItems.sumOf { it.priceCents * it.quantity },
+                                    outstandingTabsCents = 0L,
+                                    paymentTotals = state.paymentTotals
+                                )
+                                if (pdfFile != null) {
+                                    PdfReportGenerator.sharePdf(context, pdfFile, "Owner Dashboard Statement")
+                                }
+                            },
+                            modifier = Modifier.weight(1f),
+                            outlined = true
+                        )
                     }
-                },
-                modifier = Modifier.fillMaxWidth()
-            )
+                }
+            }
         }
 
         item {
