@@ -36,6 +36,8 @@ class PosViewModel(private val repo: Repository) : ViewModel() {
     val cashTendered = MutableStateFlow("")
     val method = MutableStateFlow(PaymentMethod.CASH)
     val orderType = MutableStateFlow("Dine-in") // Dine-in, Takeaway, Delivery
+    val businessType = MutableStateFlow("Retailer") // "Retailer" or "Restaurant"
+    val isCheckoutSheetOpen = MutableStateFlow(false)
 
     val total = combine(_cart, quickAmount) { c, q ->
         c.sumOf { it.unitPriceCents * it.qty } + (q.toCents() ?: 0L)
@@ -50,6 +52,8 @@ class PosViewModel(private val repo: Repository) : ViewModel() {
     val message = _message.asSharedFlow()
 
     fun setOrderType(type: String) { orderType.value = type }
+    fun setBusinessType(type: String) { businessType.value = type }
+    fun setCheckoutSheetOpen(open: Boolean) { isCheckoutSheetOpen.value = open }
 
     fun add(item: StockItem) {
         if (item.quantity <= 0) { _message.tryEmit("${item.name} is out of stock"); return }
@@ -118,6 +122,7 @@ class PosViewModel(private val repo: Repository) : ViewModel() {
             _cart.value = emptyList()
             quickAmount.value = ""
             cashTendered.value = ""
+            isCheckoutSheetOpen.value = false
         }
     }
 }
