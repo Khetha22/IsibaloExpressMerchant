@@ -28,7 +28,7 @@ val SurfaceBg = Color(0xFFF5F7FA)
 enum class AppTab(val label: String, val headerTitle: String) {
     DASHBOARD("Dashboard", "SALES ANALYTICS"),
     POS("Point of Sale", "POINT OF SALE"),
-    INVENTORY("Stock & Inv.", "STOCK & INVENTORY"),
+    INVENTORY("Stock", "STOCK & INVENTORY"),
     ASSISTANT("AI Assistant", "AI ASSISTANT")
 }
 
@@ -233,13 +233,14 @@ fun IsibaloExpressApp(state: IsibaloAppState = remember { IsibaloAppState() }) {
                         NavigationBarItem(
                             selected = selected,
                             onClick = { state.currentTab = tab },
-                            icon = { Icon(icon, contentDescription = tab.label) },
+                            icon = { Icon(icon, contentDescription = tab.label, modifier = Modifier.size(24.dp)) },
                             label = {
                                 Text(
                                     text = tab.label,
                                     maxLines = 1,
                                     overflow = TextOverflow.Ellipsis,
-                                    fontSize = 11.sp
+                                    fontSize = 11.sp,
+                                    fontWeight = if (selected) FontWeight.Bold else FontWeight.Normal
                                 )
                             },
                             colors = NavigationBarItemDefaults.colors(
@@ -261,7 +262,6 @@ fun IsibaloExpressApp(state: IsibaloAppState = remember { IsibaloAppState() }) {
                 .padding(innerPadding)
         ) {
             if (isSearchActive && globalSearchQuery.isNotBlank()) {
-                // Global Search Results Overlay
                 val matchedProducts = state.products.filter { it.name.contains(globalSearchQuery, ignoreCase = true) }
                 val matchedSales = state.sales.filter { it.method.label.contains(globalSearchQuery, ignoreCase = true) || it.amount.toString().contains(globalSearchQuery) }
 
@@ -493,7 +493,6 @@ fun PointOfSaleScreen(state: IsibaloAppState, onOpenCheckout: () -> Unit) {
 
         Spacer(Modifier.height(8.dp))
 
-        // Sticky Bottom Bar
         Card(
             modifier = Modifier.fillMaxWidth(),
             colors = CardDefaults.cardColors(containerColor = Color.White),
@@ -546,22 +545,10 @@ fun StockInventoryScreen(state: IsibaloAppState) {
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
-                        Icon(
-                            Icons.Default.Warning,
-                            contentDescription = null,
-                            tint = Color(0xFFB71C1C)
-                        )
+                        Icon(Icons.Default.Warning, contentDescription = null, tint = Color(0xFFB71C1C))
                         Column {
-                            Text(
-                                "Restock soon",
-                                fontWeight = FontWeight.Bold,
-                                color = Color(0xFFB71C1C)
-                            )
-                            Text(
-                                text = lowStockItems.joinToString { "${it.name} (0)" },
-                                fontSize = 12.sp,
-                                color = Color(0xFF7F0000)
-                            )
+                            Text("Restock soon", fontWeight = FontWeight.Bold, color = Color(0xFFB71C1C))
+                            Text(text = lowStockItems.joinToString { "${it.name} (0)" }, fontSize = 12.sp, color = Color(0xFF7F0000))
                         }
                     }
                 }
@@ -588,12 +575,7 @@ fun StockInventoryScreen(state: IsibaloAppState) {
                             color = Color.Gray
                         )
                         if (product.stock == 0) {
-                            Text(
-                                "LOW STOCK",
-                                color = MaterialTheme.colorScheme.error,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 11.sp
-                            )
+                            Text("LOW STOCK", color = MaterialTheme.colorScheme.error, fontWeight = FontWeight.Bold, fontSize = 11.sp)
                         }
                     }
 
@@ -628,7 +610,7 @@ fun StockInventoryScreen(state: IsibaloAppState) {
     }
 }
 
-// 4. AI ASSISTANT SCREEN
+// 4. MODERNIZED AI ASSISTANT SCREEN
 @Composable
 fun AiAssistantScreen(state: IsibaloAppState) {
     var promptInput by remember { mutableStateOf("") }
@@ -654,11 +636,34 @@ fun AiAssistantScreen(state: IsibaloAppState) {
         promptInput = ""
     }
 
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(modifier = Modifier.fillMaxSize().background(SurfaceBg)) {
+        // Modern AI Engine Header Pill
+        Card(
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 10.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.White),
+            shape = RoundedCornerShape(16.dp),
+            elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
+        ) {
+            Row(
+                modifier = Modifier.padding(12.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                Box(
+                    modifier = Modifier.size(36.dp).clip(CircleShape).background(BrandBlueLight),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(Icons.Default.AutoAwesome, contentDescription = "AI", tint = BrandBlue, modifier = Modifier.size(20.dp))
+                }
+                Column {
+                    Text("Offline Business Advisor", fontWeight = FontWeight.ExtraBold, fontSize = 14.sp)
+                    Text("Gemma 3 1B On-Device Model • Zero Data Costs", fontSize = 11.sp, color = Color.Gray)
+                }
+            }
+        }
+
         LazyColumn(
-            modifier = Modifier
-                .weight(1f)
-                .padding(16.dp),
+            modifier = Modifier.weight(1f).padding(horizontal = 16.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
             items(state.messages) { msg ->
@@ -668,19 +673,22 @@ fun AiAssistantScreen(state: IsibaloAppState) {
                 ) {
                     Surface(
                         color = if (msg.isUser) BrandBlue else Color.White,
-                        shape = RoundedCornerShape(14.dp),
+                        shape = RoundedCornerShape(18.dp),
                         shadowElevation = 1.dp
                     ) {
                         Text(
                             text = msg.text,
                             modifier = Modifier.padding(14.dp),
-                            color = if (msg.isUser) Color.White else Color.Black
+                            color = if (msg.isUser) Color.White else Color(0xFF1E293B),
+                            fontSize = 14.sp,
+                            lineHeight = 20.sp
                         )
                     }
                 }
             }
         }
 
+        // Quick Prompt Chips
         LazyRow(
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -688,36 +696,50 @@ fun AiAssistantScreen(state: IsibaloAppState) {
             items(quickPrompts) { prompt ->
                 SuggestionChip(
                     onClick = { sendPrompt(prompt) },
-                    label = { Text(prompt, color = BrandBlue) }
+                    label = { Text(prompt, color = BrandBlue, fontWeight = FontWeight.SemiBold, fontSize = 12.sp) },
+                    shape = RoundedCornerShape(20.dp)
                 )
             }
         }
 
-        Surface(color = Color.White, shadowElevation = 8.dp) {
+        // Modern Capsule Composer Bar
+        Surface(
+            color = Color.White,
+            shadowElevation = 12.dp,
+            shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)
+        ) {
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(12.dp),
+                modifier = Modifier.fillMaxWidth().padding(14.dp),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 OutlinedTextField(
                     value = promptInput,
                     onValueChange = { promptInput = it },
                     modifier = Modifier.weight(1f),
-                    placeholder = { Text("Ask or tap microphone...") },
-                    shape = RoundedCornerShape(12.dp),
-                    singleLine = true
+                    placeholder = { Text("Ask or tap microphone...", fontSize = 13.sp) },
+                    shape = RoundedCornerShape(24.dp),
+                    singleLine = true,
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedBorderColor = BrandBlue,
+                        unfocusedBorderColor = Color(0xFFCBD5E1),
+                        focusedContainerColor = Color(0xFFF8FAFC),
+                        unfocusedContainerColor = Color(0xFFF8FAFC)
+                    )
                 )
-                IconButton(onClick = { /* Voice input */ }) {
+                IconButton(
+                    onClick = { /* Voice input */ },
+                    modifier = Modifier.size(44.dp).clip(CircleShape).background(BrandBlueLight)
+                ) {
                     Icon(Icons.Default.Mic, contentDescription = "Voice", tint = BrandBlue)
                 }
                 Button(
                     onClick = { sendPrompt(promptInput) },
                     colors = ButtonDefaults.buttonColors(containerColor = BrandBlue),
-                    shape = RoundedCornerShape(10.dp)
+                    shape = RoundedCornerShape(20.dp),
+                    contentPadding = PaddingValues(horizontal = 16.dp, vertical = 10.dp)
                 ) {
-                    Text("ASK")
+                    Text("ASK", fontWeight = FontWeight.Bold)
                 }
             }
         }
