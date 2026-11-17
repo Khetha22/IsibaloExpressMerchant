@@ -51,6 +51,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import androidx.compose.ui.tooling.preview.Preview
+import za.co.hbtechinc.isibalo.ui.theme.IsibaloTheme
+import za.co.hbtechinc.isibalo.ui.theme.ThemeMode
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import za.co.hbtechinc.isibalo.AppViewModelProvider
@@ -428,3 +431,18 @@ private fun KitchenNoteDialog(
         }
     }
 }
+
+@Preview(showBackground = true, widthDp = 400, heightDp = 700)
+@Composable
+fun PosScreenPreview() {
+    IsibaloTheme(ThemeMode.LIGHT) {
+        Surface(Modifier.fillMaxSize()) {
+            Column(Modifier.padding(16.dp)) {
+                Text("Isibalo Express Preview", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold)
+                Spacer(Modifier.height(16.dp))
+                SquareButton("PROCEED TO CHARGE ➔", {})
+            }
+        }
+    }
+}
+
