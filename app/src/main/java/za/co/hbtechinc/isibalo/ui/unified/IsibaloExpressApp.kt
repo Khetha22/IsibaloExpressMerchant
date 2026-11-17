@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -148,11 +149,16 @@ fun IsibaloExpressApp(state: IsibaloAppState = remember { IsibaloAppState() }) {
     var isCheckoutOpen by remember { mutableStateOf(false) }
     var isSearchActive by remember { mutableStateOf(false) }
     var globalSearchQuery by remember { mutableStateOf("") }
+    
+    // Collapsible TopAppBar Scroll Behavior
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
     Scaffold(
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         containerColor = SurfaceBg,
         topBar = {
             TopAppBar(
+                scrollBehavior = scrollBehavior,
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = BrandBlue,
                     titleContentColor = Color.White,
