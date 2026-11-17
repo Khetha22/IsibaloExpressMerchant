@@ -345,26 +345,27 @@ fun SalesAnalyticsScreen(state: IsibaloAppState) {
         item {
             FlowRow(
                 modifier = Modifier.fillMaxWidth(),
-                maxItemsInEachRow = 2,
-                horizontalArrangement = Arrangement.spacedBy(10.dp),
-                verticalArrangement = Arrangement.spacedBy(10.dp)
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 PaymentMethod.entries.forEach { method ->
                     val methodTotal = state.sales.filter { it.method == method }.sumOf { it.amount }
-                    Card(
-                        modifier = Modifier.weight(1f),
-                        colors = CardDefaults.cardColors(containerColor = Color.White),
-                        shape = RoundedCornerShape(12.dp)
-                    ) {
-                        Column(modifier = Modifier.padding(12.dp)) {
-                            Text(method.label, fontSize = 12.sp, color = Color.Gray)
-                            Spacer(Modifier.height(4.dp))
-                            Text(
-                                text = "R${"%,.2f".format(methodTotal)}",
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 16.sp,
-                                maxLines = 1
-                            )
+                    Box(Modifier.fillMaxWidth(0.48f)) {
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = CardDefaults.cardColors(containerColor = Color.White),
+                            shape = RoundedCornerShape(12.dp)
+                        ) {
+                            Column(modifier = Modifier.padding(12.dp)) {
+                                Text(method.label, fontSize = 12.sp, color = Color.Gray)
+                                Spacer(Modifier.height(4.dp))
+                                Text(
+                                    text = "R${"%,.2f".format(methodTotal)}",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 16.sp,
+                                    maxLines = 1
+                                )
+                            }
                         }
                     }
                 }

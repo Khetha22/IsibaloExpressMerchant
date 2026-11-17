@@ -5,6 +5,8 @@ import android.net.Uri
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -38,6 +40,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun SalesScreen(vm: SalesViewModel = viewModel(factory = AppViewModelProvider.Factory)) {
     val sales by vm.sales.collectAsStateWithLifecycle()
@@ -80,13 +83,19 @@ fun SalesScreen(vm: SalesViewModel = viewModel(factory = AppViewModelProvider.Fa
                 }
             }
             item {
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                FlowRow(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
                     PaymentMethod.entries.forEach { m ->
-                        SquareCard(Modifier.weight(1f)) {
-                            Column(Modifier.padding(10.dp)) {
-                                Text(m.label, style = MaterialTheme.typography.labelSmall)
-                                Text((totals.firstOrNull { it.method == m }?.total ?: 0L).rands(),
-                                    fontWeight = FontWeight.Bold)
+                        Box(Modifier.fillMaxWidth(0.48f)) {
+                            SquareCard(Modifier.fillMaxWidth()) {
+                                Column(Modifier.padding(10.dp)) {
+                                    Text(m.label, style = MaterialTheme.typography.labelSmall)
+                                    Text((totals.firstOrNull { it.method == m }?.total ?: 0L).rands(),
+                                        fontWeight = FontWeight.Bold)
+                                }
                             }
                         }
                     }
