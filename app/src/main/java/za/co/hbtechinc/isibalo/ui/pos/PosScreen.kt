@@ -101,8 +101,8 @@ fun PosScreen(vm: PosViewModel = viewModel(factory = AppViewModelProvider.Factor
                 value = query,
                 onValueChange = { vm.searchQuery.value = it },
                 modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp),
-                placeholder = { Text(if (businessType == "Restaurant") "Search menu items..." else "Search products to sell...") },
-                leadingIcon = { Icon(Icons.Filled.Scale, contentDescription = "Search") },
+                placeholder = { Text(if (businessType == "Restaurant") "Search menu items..." else "Search products or weighted items...") },
+                leadingIcon = { Icon(Icons.Filled.Scale, contentDescription = "Scale") },
                 singleLine = true,
                 shape = RoundedCornerShape(8.dp)
             )
@@ -119,8 +119,8 @@ fun PosScreen(vm: PosViewModel = viewModel(factory = AppViewModelProvider.Factor
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text(if (businessType == "Restaurant") "Menu Catalog (${items.size})" else "Stock Catalog (${items.size})", style = MaterialTheme.typography.titleMedium)
-                        Text(if (businessType == "Restaurant") "🍳 Restaurant Mode" else "🏪 Retailer Mode", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary)
+                        Text(if (businessType == "Restaurant") "Menu Catalog (${items.size})" else "Catalog & Sensor Scale (${items.size})", style = MaterialTheme.typography.titleMedium)
+                        Text("⚖️ Grams, kg, ml, Liters", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.primary)
                     }
                 }
 
@@ -135,8 +135,7 @@ fun PosScreen(vm: PosViewModel = viewModel(factory = AppViewModelProvider.Factor
                                     item = item,
                                     onClick = {
                                         if (item.quantity > 0) {
-                                            if (businessType == "Retailer") selectedItemForScale = item
-                                            else vm.add(item)
+                                            selectedItemForScale = item
                                         }
                                     }
                                 )
@@ -198,7 +197,7 @@ fun PosScreen(vm: PosViewModel = viewModel(factory = AppViewModelProvider.Factor
             item = item,
             onDismiss = { selectedItemForScale = null },
             onAddUnit = { vm.add(item); selectedItemForScale = null },
-            onAddWeight = { weightKg -> vm.addWeighted(item, weightKg); selectedItemForScale = null }
+            onAddWeight = { weightKgOrL -> vm.addWeighted(item, weightKgOrL); selectedItemForScale = null }
         )
     }
 
@@ -222,7 +221,7 @@ private fun ProductCard(item: StockItem, onClick: () -> Unit) {
     ) {
         Column(Modifier.padding(12.dp)) {
             Text(item.name, style = MaterialTheme.typography.titleMedium, maxLines = 2)
-            Text("${item.priceCents.rands()} / unit or kg", color = MaterialTheme.colorScheme.primary,
+            Text("${item.priceCents.rands()} / kg, L, unit", color = MaterialTheme.colorScheme.primary,
                 style = MaterialTheme.typography.titleSmall)
             if (!isAvailable) {
                 Text("Out of stock", color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.labelSmall, fontWeight = FontWeight.Bold)
@@ -303,7 +302,6 @@ private fun CheckoutBottomSheet(
 
         Text("Payment Method", style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.Bold)
         
-        // FlowRow for Payment Methods to prevent text clipping & wrapping issues
         FlowRow(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -348,23 +346,37 @@ private fun WeighingDialog(
     onAddUnit: () -> Unit,
     onAddWeight: (Double) -> Unit
 ) {
-    var weightStr by remember { mutableStateOf("1.0") }
-    val w = weightStr.toDoubleOrNull() ?: 0.0
-    val calculatedPrice = (item.priceCents * w).toLong()
+    var amountStr by remember { mutableStateOf("1.0") }
+    var selectedUnit by remember { mutableStateOf("kg") } // kg, g, L, ml
+    
+    val rawVal = amountStr.toDoubleOrNull() ?: 0.0
+    val weightOrVolumeKgOrL = when (selectedUnit) {
+        "g" -> rawVal / 1000.0
+        "ml" -> rawVal / 1000.0
+        else -> rawVal
+    }
+    val calculatedPrice = (item.priceCents * weightOrVolumeKgOrL).toLong()
 
     Dialog(onDismissRequest = onDismiss, properties = DialogProperties(usePlatformDefaultWidth = false)) {
         Surface(
-            modifier = Modifier.fillMaxWidth(0.9f).fillMaxHeight(0.75f).padding(12.dp),
+            modifier = Modifier.fillMaxWidth(0.9f).fillMaxHeight(0.8f).padding(12.dp),
             shape = RoundedCornerShape(12.dp), color = MaterialTheme.colorScheme.surface, tonalElevation = 6.dp
         ) {
-            Column(Modifier.fillMaxSize().padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text("⚖️ Weighing Scale / Unit Selector", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+            Column(Modifier.fillMaxSize().padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                Text("⚖️ Sensor Scale (Weight & Volume)", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
                 Text("Item: ${item.name}", fontWeight = FontWeight.SemiBold)
-                Text("Base Rate: ${item.priceCents.rands()} per kg / unit", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text("Base Rate: ${item.priceCents.rands()} per kg / liter", style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+
+                Text("Select Measurement Unit", style = MaterialTheme.typography.labelLarge, fontWeight = FontWeight.Bold)
+                Row(horizontalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.fillMaxWidth()) {
+                    listOf("kg", "g", "L", "ml").forEach { unit ->
+                        SquareChoice(unit, unit == selectedUnit, { selectedUnit = unit }, Modifier.weight(1f))
+                    }
+                }
 
                 OutlinedTextField(
-                    value = weightStr, onValueChange = { weightStr = it },
-                    label = { Text("Enter Weight in Kilograms (kg)") },
+                    value = amountStr, onValueChange = { amountStr = it },
+                    label = { Text("Enter Quantity ($selectedUnit)") },
                     singleLine = true, shape = RoundedCornerShape(8.dp), modifier = Modifier.fillMaxWidth(),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal)
                 )
@@ -373,8 +385,8 @@ private fun WeighingDialog(
 
                 Spacer(Modifier.weight(1f))
 
-                SquareButton("ADD AS WEIGHTED (${weightStr} kg - ${calculatedPrice.rands()})", {
-                    if (w > 0.0) onAddWeight(w)
+                SquareButton("ADD AS SENSOR MEASURED (${amountStr} $selectedUnit - ${calculatedPrice.rands()})", {
+                    if (weightOrVolumeKgOrL > 0.0) onAddWeight(weightOrVolumeKgOrL)
                 }, Modifier.fillMaxWidth())
 
                 SquareButton("ADD AS 1 STANDARD UNIT", onAddUnit, Modifier.fillMaxWidth(), outlined = true)
