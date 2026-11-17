@@ -1,5 +1,7 @@
 package za.co.hbtechinc.isibalo.ui.unified
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -21,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import za.co.hbtechinc.isibalo.ui.theme.IsibaloMotion
 
 val BrandBlue = Color(0xFF0D47A1)
 val BrandBlueLight = Color(0xFFE3F2FD)
@@ -150,7 +153,6 @@ fun IsibaloExpressApp(state: IsibaloAppState = remember { IsibaloAppState() }) {
     var isSearchActive by remember { mutableStateOf(false) }
     var globalSearchQuery by remember { mutableStateOf("") }
     
-    // Collapsible TopAppBar Scroll Behavior
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
     Scaffold(
@@ -298,11 +300,19 @@ fun IsibaloExpressApp(state: IsibaloAppState = remember { IsibaloAppState() }) {
                     }
                 }
             } else {
-                when (state.currentTab) {
-                    AppTab.DASHBOARD -> SalesAnalyticsScreen(state)
-                    AppTab.POS -> PointOfSaleScreen(state, onOpenCheckout = { isCheckoutOpen = true })
-                    AppTab.INVENTORY -> StockInventoryScreen(state)
-                    AppTab.ASSISTANT -> AiAssistantScreen(state)
+                AnimatedContent(
+                    targetState = state.currentTab,
+                    transitionSpec = {
+                        IsibaloMotion.enterTransition togetherWith IsibaloMotion.exitTransition
+                    },
+                    label = "TabTransition"
+                ) { tab ->
+                    when (tab) {
+                        AppTab.DASHBOARD -> SalesAnalyticsScreen(state)
+                        AppTab.POS -> PointOfSaleScreen(state, onOpenCheckout = { isCheckoutOpen = true })
+                        AppTab.INVENTORY -> StockInventoryScreen(state)
+                        AppTab.ASSISTANT -> AiAssistantScreen(state)
+                    }
                 }
             }
         }
@@ -514,7 +524,7 @@ fun PointOfSaleScreen(state: IsibaloAppState, onOpenCheckout: () -> Unit) {
                 ) {
                     Column {
                         Text("Cart: ${state.cart.size} items", fontSize = 12.sp, color = Color.Gray)
-                        Text("R${"%,.2f".format(state.cartTotal)}", fontWeight = FontWeight.ExtraBold, fontSize = 20.sp)
+                        Text("R${"%.2f".format(state.cartTotal)}", fontWeight = FontWeight.ExtraBold, fontSize = 20.sp)
                     }
                     Button(
                         onClick = onOpenCheckout,
@@ -617,7 +627,7 @@ fun StockInventoryScreen(state: IsibaloAppState) {
     }
 }
 
-// 4. MODERNIZED AI ASSISTANT SCREEN WITH STOP & CLEAR & BIGGER TEXTFIELD
+// 4. MODERNized AI ASSISTANT SCREEN WITH STOP & CLEAR & BIGGER TEXTFIELD
 @Composable
 fun AiAssistantScreen(state: IsibaloAppState) {
     var promptInput by remember { mutableStateOf("") }
@@ -748,7 +758,7 @@ fun AiAssistantScreen(state: IsibaloAppState) {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     IconButton(
-                        onClick = { /* Voice mic input */ },
+                        onClick = { /* Voice input */ },
                         modifier = Modifier.size(40.dp).clip(CircleShape).background(BrandBlueLight)
                     ) {
                         Icon(Icons.Default.Mic, contentDescription = "Voice", tint = BrandBlue)
