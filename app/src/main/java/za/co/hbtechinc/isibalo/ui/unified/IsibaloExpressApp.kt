@@ -427,96 +427,96 @@ fun SalesAnalyticsScreen(state: IsibaloAppState) {
     }
 }
 
-// 2. POINT OF SALE SCREEN
+// 2. POINT OF SALE SCREEN (FULLY SCROLLABLE IN PORTRAIT & LANDSCAPE)
 @Composable
 fun PointOfSaleScreen(state: IsibaloAppState, onOpenCheckout: () -> Unit) {
-    Column(
+    LazyColumn(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
+            .fillMaxSize(),
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            OrderType.entries.forEach { type ->
-                val selected = state.selectedOrderType == type
-                Button(
-                    onClick = { state.selectedOrderType = type },
-                    modifier = Modifier.weight(1f),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = if (selected) BrandBlue else Color.White,
-                        contentColor = if (selected) Color.White else Color.Black
-                    ),
-                    shape = RoundedCornerShape(8.dp)
-                ) {
-                    Text(type.label, fontSize = 12.sp)
-                }
-            }
-        }
-
-        Spacer(Modifier.height(12.dp))
-
-        LazyColumn(
-            modifier = Modifier.weight(1f),
-            verticalArrangement = Arrangement.spacedBy(10.dp)
-        ) {
-            items(state.products, key = { it.id }) { product ->
-                Card(
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = CardDefaults.cardColors(containerColor = Color.White),
-                    shape = RoundedCornerShape(12.dp),
-                    onClick = { state.addToCart(product) }
-                ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(14.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween
+        item {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                OrderType.entries.forEach { type ->
+                    val selected = state.selectedOrderType == type
+                    Button(
+                        onClick = { state.selectedOrderType = type },
+                        modifier = Modifier.weight(1f),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = if (selected) BrandBlue else Color.White,
+                            contentColor = if (selected) Color.White else Color.Black
+                        ),
+                        shape = RoundedCornerShape(8.dp)
                     ) {
-                        Column {
-                            Text(product.name, fontWeight = FontWeight.Bold, fontSize = 15.sp)
-                            Text("R${"%.2f".format(product.price)} • Stock: ${product.stock}", fontSize = 12.sp, color = Color.Gray)
-                        }
-                        Button(
-                            onClick = { state.addToCart(product) },
-                            colors = ButtonDefaults.buttonColors(containerColor = BrandBlueLight),
-                            shape = RoundedCornerShape(8.dp)
-                        ) {
-                            Icon(Icons.Default.Add, contentDescription = "Add", tint = BrandBlue)
-                        }
+                        Text(type.label, fontSize = 12.sp)
                     }
                 }
             }
         }
 
-        Spacer(Modifier.height(8.dp))
+        item {
+            Text("Product Catalog & Menu", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
+        }
 
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            colors = CardDefaults.cardColors(containerColor = Color.White),
-            shape = RoundedCornerShape(14.dp),
-            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
-        ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween
+        items(state.products, key = { it.id }) { product ->
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(containerColor = Color.White),
+                shape = RoundedCornerShape(12.dp),
+                onClick = { state.addToCart(product) }
             ) {
-                Column {
-                    Text("Cart: ${state.cart.size} items", fontSize = 12.sp, color = Color.Gray)
-                    Text("R${"%,.2f".format(state.cartTotal)}", fontWeight = FontWeight.ExtraBold, fontSize = 20.sp)
-                }
-                Button(
-                    onClick = onOpenCheckout,
-                    enabled = state.cartTotal > 0.0,
-                    colors = ButtonDefaults.buttonColors(containerColor = BrandBlue),
-                    shape = RoundedCornerShape(10.dp)
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(14.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text("CHARGE ➔")
+                    Column {
+                        Text(product.name, fontWeight = FontWeight.Bold, fontSize = 15.sp)
+                        Text("R${"%.2f".format(product.price)} • Stock: ${product.stock}", fontSize = 12.sp, color = Color.Gray)
+                    }
+                    Button(
+                        onClick = { state.addToCart(product) },
+                        colors = ButtonDefaults.buttonColors(containerColor = BrandBlueLight),
+                        shape = RoundedCornerShape(8.dp)
+                    ) {
+                        Icon(Icons.Default.Add, contentDescription = "Add", tint = BrandBlue)
+                    }
+                }
+            }
+        }
+
+        item {
+            Card(
+                modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+                colors = CardDefaults.cardColors(containerColor = Color.White),
+                shape = RoundedCornerShape(14.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Column {
+                        Text("Cart: ${state.cart.size} items", fontSize = 12.sp, color = Color.Gray)
+                        Text("R${"%,.2f".format(state.cartTotal)}", fontWeight = FontWeight.ExtraBold, fontSize = 20.sp)
+                    }
+                    Button(
+                        onClick = onOpenCheckout,
+                        enabled = state.cartTotal > 0.0,
+                        colors = ButtonDefaults.buttonColors(containerColor = BrandBlue),
+                        shape = RoundedCornerShape(10.dp)
+                    ) {
+                        Text("CHARGE ➔")
+                    }
                 }
             }
         }
