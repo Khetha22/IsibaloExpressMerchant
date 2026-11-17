@@ -10,27 +10,26 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import za.co.hbtechinc.isibalo.R
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-/** Brand blue used for the top bar and bottom nav in BOTH light and dark mode. */
-val NavBlue = Color(0xFF0A4FD8)
-val NavMuted = Color(0xFFBCD0FF)
+/** Brand blue matching isibalo_express_pos_preview.html (#0D47A1). */
+val NavBlue = Color(0xFF0D47A1)
+val NavMuted = Color(0xFFBBDEFB)
 
 private val LightColors = lightColorScheme(
     primary = NavBlue, onPrimary = Color.White,
-    primaryContainer = Color(0xFFDCE6FF), onPrimaryContainer = Color(0xFF001A52),
-    secondary = Color(0xFF3B6EF0), onSecondary = Color.White,
-    background = Color.White, onBackground = Color(0xFF0A1226),
+    primaryContainer = Color(0xFFD6E4FF), onPrimaryContainer = Color(0xFF001B3D),
+    secondary = Color(0xFF2563EB), onSecondary = Color.White,
+    background = Color(0xFFF4F7FC), onBackground = Color(0xFF0A1226),
     surface = Color.White, onSurface = Color(0xFF0A1226),
     surfaceVariant = Color(0xFFEEF3FF), onSurfaceVariant = Color(0xFF44506B),
     outline = Color(0xFFB4C3E6),
@@ -40,17 +39,17 @@ private val LightColors = lightColorScheme(
 private val DarkColors = darkColorScheme(
     primary = Color(0xFF6C97FF), onPrimary = Color(0xFF00133A),
     primaryContainer = Color(0xFF12307A), onPrimaryContainer = Color(0xFFDCE6FF),
-    secondary = Color(0xFF8FADFF), onSecondary = Color(0xFF00133A),
-    background = Color(0xFF0A1222), onBackground = Color(0xFFE6ECFA),
-    surface = Color(0xFF0F1A30), onSurface = Color(0xFFE6ECFA),
-    surfaceVariant = Color(0xFF17243F), onSurfaceVariant = Color(0xFFA9B6D6),
-    outline = Color(0xFF34466F),
+    secondary = Color(0xFF3B82F6), onSecondary = Color(0xFF00133A),
+    background = Color(0xFF0B0F19), onBackground = Color(0xFFF1F5F9),
+    surface = Color(0xFF111827), onSurface = Color(0xFFF1F5F9),
+    surfaceVariant = Color(0xFF1E293B), onSurfaceVariant = Color(0xFF94A3B8),
+    outline = Color(0xFF334155),
     error = Color(0xFFFF8A80), errorContainer = Color(0xFF5A1A16), onErrorContainer = Color(0xFFFFDAD6)
 )
 
-private val SquareShapes = Shapes(
-    extraSmall = RoundedCornerShape(0.dp), small = RoundedCornerShape(0.dp), medium = RoundedCornerShape(0.dp),
-    large = RoundedCornerShape(0.dp), extraLarge = RoundedCornerShape(0.dp)
+private val AppShapes = Shapes(
+    extraSmall = RoundedCornerShape(8.dp), small = RoundedCornerShape(8.dp), medium = RoundedCornerShape(12.dp),
+    large = RoundedCornerShape(16.dp), extraLarge = RoundedCornerShape(24.dp)
 )
 
 val Bebas = FontFamily(Font(R.font.bebas_neue))
@@ -90,7 +89,7 @@ fun IsibaloTheme(mode: ThemeMode, content: @Composable () -> Unit) {
     }
     MaterialTheme(
         colorScheme = if (dark) DarkColors else LightColors,
-        shapes = SquareShapes,
+        shapes = AppShapes,
         typography = AppTypography,
         content = content
     )
