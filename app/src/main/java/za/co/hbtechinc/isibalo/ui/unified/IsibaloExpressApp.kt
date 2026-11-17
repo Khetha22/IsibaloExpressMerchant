@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -145,6 +146,8 @@ class IsibaloAppState {
 @Composable
 fun IsibaloExpressApp(state: IsibaloAppState = remember { IsibaloAppState() }) {
     var isCheckoutOpen by remember { mutableStateOf(false) }
+    var isSearchActive by remember { mutableStateOf(false) }
+    var globalSearchQuery by remember { mutableStateOf("") }
 
     Scaffold(
         containerColor = SurfaceBg,
@@ -156,78 +159,98 @@ fun IsibaloExpressApp(state: IsibaloAppState = remember { IsibaloAppState() }) {
                     navigationIconContentColor = Color.White
                 ),
                 navigationIcon = {
-                    IconButton(onClick = { /* Open Drawer */ }) {
-                        Icon(Icons.Default.Menu, contentDescription = "Menu")
+                    if (isSearchActive) {
+                        IconButton(onClick = { isSearchActive = false; globalSearchQuery = "" }) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        }
+                    } else {
+                        IconButton(onClick = { /* Open Drawer */ }) {
+                            Icon(Icons.Default.Menu, contentDescription = "Menu")
+                        }
                     }
                 },
                 title = {
-                    Column {
-                        Text(
-                            text = state.currentTab.headerTitle,
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 18.sp,
-                            letterSpacing = 0.5.sp
+                    if (isSearchActive) {
+                        TextField(
+                            value = globalSearchQuery,
+                            onValueChange = { globalSearchQuery = it },
+                            placeholder = { Text("Search across Isibalo...", color = Color.White.copy(alpha = 0.7f)) },
+                            singleLine = true,
+                            colors = TextFieldDefaults.colors(
+                                focusedContainerColor = Color.Transparent,
+                                unfocusedContainerColor = Color.Transparent,
+                                focusedIndicatorColor = Color.Transparent,
+                                unfocusedIndicatorColor = Color.Transparent,
+                                focusedTextColor = Color.White,
+                                unfocusedTextColor = Color.White
+                            ),
+                            modifier = Modifier.fillMaxWidth()
                         )
-                        Text(
-                            text = "ISIBALO EXPRESS",
-                            fontSize = 11.sp,
-                            color = Color.White.copy(alpha = 0.8f),
-                            letterSpacing = 1.sp
-                        )
+                    } else {
+                        Column {
+                            Text(
+                                text = state.currentTab.headerTitle,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 18.sp,
+                                letterSpacing = 0.5.sp
+                            )
+                            Text(
+                                text = "ISIBALO EXPRESS",
+                                fontSize = 11.sp,
+                                color = Color.White.copy(alpha = 0.8f),
+                                letterSpacing = 1.sp
+                            )
+                        }
                     }
                 },
                 actions = {
-                    Box(
-                        modifier = Modifier
-                            .padding(end = 16.dp)
-                            .size(32.dp)
-                            .clip(CircleShape)
-                            .background(Color.White),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = "A",
-                            color = BrandBlue,
-                            fontWeight = FontWeight.ExtraBold,
-                            fontSize = 14.sp
-                        )
+                    if (!isSearchActive) {
+                        IconButton(onClick = { isSearchActive = true }) {
+                            Icon(Icons.Default.Search, contentDescription = "Global Search", tint = Color.White)
+                        }
+                    } else if (globalSearchQuery.isNotEmpty()) {
+                        IconButton(onClick = { globalSearchQuery = "" }) {
+                            Icon(Icons.Default.Close, contentDescription = "Clear", tint = Color.White)
+                        }
                     }
                 }
             )
         },
         bottomBar = {
-            NavigationBar(
-                containerColor = BrandBlue,
-                contentColor = Color.White
-            ) {
-                AppTab.entries.forEach { tab ->
-                    val selected = state.currentTab == tab
-                    val icon = when (tab) {
-                        AppTab.DASHBOARD -> Icons.Default.Dashboard
-                        AppTab.POS -> Icons.Default.PointOfSale
-                        AppTab.INVENTORY -> Icons.Default.Inventory2
-                        AppTab.ASSISTANT -> Icons.Default.AutoAwesome
-                    }
-                    NavigationBarItem(
-                        selected = selected,
-                        onClick = { state.currentTab = tab },
-                        icon = { Icon(icon, contentDescription = tab.label) },
-                        label = {
-                            Text(
-                                text = tab.label,
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis,
-                                fontSize = 11.sp
+            if (!isSearchActive) {
+                NavigationBar(
+                    containerColor = BrandBlue,
+                    contentColor = Color.White
+                ) {
+                    AppTab.entries.forEach { tab ->
+                        val selected = state.currentTab == tab
+                        val icon = when (tab) {
+                            AppTab.DASHBOARD -> Icons.Default.Dashboard
+                            AppTab.POS -> Icons.Default.PointOfSale
+                            AppTab.INVENTORY -> Icons.Default.Inventory2
+                            AppTab.ASSISTANT -> Icons.Default.AutoAwesome
+                        }
+                        NavigationBarItem(
+                            selected = selected,
+                            onClick = { state.currentTab = tab },
+                            icon = { Icon(icon, contentDescription = tab.label) },
+                            label = {
+                                Text(
+                                    text = tab.label,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis,
+                                    fontSize = 11.sp
+                                )
+                            },
+                            colors = NavigationBarItemDefaults.colors(
+                                selectedIconColor = BrandBlue,
+                                selectedTextColor = Color.White,
+                                indicatorColor = Color.White,
+                                unselectedIconColor = Color.White.copy(alpha = 0.75f),
+                                unselectedTextColor = Color.White.copy(alpha = 0.75f)
                             )
-                        },
-                        colors = NavigationBarItemDefaults.colors(
-                            selectedIconColor = BrandBlue,
-                            selectedTextColor = Color.White,
-                            indicatorColor = Color.White,
-                            unselectedIconColor = Color.White.copy(alpha = 0.75f),
-                            unselectedTextColor = Color.White.copy(alpha = 0.75f)
                         )
-                    )
+                    }
                 }
             }
         }
@@ -237,11 +260,44 @@ fun IsibaloExpressApp(state: IsibaloAppState = remember { IsibaloAppState() }) {
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            when (state.currentTab) {
-                AppTab.DASHBOARD -> SalesAnalyticsScreen(state)
-                AppTab.POS -> PointOfSaleScreen(state, onOpenCheckout = { isCheckoutOpen = true })
-                AppTab.INVENTORY -> StockInventoryScreen(state)
-                AppTab.ASSISTANT -> AiAssistantScreen(state)
+            if (isSearchActive && globalSearchQuery.isNotBlank()) {
+                // Global Search Results Overlay
+                val matchedProducts = state.products.filter { it.name.contains(globalSearchQuery, ignoreCase = true) }
+                val matchedSales = state.sales.filter { it.method.label.contains(globalSearchQuery, ignoreCase = true) || it.amount.toString().contains(globalSearchQuery) }
+
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize().background(SurfaceBg).padding(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    item { Text("Global Search Results for \"$globalSearchQuery\"", fontWeight = FontWeight.Bold, color = BrandBlue) }
+                    
+                    item { Text("Products (${matchedProducts.size})", fontWeight = FontWeight.SemiBold, fontSize = 13.sp) }
+                    items(matchedProducts) { p ->
+                        Card(colors = CardDefaults.cardColors(containerColor = Color.White), shape = RoundedCornerShape(8.dp)) {
+                            Row(Modifier.padding(12.dp).fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                                Text(p.name, fontWeight = FontWeight.Bold)
+                                Text("R${"%.2f".format(p.price)}")
+                            }
+                        }
+                    }
+
+                    item { Text("Sales (${matchedSales.size})", fontWeight = FontWeight.SemiBold, fontSize = 13.sp, modifier = Modifier.padding(top = 8.dp)) }
+                    items(matchedSales) { s ->
+                        Card(colors = CardDefaults.cardColors(containerColor = Color.White), shape = RoundedCornerShape(8.dp)) {
+                            Row(Modifier.padding(12.dp).fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                                Text("Sale #${s.id} • ${s.method.label}")
+                                Text("R${"%.2f".format(s.amount)}", fontWeight = FontWeight.Bold)
+                            }
+                        }
+                    }
+                }
+            } else {
+                when (state.currentTab) {
+                    AppTab.DASHBOARD -> SalesAnalyticsScreen(state)
+                    AppTab.POS -> PointOfSaleScreen(state, onOpenCheckout = { isCheckoutOpen = true })
+                    AppTab.INVENTORY -> StockInventoryScreen(state)
+                    AppTab.ASSISTANT -> AiAssistantScreen(state)
+                }
             }
         }
     }
@@ -490,10 +546,22 @@ fun StockInventoryScreen(state: IsibaloAppState) {
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(12.dp)
                     ) {
-                        Icon(Icons.Default.Warning, contentDescription = null, tint = Color(0xFFB71C1C))
+                        Icon(
+                            Icons.Default.Warning,
+                            contentDescription = null,
+                            tint = Color(0xFFB71C1C)
+                        )
                         Column {
-                            Text("Restock soon", fontWeight = FontWeight.Bold, color = Color(0xFFB71C1C))
-                            Text(text = lowStockItems.joinToString { "${it.name} (0)" }, fontSize = 12.sp, color = Color(0xFF7F0000))
+                            Text(
+                                "Restock soon",
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFFB71C1C)
+                            )
+                            Text(
+                                text = lowStockItems.joinToString { "${it.name} (0)" },
+                                fontSize = 12.sp,
+                                color = Color(0xFF7F0000)
+                            )
                         }
                     }
                 }
@@ -520,7 +588,12 @@ fun StockInventoryScreen(state: IsibaloAppState) {
                             color = Color.Gray
                         )
                         if (product.stock == 0) {
-                            Text("LOW STOCK", color = MaterialTheme.colorScheme.error, fontWeight = FontWeight.Bold, fontSize = 11.sp)
+                            Text(
+                                "LOW STOCK",
+                                color = MaterialTheme.colorScheme.error,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 11.sp
+                            )
                         }
                     }
 
