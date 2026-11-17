@@ -610,10 +610,11 @@ fun StockInventoryScreen(state: IsibaloAppState) {
     }
 }
 
-// 4. MODERNIZED AI ASSISTANT SCREEN
+// 4. MODERNIZED AI ASSISTANT SCREEN WITH STOP & CLEAR & BIGGER TEXTFIELD
 @Composable
 fun AiAssistantScreen(state: IsibaloAppState) {
     var promptInput by remember { mutableStateOf("") }
+    var isGenerating by remember { mutableStateOf(false) }
     val quickPrompts = listOf(
         "Summarise today",
         "What should I restock?",
@@ -622,6 +623,7 @@ fun AiAssistantScreen(state: IsibaloAppState) {
 
     fun sendPrompt(text: String) {
         if (text.isBlank()) return
+        isGenerating = true
         state.messages.add(ChatMessage(text, isUser = true))
         val reply = when {
             text.contains("restock", ignoreCase = true) -> {
@@ -634,10 +636,11 @@ fun AiAssistantScreen(state: IsibaloAppState) {
         }
         state.messages.add(ChatMessage(reply, isUser = false))
         promptInput = ""
+        isGenerating = false
     }
 
     Column(modifier = Modifier.fillMaxSize().background(SurfaceBg)) {
-        // Modern AI Engine Header Pill
+        // Modern AI Engine Header Pill + Control Buttons (Clear & Stop)
         Card(
             modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 10.dp),
             colors = CardDefaults.cardColors(containerColor = Color.White),
@@ -645,19 +648,27 @@ fun AiAssistantScreen(state: IsibaloAppState) {
             elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
         ) {
             Row(
-                modifier = Modifier.padding(12.dp),
+                modifier = Modifier.padding(12.dp).fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(10.dp)
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Box(
-                    modifier = Modifier.size(36.dp).clip(CircleShape).background(BrandBlueLight),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Icon(Icons.Default.AutoAwesome, contentDescription = "AI", tint = BrandBlue, modifier = Modifier.size(20.dp))
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.weight(1f)) {
+                    Box(
+                        modifier = Modifier.size(36.dp).clip(CircleShape).background(BrandBlueLight),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(Icons.Default.AutoAwesome, contentDescription = "AI", tint = BrandBlue, modifier = Modifier.size(20.dp))
+                    }
+                    Column {
+                        Text("Offline Business Advisor", fontWeight = FontWeight.ExtraBold, fontSize = 14.sp)
+                        Text(if (isGenerating) "Generating response..." else "Gemma 3 1B On-Device Model", fontSize = 11.sp, color = if (isGenerating) BrandBlue else Color.Gray)
+                    }
                 }
-                Column {
-                    Text("Offline Business Advisor", fontWeight = FontWeight.ExtraBold, fontSize = 14.sp)
-                    Text("Gemma 3 1B On-Device Model • Zero Data Costs", fontSize = 11.sp, color = Color.Gray)
+
+                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                    IconButton(onClick = { state.messages.clear() }) {
+                        Icon(Icons.Default.Delete, contentDescription = "Clear Chat", tint = Color.Gray)
+                    }
                 }
             }
         }
@@ -690,7 +701,7 @@ fun AiAssistantScreen(state: IsibaloAppState) {
 
         // Quick Prompt Chips
         LazyRow(
-            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 6.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(quickPrompts) { prompt ->
@@ -702,24 +713,21 @@ fun AiAssistantScreen(state: IsibaloAppState) {
             }
         }
 
-        // Modern Capsule Composer Bar
+        // Bigger, Modern Capsule Composer Bar (Spacious multi-line text field)
         Surface(
             color = Color.White,
             shadowElevation = 12.dp,
             shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth().padding(14.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(10.dp)
-            ) {
+            Column(modifier = Modifier.fillMaxWidth().padding(14.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 OutlinedTextField(
                     value = promptInput,
                     onValueChange = { promptInput = it },
-                    modifier = Modifier.weight(1f),
-                    placeholder = { Text("Ask or tap microphone...", fontSize = 13.sp) },
-                    shape = RoundedCornerShape(24.dp),
-                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth().heightIn(min = 60.dp),
+                    placeholder = { Text("Ask your AI advisor or speak out loud...", fontSize = 13.sp) },
+                    minLines = 2,
+                    maxLines = 4,
+                    shape = RoundedCornerShape(16.dp),
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedBorderColor = BrandBlue,
                         unfocusedBorderColor = Color(0xFFCBD5E1),
@@ -727,19 +735,35 @@ fun AiAssistantScreen(state: IsibaloAppState) {
                         unfocusedContainerColor = Color(0xFFF8FAFC)
                     )
                 )
-                IconButton(
-                    onClick = { /* Voice input */ },
-                    modifier = Modifier.size(44.dp).clip(CircleShape).background(BrandBlueLight)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Icon(Icons.Default.Mic, contentDescription = "Voice", tint = BrandBlue)
-                }
-                Button(
-                    onClick = { sendPrompt(promptInput) },
-                    colors = ButtonDefaults.buttonColors(containerColor = BrandBlue),
-                    shape = RoundedCornerShape(20.dp),
-                    contentPadding = PaddingValues(horizontal = 16.dp, vertical = 10.dp)
-                ) {
-                    Text("ASK", fontWeight = FontWeight.Bold)
+                    IconButton(
+                        onClick = { /* Voice mic input */ },
+                        modifier = Modifier.size(40.dp).clip(CircleShape).background(BrandBlueLight)
+                    ) {
+                        Icon(Icons.Default.Mic, contentDescription = "Voice", tint = BrandBlue)
+                    }
+
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        OutlinedButton(
+                            onClick = { state.messages.clear() },
+                            shape = RoundedCornerShape(12.dp)
+                        ) {
+                            Text("CLEAR", color = Color.Gray, fontSize = 12.sp)
+                        }
+
+                        Button(
+                            onClick = { sendPrompt(promptInput) },
+                            colors = ButtonDefaults.buttonColors(containerColor = BrandBlue),
+                            shape = RoundedCornerShape(12.dp),
+                            enabled = promptInput.isNotBlank() && !isGenerating
+                        ) {
+                            Text("ASK", fontWeight = FontWeight.Bold)
+                        }
+                    }
                 }
             }
         }
