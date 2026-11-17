@@ -27,9 +27,9 @@ val SurfaceBg = Color(0xFFF5F7FA)
 
 enum class AppTab(val label: String, val headerTitle: String) {
     DASHBOARD("Dashboard", "SALES ANALYTICS"),
-    POS("Point of Sale", "POINT OF SALE"),
+    POS("POS", "POINT OF SALE"),
     INVENTORY("Stock", "STOCK & INVENTORY"),
-    ASSISTANT("AI Assistant", "AI ASSISTANT")
+    ASSISTANT("AI", "AI ASSISTANT")
 }
 
 enum class OrderType(val label: String) {

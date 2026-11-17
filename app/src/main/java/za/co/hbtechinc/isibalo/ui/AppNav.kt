@@ -100,9 +100,9 @@ import kotlinx.coroutines.launch
 
 private enum class NavDestination(val route: String, val label: String, val icon: ImageVector, val inBottomBar: Boolean = true) {
     OwnerDashboard("ownerdashboard", "Dashboard", Icons.Filled.Dashboard, true),
-    Sell("sell", "Point of Sale", Icons.Filled.PointOfSale, true),
-    Stock("stock", "Stock & Inventory", Icons.Filled.Inventory2, true),
-    Assistant("assistant", "AI Assistant", Icons.Filled.AutoAwesome, true),
+    Sell("sell", "POS", Icons.Filled.PointOfSale, true),
+    Stock("stock", "Stock", Icons.Filled.Inventory2, true),
+    Assistant("assistant", "AI", Icons.Filled.AutoAwesome, true),
     Sales("sales", "Sales Analytics", Icons.Filled.BarChart, false),
     CashUp("cashup", "Cash-Up", Icons.Filled.AccountBalanceWallet, false),
     Statements("statements", "PDF Financial Statements", Icons.Filled.Description, false),
