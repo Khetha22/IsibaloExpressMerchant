@@ -13,6 +13,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -76,7 +77,6 @@ fun SquareCard(
     }
 }
 
-/** Toggle used for payment method selection and quick prompts. */
 @Composable
 fun SquareChoice(text: String, selected: Boolean, onClick: () -> Unit, modifier: Modifier = Modifier) {
     val cs = MaterialTheme.colorScheme
@@ -90,4 +90,21 @@ fun SquareChoice(text: String, selected: Boolean, onClick: () -> Unit, modifier:
             Text(text, fontWeight = FontWeight.Bold, style = MaterialTheme.typography.labelLarge)
         }
     }
+}
+
+@Composable
+fun SquareField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    label: String,
+    modifier: Modifier = Modifier
+) {
+    OutlinedTextField(
+        value = value,
+        onValueChange = onValueChange,
+        label = { Text(label) },
+        singleLine = true,
+        shape = CardShape,
+        modifier = modifier.fillMaxWidth()
+    )
 }

@@ -2,17 +2,16 @@ package za.co.hbtechinc.isibalo.ui.cashup
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import za.co.hbtechinc.isibalo.data.CashUpRecord
-import za.co.hbtechinc.isibalo.data.PaymentMethod
-import za.co.hbtechinc.isibalo.data.Repository
-import za.co.hbtechinc.isibalo.util.rands
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import za.co.hbtechinc.isibalo.data.CashUpRecord
+import za.co.hbtechinc.isibalo.data.PaymentMethod
+import za.co.hbtechinc.isibalo.data.Repository
 
 data class CashUpUiState(
     val floatText: String = "500.00",
@@ -35,7 +34,12 @@ class CashUpViewModel(private val repo: Repository) : ViewModel() {
     val uiState: StateFlow<CashUpUiState> = _uiState.asStateFlow()
 
     val cashUpHistory: StateFlow<List<CashUpRecord>> = repo.cashUpRecords()
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+        .distinctUntilChanged()
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000L),
+            initialValue = emptyList()
+        )
 
     init {
         viewModelScope.launch {
@@ -53,9 +57,17 @@ class CashUpViewModel(private val repo: Repository) : ViewModel() {
         }
     }
 
-    fun onFloatChanged(v: String) { _uiState.value = _uiState.value.copy(floatText = v, isSavedSuccess = false) }
-    fun onActualCashChanged(v: String) { _uiState.value = _uiState.value.copy(actualCashText = v, isSavedSuccess = false) }
-    fun onNotesChanged(v: String) { _uiState.value = _uiState.value.copy(notesText = v, isSavedSuccess = false) }
+    fun onFloatChanged(v: String) {
+        _uiState.value = _uiState.value.copy(floatText = v, isSavedSuccess = false)
+    }
+
+    fun onActualCashChanged(v: String) {
+        _uiState.value = _uiState.value.copy(actualCashText = v, isSavedSuccess = false)
+    }
+
+    fun onNotesChanged(v: String) {
+        _uiState.value = _uiState.value.copy(notesText = v, isSavedSuccess = false)
+    }
 
     fun saveCashUp() {
         val s = _uiState.value
