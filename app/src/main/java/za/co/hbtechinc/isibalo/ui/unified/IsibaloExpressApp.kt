@@ -16,6 +16,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -444,14 +445,13 @@ fun SalesAnalyticsScreen(state: IsibaloAppState) {
     }
 }
 
-// 2. POINT OF SALE SCREEN (FULLY SCROLLABLE IN PORTRAIT & LANDSCAPE)
+// 2. POINT OF SALE SCREEN (M3 EXPRESSIVE & FULLY SCROLLABLE GRID)
 @Composable
 fun PointOfSaleScreen(state: IsibaloAppState, onOpenCheckout: () -> Unit) {
     LazyColumn(
-        modifier = Modifier
-            .fillMaxSize(),
+        modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp)
+        verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         item {
             Row(
@@ -467,72 +467,78 @@ fun PointOfSaleScreen(state: IsibaloAppState, onOpenCheckout: () -> Unit) {
                             containerColor = if (selected) BrandBlue else Color.White,
                             contentColor = if (selected) Color.White else Color.Black
                         ),
-                        shape = RoundedCornerShape(8.dp)
+                        shape = RoundedCornerShape(20.dp)
                     ) {
-                        Text(type.label, fontSize = 12.sp)
+                        Text(type.label, fontSize = 12.sp, fontWeight = FontWeight.Bold)
                     }
                 }
             }
         }
 
         item {
-            Text("Product Catalog & Menu", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 4.dp))
+            Text("Product Catalog & Menu", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.ExtraBold, modifier = Modifier.padding(top = 4.dp))
         }
 
-        items(state.products, key = { it.id }) { product ->
-            Card(
+        items(state.products.chunked(2), key = { row -> row.first().id }) { rowItems ->
+            Row(
                 modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(containerColor = Color.White),
-                shape = RoundedCornerShape(12.dp),
-                onClick = { state.addToCart(product) }
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(14.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Column {
-                        Text(product.name, fontWeight = FontWeight.Bold, fontSize = 15.sp)
-                        Text("R${"%.2f".format(product.price)} • Stock: ${product.stock}", fontSize = 12.sp, color = Color.Gray)
-                    }
-                    Button(
-                        onClick = { state.addToCart(product) },
-                        colors = ButtonDefaults.buttonColors(containerColor = BrandBlueLight),
-                        shape = RoundedCornerShape(8.dp)
+                rowItems.forEach { product ->
+                    val isAvailable = product.stock > 0
+                    Card(
+                        modifier = Modifier
+                            .weight(1f)
+                            .alpha(if (isAvailable) 1.0f else 0.5f),
+                        colors = CardDefaults.cardColors(containerColor = Color.White),
+                        shape = RoundedCornerShape(20.dp),
+                        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+                        onClick = { if (isAvailable) state.addToCart(product) }
                     ) {
-                        Icon(Icons.Default.Add, contentDescription = "Add", tint = BrandBlue)
+                        Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                            Text(product.name, fontWeight = FontWeight.Bold, fontSize = 15.sp, maxLines = 2)
+                            Text("R${"%.2f".format(product.price)}", fontWeight = FontWeight.ExtraBold, color = BrandBlue, fontSize = 16.sp)
+                            Text(
+                                text = if (isAvailable) "${product.stock} in stock" else "Out of stock",
+                                fontSize = 11.sp,
+                                color = if (isAvailable) Color.Gray else MaterialTheme.colorScheme.error,
+                                fontWeight = if (isAvailable) FontWeight.Normal else FontWeight.Bold
+                            )
+                        }
                     }
+                }
+                if (rowItems.size == 1) {
+                    Spacer(modifier = Modifier.weight(1f))
                 }
             }
         }
 
         item {
             Card(
-                modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+                modifier = Modifier.fillMaxWidth().padding(top = 12.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.White),
-                shape = RoundedCornerShape(14.dp),
-                elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+                shape = RoundedCornerShape(24.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
             ) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(16.dp),
+                        .padding(20.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Column {
-                        Text("Cart: ${state.cart.size} items", fontSize = 12.sp, color = Color.Gray)
-                        Text("R${"%.2f".format(state.cartTotal)}", fontWeight = FontWeight.ExtraBold, fontSize = 20.sp)
+                        Text("Cart: ${state.cart.size} items", fontSize = 12.sp, color = Color.Gray, fontWeight = FontWeight.Bold)
+                        Text("R${"%.2f".format(state.cartTotal)}", fontWeight = FontWeight.ExtraBold, fontSize = 24.sp, color = BrandBlue)
                     }
                     Button(
                         onClick = onOpenCheckout,
                         enabled = state.cartTotal > 0.0,
                         colors = ButtonDefaults.buttonColors(containerColor = BrandBlue),
-                        shape = RoundedCornerShape(10.dp)
+                        shape = RoundedCornerShape(24.dp),
+                        contentPadding = PaddingValues(horizontal = 24.dp, vertical = 12.dp)
                     ) {
-                        Text("CHARGE ➔")
+                        Text("CHARGE ➔", fontWeight = FontWeight.Bold)
                     }
                 }
             }
