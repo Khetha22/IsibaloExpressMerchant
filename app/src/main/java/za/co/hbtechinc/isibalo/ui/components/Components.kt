@@ -23,7 +23,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
-private val CardShape = RoundedCornerShape(8.dp)
+private val ExpressiveCardShape = RoundedCornerShape(20.dp)
+private val ExpressiveButtonShape = RoundedCornerShape(24.dp)
 
 @Composable
 fun SquareButton(
@@ -37,13 +38,14 @@ fun SquareButton(
     if (outlined) {
         OutlinedButton(
             onClick = onClick, modifier = modifier.height(48.dp), enabled = enabled,
-            shape = CardShape, border = BorderStroke(1.5.dp, cs.primary)
+            shape = ExpressiveButtonShape, border = BorderStroke(1.5.dp, cs.primary)
         ) { Text(text, fontWeight = FontWeight.Bold) }
     } else {
         Button(
             onClick = onClick, modifier = modifier.height(48.dp), enabled = enabled,
-            shape = CardShape,
-            colors = ButtonDefaults.buttonColors(containerColor = cs.primary, contentColor = cs.onPrimary)
+            shape = ExpressiveButtonShape,
+            colors = ButtonDefaults.buttonColors(containerColor = cs.primary, contentColor = cs.onPrimary),
+            elevation = ButtonDefaults.buttonElevation(defaultElevation = 2.dp)
         ) { Text(text, fontWeight = FontWeight.Bold) }
     }
 }
@@ -52,9 +54,9 @@ fun SquareButton(
 fun SquareIconButton(icon: ImageVector, desc: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
     val cs = MaterialTheme.colorScheme
     Surface(
-        onClick = onClick, modifier = modifier.size(40.dp), shape = CardShape,
+        onClick = onClick, modifier = modifier.size(40.dp), shape = ExpressiveButtonShape,
         color = cs.primary, contentColor = cs.onPrimary,
-        tonalElevation = 2.dp
+        tonalElevation = 3.dp
     ) { Box(contentAlignment = Alignment.Center) { Icon(icon, desc) } }
 }
 
@@ -65,13 +67,13 @@ fun SquareCard(
     onClick: (() -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit
 ) {
-    val border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.5f))
+    val border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline.copy(alpha = 0.4f))
     if (onClick != null) {
-        Surface(onClick = onClick, modifier = modifier, shape = CardShape, color = color, border = border, shadowElevation = 2.dp) {
+        Surface(onClick = onClick, modifier = modifier, shape = ExpressiveCardShape, color = color, border = border, shadowElevation = 3.dp) {
             Column(content = content)
         }
     } else {
-        Surface(modifier = modifier, shape = CardShape, color = color, border = border, shadowElevation = 1.dp) {
+        Surface(modifier = modifier, shape = ExpressiveCardShape, color = color, border = border, shadowElevation = 2.dp) {
             Column(content = content)
         }
     }
@@ -81,10 +83,11 @@ fun SquareCard(
 fun SquareChoice(text: String, selected: Boolean, onClick: () -> Unit, modifier: Modifier = Modifier) {
     val cs = MaterialTheme.colorScheme
     Surface(
-        onClick = onClick, modifier = modifier, shape = CardShape,
+        onClick = onClick, modifier = modifier, shape = ExpressiveButtonShape,
         color = if (selected) cs.primary else cs.surface,
         contentColor = if (selected) cs.onPrimary else cs.onSurface,
-        border = BorderStroke(1.5.dp, cs.primary)
+        border = BorderStroke(1.5.dp, cs.primary),
+        shadowElevation = if (selected) 2.dp else 0.dp
     ) {
         Box(Modifier.fillMaxWidth().height(44.dp), contentAlignment = Alignment.Center) {
             Text(text, fontWeight = FontWeight.Bold, style = MaterialTheme.typography.labelLarge)
@@ -104,7 +107,7 @@ fun SquareField(
         onValueChange = onValueChange,
         label = { Text(label) },
         singleLine = true,
-        shape = CardShape,
+        shape = ExpressiveCardShape,
         modifier = modifier.fillMaxWidth()
     )
 }

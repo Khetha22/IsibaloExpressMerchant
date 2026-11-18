@@ -47,9 +47,13 @@ private val DarkColors = darkColorScheme(
     error = Color(0xFFFF8A80), errorContainer = Color(0xFF5A1A16), onErrorContainer = Color(0xFFFFDAD6)
 )
 
-private val AppShapes = Shapes(
-    extraSmall = RoundedCornerShape(8.dp), small = RoundedCornerShape(8.dp), medium = RoundedCornerShape(12.dp),
-    large = RoundedCornerShape(16.dp), extraLarge = RoundedCornerShape(24.dp)
+/** Material 3 Expressive Shape Scale */
+private val ExpressiveShapes = Shapes(
+    extraSmall = RoundedCornerShape(12.dp),
+    small = RoundedCornerShape(16.dp),
+    medium = RoundedCornerShape(20.dp),
+    large = RoundedCornerShape(24.dp),
+    extraLarge = RoundedCornerShape(32.dp)
 )
 
 val Bebas = FontFamily(Font(R.font.bebas_neue))
@@ -89,7 +93,7 @@ fun IsibaloTheme(mode: ThemeMode, content: @Composable () -> Unit) {
     }
     MaterialTheme(
         colorScheme = if (dark) DarkColors else LightColors,
-        shapes = AppShapes,
+        shapes = ExpressiveShapes,
         typography = AppTypography,
         content = content
     )
