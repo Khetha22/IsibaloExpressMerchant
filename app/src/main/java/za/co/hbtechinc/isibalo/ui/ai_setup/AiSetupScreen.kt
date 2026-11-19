@@ -70,6 +70,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import za.co.hbtechinc.isibalo.AppViewModelProvider
 import za.co.hbtechinc.isibalo.ai.AiModelType
 import za.co.hbtechinc.isibalo.data.KnowledgeDoc
+import za.co.hbtechinc.isibalo.ui.components.SquareField
 import kotlin.collections.isNotEmpty
 
 // Consistent Light Blue palette matching Assistant, Dashboard, Jobs, Prices, Reports, and Settings screens
@@ -626,10 +627,7 @@ private fun VectorSearchCard(
     }
 }
 
-@Composable
-fun SquareField(value: String, onValueChange: (String) -> Unit, label: String) {
-    TODO("Not yet implemented")
-}
+
 
 @Composable
 private fun KnowledgeDocItem(doc: KnowledgeDoc, onDelete: () -> Unit) {

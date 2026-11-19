@@ -5,3 +5,5 @@ plugins {
 dependencyResolutionManagement { repositories { google(); mavenCentral() } }
 rootProject.name = "IsibaloExpressMerchant"
 include(":app")
+include(":desktop")
+include(":shared")

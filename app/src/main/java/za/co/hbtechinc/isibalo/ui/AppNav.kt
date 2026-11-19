@@ -14,7 +14,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBalanceWallet
@@ -53,7 +55,6 @@ import androidx.compose.material3.NavigationDrawerItemDefaults
 import androidx.compose.material3.NavigationRail
 import androidx.compose.material3.NavigationRailItem
 import androidx.compose.material3.NavigationRailItemDefaults
-import androidx.compose.material3.PermanentNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -69,6 +70,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -92,11 +94,15 @@ import za.co.hbtechinc.isibalo.ui.sales.SalesScreen
 import za.co.hbtechinc.isibalo.ui.staff.StaffScreen
 import za.co.hbtechinc.isibalo.ui.statements.FinancialStatementScreen
 import za.co.hbtechinc.isibalo.ui.stock.StockScreen
-import za.co.hbtechinc.isibalo.ui.theme.NavBlue
-import za.co.hbtechinc.isibalo.ui.theme.NavMuted
 import za.co.hbtechinc.isibalo.ui.theme.ThemeMode
 import za.co.hbtechinc.isibalo.ui.whatsapp_log.WhatsAppLogScreen
 import kotlinx.coroutines.launch
+
+// Consistent Light Blue palette matching Isibalo design system
+private val LightBlueSurface = Color(0xFFF0F4F9)
+private val LightBlueContainer = Color(0xFFD3E3FD)
+private val LightBlueOnContainer = Color(0xFF041E49)
+private val LightBluePrimary = Color(0xFF0B57D0)
 
 private enum class NavDestination(val route: String, val label: String, val icon: ImageVector, val inBottomBar: Boolean = true) {
     OwnerDashboard("ownerdashboard", "Dashboard", Icons.Filled.Dashboard, true),
@@ -125,11 +131,11 @@ private fun AppRailContent(
     onExpand: () -> Unit
 ) {
     NavigationRail(
-        containerColor = NavBlue,
-        contentColor = Color.White,
+        containerColor = Color.White,
+        contentColor = LightBlueOnContainer,
         header = {
-            IconButton(onClick = onExpand, modifier = Modifier.padding(vertical = 8.dp)) {
-                Icon(Icons.Filled.Menu, contentDescription = "Expand Menu", tint = Color.White)
+            IconButton(onClick = onExpand, modifier = Modifier.padding(vertical = 12.dp)) {
+                Icon(Icons.Filled.Menu, contentDescription = "Expand Menu", tint = LightBluePrimary)
             }
         }
     ) {
@@ -137,20 +143,22 @@ private fun AppRailContent(
             modifier = Modifier
                 .fillMaxHeight()
                 .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             NavDestination.entries.forEach { item ->
+                val isSelected = item == current
                 NavigationRailItem(
-                    selected = item == current,
+                    selected = isSelected,
                     onClick = { onNavigate(item) },
                     icon = { Icon(item.icon, contentDescription = item.label) },
-                    label = { Text(item.label.take(6) + "..", fontSize = 9.sp) },
+                    label = { Text(item.label.take(6) + "..", fontSize = 10.sp, fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal) },
                     colors = NavigationRailItemDefaults.colors(
-                        selectedIconColor = NavBlue,
-                        selectedTextColor = Color.White,
-                        indicatorColor = Color.White,
-                        unselectedIconColor = NavMuted,
-                        unselectedTextColor = NavMuted
+                        selectedIconColor = LightBluePrimary,
+                        selectedTextColor = LightBluePrimary,
+                        indicatorColor = LightBlueContainer,
+                        unselectedIconColor = LightBlueOnContainer.copy(alpha = 0.7f),
+                        unselectedTextColor = LightBlueOnContainer.copy(alpha = 0.7f)
                     )
                 )
             }
@@ -165,8 +173,10 @@ private fun AppDrawerContent(
     onCollapse: (() -> Unit)? = null
 ) {
     ModalDrawerSheet(
-        drawerContainerColor = MaterialTheme.colorScheme.surface,
-        drawerContentColor = MaterialTheme.colorScheme.onSurface
+        drawerContainerColor = Color.White,
+        drawerContentColor = LightBlueOnContainer,
+        drawerShape = RoundedCornerShape(topEnd = 28.dp, bottomEnd = 28.dp),
+        modifier = Modifier.width(320.dp)
     ) {
         Column(
             modifier = Modifier
@@ -176,7 +186,7 @@ private fun AppDrawerContent(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(NavBlue)
+                    .background(LightBluePrimary)
                     .padding(20.dp)
             ) {
                 Column {
@@ -189,12 +199,14 @@ private fun AppDrawerContent(
                             Text(
                                 "ISIBALO",
                                 style = MaterialTheme.typography.headlineMedium.copy(fontSize = 32.sp, lineHeight = 30.sp),
+                                fontWeight = FontWeight.ExtraBold,
                                 color = Color.White
                             )
                             Text(
                                 "EXPRESS MERCHANT",
-                                style = MaterialTheme.typography.titleMedium.copy(fontSize = 14.sp, letterSpacing = 2.sp),
-                                color = NavMuted
+                                style = MaterialTheme.typography.titleMedium.copy(fontSize = 13.sp, letterSpacing = 2.sp),
+                                fontWeight = FontWeight.Bold,
+                                color = LightBlueContainer
                             )
                         }
                         if (onCollapse != null) {
@@ -207,20 +219,38 @@ private fun AppDrawerContent(
                     Text(
                         "On-The-Go Business OS • Offline-First",
                         style = MaterialTheme.typography.bodyMedium,
-                        color = Color.White.copy(alpha = 0.8f)
+                        color = Color.White.copy(alpha = 0.85f)
                     )
                 }
             }
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(14.dp))
 
             NavDestination.entries.forEach { item ->
+                val isSelected = current == item
                 NavigationDrawerItem(
-                    icon = { Icon(item.icon, contentDescription = item.label) },
-                    label = { Text(item.label) },
-                    selected = current == item,
+                    icon = {
+                        Icon(
+                            imageVector = item.icon,
+                            contentDescription = item.label,
+                            tint = if (isSelected) LightBluePrimary else LightBlueOnContainer.copy(alpha = 0.7f)
+                        )
+                    },
+                    label = {
+                        Text(
+                            text = item.label,
+                            fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
+                            color = if (isSelected) LightBluePrimary else LightBlueOnContainer
+                        )
+                    },
+                    selected = isSelected,
                     onClick = { onNavigate(item) },
-                    modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
+                    shape = RoundedCornerShape(20.dp),
+                    colors = NavigationDrawerItemDefaults.colors(
+                        selectedContainerColor = LightBlueContainer,
+                        unselectedContainerColor = Color.Transparent
+                    ),
+                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 2.dp)
                 )
             }
             Spacer(Modifier.height(24.dp))
@@ -254,12 +284,13 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
                         },
                         title = {
                             Column {
-                                Text(current.label, style = MaterialTheme.typography.titleLarge.copy(fontSize = 20.sp), color = Color.White)
-                                Text("ISIBALO EXPRESS", style = MaterialTheme.typography.labelSmall.copy(letterSpacing = 1.5.sp), color = NavMuted)
+                                Text(current.label, style = MaterialTheme.typography.titleLarge.copy(fontSize = 20.sp), fontWeight = FontWeight.Bold, color = Color.White)
+                                Text("ISIBALO EXPRESS", style = MaterialTheme.typography.labelSmall.copy(letterSpacing = 1.5.sp), color = LightBlueContainer)
                             }
                         },
                         colors = TopAppBarDefaults.topAppBarColors(
-                            containerColor = NavBlue, titleContentColor = Color.White,
+                            containerColor = LightBluePrimary,
+                            titleContentColor = Color.White,
                             actionIconContentColor = Color.White
                         ),
                         actions = {
@@ -284,10 +315,11 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
                 },
                 bottomBar = {
                     if (!isWideScreen) {
-                        NavigationBar(containerColor = NavBlue, contentColor = Color.White) {
+                        NavigationBar(containerColor = Color.White, contentColor = LightBlueOnContainer) {
                             NavDestination.entries.filter { it.inBottomBar }.forEach { item ->
+                                val isSelected = item == current
                                 NavigationBarItem(
-                                    selected = item == current,
+                                    selected = isSelected,
                                     onClick = {
                                         nav.navigate(item.route) {
                                             popUpTo(nav.graph.findStartDestination().id) { saveState = true }
@@ -296,11 +328,13 @@ fun MainScaffold(themeMode: ThemeMode, onTheme: (ThemeMode) -> Unit) {
                                         }
                                     },
                                     icon = { Icon(item.icon, item.label) },
-                                    label = { Text(item.label, fontSize = 11.sp) },
+                                    label = { Text(item.label, fontSize = 11.sp, fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal) },
                                     colors = NavigationBarItemDefaults.colors(
-                                        selectedIconColor = NavBlue, selectedTextColor = Color.White,
-                                        indicatorColor = Color.White,
-                                        unselectedIconColor = NavMuted, unselectedTextColor = NavMuted
+                                        selectedIconColor = LightBluePrimary,
+                                        selectedTextColor = LightBluePrimary,
+                                        indicatorColor = LightBlueContainer,
+                                        unselectedIconColor = LightBlueOnContainer.copy(alpha = 0.7f),
+                                        unselectedTextColor = LightBlueOnContainer.copy(alpha = 0.7f)
                                     )
                                 )
                             }
